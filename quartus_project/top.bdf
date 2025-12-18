@@ -1,0 +1,190 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "graphic" (version "1.4"))
+(symbol
+	(rect 408 208 608 480)
+	(text "gw8088" (rect 5 0 71 18)(font "Arial" ))
+	(text "inst" (rect 8 256 36 274)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK" (rect 0 0 37 18)(font "Arial" ))
+		(text "CLK" (rect 21 27 58 45)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "DIN[7..0]" (rect 0 0 70 18)(font "Arial" ))
+		(text "DIN[7..0]" (rect 21 43 91 61)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "RESET_N" (rect 0 0 86 18)(font "Arial" ))
+		(text "RESET_N" (rect 21 59 107 77)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "READY" (rect 0 0 63 18)(font "Arial" ))
+		(text "READY" (rect 21 75 84 93)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "TEST_N" (rect 0 0 70 18)(font "Arial" ))
+		(text "TEST_N" (rect 21 91 91 109)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "NMI" (rect 0 0 31 18)(font "Arial" ))
+		(text "NMI" (rect 21 107 52 125)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "INTR" (rect 0 0 40 18)(font "Arial" ))
+		(text "INTR" (rect 21 123 61 141)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "HOLD" (rect 0 0 51 18)(font "Arial" ))
+		(text "HOLD" (rect 21 139 72 157)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 200 32)
+		(output)
+		(text "A[19..0]" (rect 0 0 63 18)(font "Arial" ))
+		(text "A[19..0]" (rect 126 27 189 45)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32)(line_width 3))
+	)
+	(port
+		(pt 200 48)
+		(output)
+		(text "DOUT[7..0]" (rect 0 0 92 18)(font "Arial" ))
+		(text "DOUT[7..0]" (rect 102 43 194 61)(font "Arial" ))
+		(line (pt 200 48)(pt 184 48)(line_width 3))
+	)
+	(port
+		(pt 200 64)
+		(output)
+		(text "ALE" (rect 0 0 36 18)(font "Arial" ))
+		(text "ALE" (rect 149 59 185 77)(font "Arial" ))
+		(line (pt 200 64)(pt 184 64))
+	)
+	(port
+		(pt 200 80)
+		(output)
+		(text "IOM" (rect 0 0 33 18)(font "Arial" ))
+		(text "IOM" (rect 152 75 185 93)(font "Arial" ))
+		(line (pt 200 80)(pt 184 80))
+	)
+	(port
+		(pt 200 96)
+		(output)
+		(text "RD_N" (rect 0 0 50 18)(font "Arial" ))
+		(text "RD_N" (rect 137 91 187 109)(font "Arial" ))
+		(line (pt 200 96)(pt 184 96))
+	)
+	(port
+		(pt 200 112)
+		(output)
+		(text "WR_N" (rect 0 0 54 18)(font "Arial" ))
+		(text "WR_N" (rect 134 107 188 125)(font "Arial" ))
+		(line (pt 200 112)(pt 184 112))
+	)
+	(port
+		(pt 200 128)
+		(output)
+		(text "INTA_N" (rect 0 0 63 18)(font "Arial" ))
+		(text "INTA_N" (rect 126 123 189 141)(font "Arial" ))
+		(line (pt 200 128)(pt 184 128))
+	)
+	(port
+		(pt 200 144)
+		(output)
+		(text "DTR_N" (rect 0 0 61 18)(font "Arial" ))
+		(text "DTR_N" (rect 128 139 189 157)(font "Arial" ))
+		(line (pt 200 144)(pt 184 144))
+	)
+	(port
+		(pt 200 160)
+		(output)
+		(text "DEN_N" (rect 0 0 63 18)(font "Arial" ))
+		(text "DEN_N" (rect 126 155 189 173)(font "Arial" ))
+		(line (pt 200 160)(pt 184 160))
+	)
+	(port
+		(pt 200 176)
+		(output)
+		(text "LOCK_N" (rect 0 0 75 18)(font "Arial" ))
+		(text "LOCK_N" (rect 116 171 191 189)(font "Arial" ))
+		(line (pt 200 176)(pt 184 176))
+	)
+	(port
+		(pt 200 192)
+		(output)
+		(text "RESET_O" (rect 0 0 87 18)(font "Arial" ))
+		(text "RESET_O" (rect 106 187 193 205)(font "Arial" ))
+		(line (pt 200 192)(pt 184 192))
+	)
+	(port
+		(pt 200 208)
+		(output)
+		(text "S[2..0]" (rect 0 0 53 18)(font "Arial" ))
+		(text "S[2..0]" (rect 135 203 188 221)(font "Arial" ))
+		(line (pt 200 208)(pt 184 208)(line_width 3))
+	)
+	(port
+		(pt 200 224)
+		(output)
+		(text "QS[1..0]" (rect 0 0 67 18)(font "Arial" ))
+		(text "QS[1..0]" (rect 123 219 190 237)(font "Arial" ))
+		(line (pt 200 224)(pt 184 224)(line_width 3))
+	)
+	(port
+		(pt 200 240)
+		(output)
+		(text "HLDA" (rect 0 0 50 18)(font "Arial" ))
+		(text "HLDA" (rect 137 235 187 253)(font "Arial" ))
+		(line (pt 200 240)(pt 184 240))
+	)
+	(drawing
+		(rectangle (rect 16 16 184 256))
+	)
+)
+(connector
+	(text "cpu_din[7..0]" (rect 293 232 403 255)(font "Intel Clear" ))
+	(pt 408 256)
+	(pt 280 256)
+	(bus)
+)

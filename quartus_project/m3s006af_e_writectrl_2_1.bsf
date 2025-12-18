@@ -1,0 +1,219 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 296 352)
+	(text "m3s006af_e_writectrl_2_1" (rect 5 0 111 12)(font "Arial" ))
+	(text "inst" (rect 8 320 20 332)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "RWMODE_0" (rect 0 0 59 12)(font "Arial" ))
+		(text "RWMODE_0" (rect 21 27 80 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "RWMODE_1" (rect 0 0 57 12)(font "Arial" ))
+		(text "RWMODE_1" (rect 21 43 78 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "CMODE_1" (rect 0 0 46 12)(font "Arial" ))
+		(text "CMODE_1" (rect 21 59 67 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "CMODE_2" (rect 0 0 47 12)(font "Arial" ))
+		(text "CMODE_2" (rect 21 75 68 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "CMODE_0" (rect 0 0 47 12)(font "Arial" ))
+		(text "CMODE_0" (rect 21 91 68 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "SW1" (rect 0 0 20 12)(font "Arial" ))
+		(text "SW1" (rect 21 107 41 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "NCS_c" (rect 0 0 30 12)(font "Arial" ))
+		(text "NCS_c" (rect 21 123 51 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "A1_c" (rect 0 0 22 12)(font "Arial" ))
+		(text "A1_c" (rect 21 139 43 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "A0_c" (rect 0 0 23 12)(font "Arial" ))
+		(text "A0_c" (rect 21 155 44 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "CR1_1_x" (rect 0 0 38 12)(font "Arial" ))
+		(text "CR1_1_x" (rect 21 171 59 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "I_345" (rect 0 0 23 12)(font "Arial" ))
+		(text "I_345" (rect 21 187 44 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 1))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "CLK1_c" (rect 0 0 34 12)(font "Arial" ))
+		(text "CLK1_c" (rect 21 203 55 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 1))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "I_865_x_i" (rect 0 0 40 12)(font "Arial" ))
+		(text "I_865_x_i" (rect 21 219 61 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 1))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "NWR_c" (rect 0 0 36 12)(font "Arial" ))
+		(text "NWR_c" (rect 21 235 57 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 1))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "CNT_LD_0" (rect 0 0 49 12)(font "Arial" ))
+		(text "CNT_LD_0" (rect 21 251 70 263)(font "Arial" ))
+		(line (pt 0 256)(pt 16 256)(line_width 1))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "NCLR_c" (rect 0 0 38 12)(font "Arial" ))
+		(text "NCLR_c" (rect 21 267 59 279)(font "Arial" ))
+		(line (pt 0 272)(pt 16 272)(line_width 1))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "CLK1_c_i" (rect 0 0 41 12)(font "Arial" ))
+		(text "CLK1_c_i" (rect 21 283 62 295)(font "Arial" ))
+		(line (pt 0 288)(pt 16 288)(line_width 1))
+	)
+	(port
+		(pt 280 32)
+		(output)
+		(text "LATSEL_0" (rect 0 0 49 12)(font "Arial" ))
+		(text "LATSEL_0" (rect 210 27 259 39)(font "Arial" ))
+		(line (pt 280 32)(pt 264 32)(line_width 1))
+	)
+	(port
+		(pt 280 48)
+		(output)
+		(text "XOROUT_1_sqmuxa_i_0_a2" (rect 0 0 121 12)(font "Arial" ))
+		(text "XOROUT_1_sqmuxa_i_0_a2" (rect 138 43 259 55)(font "Arial" ))
+		(line (pt 280 48)(pt 264 48)(line_width 1))
+	)
+	(port
+		(pt 280 64)
+		(output)
+		(text "STATE" (rect 0 0 33 12)(font "Arial" ))
+		(text "STATE" (rect 226 59 259 71)(font "Arial" ))
+		(line (pt 280 64)(pt 264 64)(line_width 1))
+	)
+	(port
+		(pt 280 80)
+		(output)
+		(text "WSYNC2" (rect 0 0 42 12)(font "Arial" ))
+		(text "WSYNC2" (rect 217 75 259 87)(font "Arial" ))
+		(line (pt 280 80)(pt 264 80)(line_width 1))
+	)
+	(port
+		(pt 280 96)
+		(output)
+		(text "SYNCCEN" (rect 0 0 48 12)(font "Arial" ))
+		(text "SYNCCEN" (rect 211 91 259 103)(font "Arial" ))
+		(line (pt 280 96)(pt 264 96)(line_width 1))
+	)
+	(port
+		(pt 280 112)
+		(output)
+		(text "WSYNC1" (rect 0 0 41 12)(font "Arial" ))
+		(text "WSYNC1" (rect 218 107 259 119)(font "Arial" ))
+		(line (pt 280 112)(pt 264 112)(line_width 1))
+	)
+	(port
+		(pt 280 128)
+		(output)
+		(text "ENGLOAD" (rect 0 0 49 12)(font "Arial" ))
+		(text "ENGLOAD" (rect 210 123 259 135)(font "Arial" ))
+		(line (pt 280 128)(pt 264 128)(line_width 1))
+	)
+	(port
+		(pt 280 144)
+		(output)
+		(text "SNC1" (rect 0 0 23 12)(font "Arial" ))
+		(text "SNC1" (rect 236 139 259 151)(font "Arial" ))
+		(line (pt 280 144)(pt 264 144)(line_width 1))
+	)
+	(port
+		(pt 280 160)
+		(output)
+		(text "LDCEN" (rect 0 0 34 12)(font "Arial" ))
+		(text "LDCEN" (rect 225 155 259 167)(font "Arial" ))
+		(line (pt 280 160)(pt 264 160)(line_width 1))
+	)
+	(port
+		(pt 280 176)
+		(output)
+		(text "SNC2" (rect 0 0 24 12)(font "Arial" ))
+		(text "SNC2" (rect 235 171 259 183)(font "Arial" ))
+		(line (pt 280 176)(pt 264 176)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 264 320)(line_width 1))
+	)
+)

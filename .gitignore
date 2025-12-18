@@ -1,0 +1,5 @@
+.spec-workflow
+/quartus_project/db
+/quartus_project/incremental_db
+/quartus_project/greybox_tmp
+/quartus_project/output_files

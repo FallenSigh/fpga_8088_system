@@ -1,0 +1,93 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 272 160)
+	(text "m3s008af_e_gatectrl_2" (rect 5 0 100 12)(font "Arial" ))
+	(text "inst" (rect 8 128 20 140)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "TRIG0_c" (rect 0 0 38 12)(font "Arial" ))
+		(text "TRIG0_c" (rect 21 27 59 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "GATE0_c" (rect 0 0 43 12)(font "Arial" ))
+		(text "GATE0_c" (rect 21 43 64 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "CLK0_c" (rect 0 0 35 12)(font "Arial" ))
+		(text "CLK0_c" (rect 21 59 56 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "NCLR_c" (rect 0 0 38 12)(font "Arial" ))
+		(text "NCLR_c" (rect 21 75 59 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "CLK0_c_i" (rect 0 0 42 12)(font "Arial" ))
+		(text "CLK0_c_i" (rect 21 91 63 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 256 32)
+		(output)
+		(text "TRIGPEND_0_x3_0_x3_x" (rect 0 0 113 12)(font "Arial" ))
+		(text "TRIGPEND_0_x3_0_x3_x" (rect 122 27 235 39)(font "Arial" ))
+		(line (pt 256 32)(pt 240 32)(line_width 1))
+	)
+	(port
+		(pt 256 48)
+		(output)
+		(text "INTGATE" (rect 0 0 43 12)(font "Arial" ))
+		(text "INTGATE" (rect 192 43 235 55)(font "Arial" ))
+		(line (pt 256 48)(pt 240 48)(line_width 1))
+	)
+	(port
+		(pt 256 64)
+		(output)
+		(text "GSYNC1" (rect 0 0 37 12)(font "Arial" ))
+		(text "GSYNC1" (rect 198 59 235 71)(font "Arial" ))
+		(line (pt 256 64)(pt 240 64)(line_width 1))
+	)
+	(port
+		(pt 256 80)
+		(output)
+		(text "GSYNC2" (rect 0 0 38 12)(font "Arial" ))
+		(text "GSYNC2" (rect 197 75 235 87)(font "Arial" ))
+		(line (pt 256 80)(pt 240 80)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 240 128)(line_width 1))
+	)
+)

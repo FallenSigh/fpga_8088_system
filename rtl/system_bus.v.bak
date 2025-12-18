@@ -1,0 +1,65 @@
+module system_bus (
+    //==============================================
+    // CPU 侧接口
+    //==============================================
+    input  wire [19:0] cpu_addr,    // CPU 地址总线
+    input  wire        cpu_iom,     // IO/Memory 选择
+    input  wire        cpu_wr_n,    // 写信号
+    input  wire        cpu_rd_n,    // 读信号
+    output reg  [7:0]  cpu_din,     // 返回给 CPU 的数据
+
+    //==============================================
+    // 外设数据回读接口
+    //==============================================
+    input  wire [7:0]  ram_q,       // 来自 RAM (16KB) 的数据
+    input  wire [7:0]  rom_q,       // 来自 ROM (8KB) 的数据
+
+    //==============================================
+    // 外设控制接口
+    //==============================================
+    output wire        ram_cs,      // RAM 片选
+    output wire        rom_cs,      // ROM 片选
+    output wire        ram_wren     // RAM 写使能
+);
+
+    //-------------------------------------------------------
+    // 地址译码逻辑 (Address Decoding)
+    //-------------------------------------------------------
+
+    wire is_memory_access;
+    assign is_memory_access = (cpu_iom == 1'b0); // 0=Memory
+
+    // 1. RAM 译码 (16KB)
+    // 地址范围: 0x00000 - 0x03FFF
+    // 二进制: 0000 00xx xxxx xxxx xxxx (低14位是offset)
+    // 条件: 高 6 位 (A19...A14) 必须全为 0
+    assign ram_cs = is_memory_access && (cpu_addr[19:14] == 6'b000000);
+
+    // 2. ROM 译码 (8KB)
+    // 地址范围: 0xFE000 - 0xFFFFF
+    // 二进制: 1111 111x xxxx xxxx xxxx (低13位是offset)
+    // 条件: 高 7 位 (A19...A13) 必须全为 1
+    assign rom_cs = is_memory_access && (cpu_addr[19:13] == 7'b1111111);
+
+    //-------------------------------------------------------
+    // 写控制逻辑
+    //-------------------------------------------------------
+    assign ram_wren = ram_cs & (~cpu_wr_n);
+
+    //-------------------------------------------------------
+    // 数据多路复用 (Data Mux)
+    //-------------------------------------------------------
+    always @(*) begin
+        if (~cpu_rd_n) begin // 读周期有效
+            if (rom_cs)
+                cpu_din = rom_q;
+            else if (ram_cs)
+                cpu_din = ram_q;
+            else
+                cpu_din = 8'hFF; // 总线空闲
+        end else begin
+            cpu_din = 8'hFF;
+        end
+    end
+
+endmodule

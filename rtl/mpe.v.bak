@@ -1,0 +1,137 @@
+// Copyright (C) 2023  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// PROGRAM		"Quartus Prime"
+// VERSION		"Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition"
+// CREATED		"Mon Dec 15 18:33:25 2025"
+
+module mpe(
+	clk,
+	rst_n
+);
+
+
+input wire	clk;
+input wire	rst_n;
+
+wire	[19:0] cpu_addr;
+wire	cpu_ale;
+wire	cpu_den_n;
+wire	[7:0] cpu_din;
+wire	[7:0] cpu_dout;
+wire	cpu_dtr_n;
+wire	cpu_hlda;
+wire	cpu_hold;
+wire	cpu_inta_n;
+wire	cpu_intr;
+wire	cpu_iom;
+wire	cpu_lock_n;
+wire	cpu_nmi;
+wire	cpu_qs;
+wire	cpu_rd_n;
+wire	cpu_ready;
+wire	cpu_reset_o;
+wire	cpu_s;
+wire	cpu_test_n;
+wire	cpu_wr_n;
+wire	[13:0] ram_addr;
+wire	[7:0] ram_data;
+wire	[7:0] ram_q;
+wire	ram_wren;
+wire	[12:0] rom_addr;
+wire	[7:0] rom_q;
+wire	sys_clk;
+wire	sys_rst;
+
+
+
+
+
+gw8088	b2v_8088_inst(
+	.CLK(sys_clk),
+	.RESET_N(sys_rst),
+	.READY(cpu_ready),
+	.TEST_N(cpu_test_n),
+	.NMI(cpu_nmi),
+	.INTR(cpu_intr),
+	.HOLD(cpu_hold),
+	.DIN(cpu_din),
+	
+	.IOM(cpu_iom),
+	.RD_N(cpu_rd_n),
+	.WR_N(cpu_wr_n),
+	
+	
+	
+	
+	
+	
+	.A(cpu_addr),
+	.DOUT(cpu_dout)
+	
+	);
+
+
+system_bus	b2v_bus_inst(
+	.cpu_rd_n(cpu_rd_n),
+	.cpu_wr_n(cpu_wr_n),
+	.cpu_iom(cpu_iom),
+	.cpu_addr(cpu_addr),
+	.cpu_dout(cpu_dout),
+	.ram_q(ram_q),
+	.rom_q(rom_q),
+	.ram_wren(ram_wren),
+	.cpu_din(cpu_din),
+	.ram_addr(ram_addr),
+	.ram_data(ram_data),
+	.rom_addr(rom_addr));
+
+
+
+
+
+
+
+pll	b2v_pll_inst(
+	.inclk0(clk),
+	.c0(sys_clk));
+
+
+ram	b2v_ram_inst(
+	.clock(sys_clk),
+	.wren(ram_wren),
+	.address(ram_addr),
+	.data(ram_data),
+	.q(ram_q));
+
+
+rom	b2v_rom_inst(
+	.clock(sys_clk),
+	.address(rom_addr),
+	.q(rom_q));
+
+
+rst_sync	b2v_rst_sync_inst(
+	.clk(clk),
+	.rst_n_in(rst_n),
+	.rst_n_out(sys_rst));
+
+assign	cpu_hold = 0;
+assign	cpu_intr = 0;
+assign	cpu_nmi = 0;
+assign	cpu_ready = 1;
+assign	cpu_test_n = 0;
+
+endmodule

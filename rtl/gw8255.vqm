@@ -1,0 +1,4226 @@
+//
+// Written by Synplify
+// Synplify 8.6.2, Build 027R.
+// Sat Apr 14 17:25:31 2007
+//
+// Source file index table:
+// Object locations will have the form <file>:<line>
+// file 0 "noname"
+// file 1 "\c:\synplicity\fpga_862\lib\vhd\std.vhd "
+// file 2 "\d:\projects\kxc35a\ibmpc8086\sythesis\gw8255\rtl\cntl_log.vhd "
+// file 3 "\c:\synplicity\fpga_862\lib\vhd\std1164.vhd "
+// file 4 "\d:\projects\kxc35a\ibmpc8086\sythesis\gw8255\rtl\dout_mux.vhd "
+// file 5 "\d:\projects\kxc35a\ibmpc8086\sythesis\gw8255\rtl\portain.vhd "
+// file 6 "\d:\projects\kxc35a\ibmpc8086\sythesis\gw8255\rtl\portaout.vhd "
+// file 7 "\d:\projects\kxc35a\ibmpc8086\sythesis\gw8255\rtl\portbin.vhd "
+// file 8 "\d:\projects\kxc35a\ibmpc8086\sythesis\gw8255\rtl\portbout.vhd "
+// file 9 "\d:\projects\kxc35a\ibmpc8086\sythesis\gw8255\rtl\portcout.vhd "
+// file 10 "\d:\projects\kxc35a\ibmpc8086\sythesis\gw8255\rtl\gw8255.vhd "
+
+// VQM4.1+ 
+module dout_mux (
+  ControlRegQ_i_0_0,
+  ControlRegQ_i_0_3,
+  DOUT_6_x_0,
+  DOUT_6_x_3,
+  DOUT_6_x_2,
+  DOUT_6_x_6,
+  PAIN_c_2,
+  PAIN_c_1,
+  PAIN_c_3,
+  PAIN_c_5,
+  PAIN_c_7,
+  PAIN_c_6,
+  PAIN_c_0,
+  PAIN_c_4,
+  PBIN_c_2,
+  PBIN_c_1,
+  PBIN_c_3,
+  PBIN_c_5,
+  PBIN_c_7,
+  PBIN_c_6,
+  PBIN_c_0,
+  PBIN_c_4,
+  PortAInRegQ_2,
+  PortAInRegQ_1,
+  PortAInRegQ_3,
+  PortAInRegQ_5,
+  PortAInRegQ_7,
+  PortAInRegQ_6,
+  PortAInRegQ_0,
+  PortAInRegQ_4,
+  PortBInRegQ_2,
+  PortBInRegQ_1,
+  PortBInRegQ_3,
+  PortBInRegQ_5,
+  PortBInRegQ_7,
+  PortBInRegQ_6,
+  PortBInRegQ_0,
+  PortBInRegQ_4,
+  DOUTSelect_1_i_0_0,
+  PortCOutRegQ_4,
+  PortCOutRegQ_2,
+  PortCOutRegQ_0,
+  PCIN_c_0,
+  PCIN_c_1,
+  PCIN_c_3,
+  PCIN_c_5,
+  PCIN_c_6,
+  PCIN_c_4,
+  PCIN_c_7,
+  PCIN_c_2,
+  ControlRegQ_4,
+  ControlRegQ_0,
+  ControlRegQ_3,
+  ControlRegQ_i_3,
+  ControlRegQ_i_0_d0,
+  A_c_0,
+  A_c_1,
+  DOUT_6_3,
+  DOUT_6_6,
+  DOUT_6_4,
+  DOUT_6_0
+);
+input ControlRegQ_i_0_0 ;
+input ControlRegQ_i_0_3 ;
+output DOUT_6_x_0 ;
+output DOUT_6_x_3 ;
+output DOUT_6_x_2 ;
+output DOUT_6_x_6 ;
+input PAIN_c_2 ;
+input PAIN_c_1 ;
+input PAIN_c_3 ;
+input PAIN_c_5 ;
+input PAIN_c_7 ;
+input PAIN_c_6 ;
+input PAIN_c_0 ;
+input PAIN_c_4 ;
+input PBIN_c_2 ;
+input PBIN_c_1 ;
+input PBIN_c_3 ;
+input PBIN_c_5 ;
+input PBIN_c_7 ;
+input PBIN_c_6 ;
+input PBIN_c_0 ;
+input PBIN_c_4 ;
+input PortAInRegQ_2 ;
+input PortAInRegQ_1 ;
+input PortAInRegQ_3 ;
+input PortAInRegQ_5 ;
+input PortAInRegQ_7 ;
+input PortAInRegQ_6 ;
+input PortAInRegQ_0 ;
+input PortAInRegQ_4 ;
+input PortBInRegQ_2 ;
+input PortBInRegQ_1 ;
+input PortBInRegQ_3 ;
+input PortBInRegQ_5 ;
+input PortBInRegQ_7 ;
+input PortBInRegQ_6 ;
+input PortBInRegQ_0 ;
+input PortBInRegQ_4 ;
+input DOUTSelect_1_i_0_0 ;
+input PortCOutRegQ_4 ;
+input PortCOutRegQ_2 ;
+input PortCOutRegQ_0 ;
+input PCIN_c_0 ;
+input PCIN_c_1 ;
+input PCIN_c_3 ;
+input PCIN_c_5 ;
+input PCIN_c_6 ;
+input PCIN_c_4 ;
+input PCIN_c_7 ;
+input PCIN_c_2 ;
+input ControlRegQ_4 ;
+input ControlRegQ_0 ;
+input ControlRegQ_3 ;
+input ControlRegQ_i_3 ;
+input ControlRegQ_i_0_d0 ;
+input A_c_0 ;
+input A_c_1 ;
+output DOUT_6_3 ;
+output DOUT_6_6 ;
+output DOUT_6_4 ;
+output DOUT_6_0 ;
+wire ControlRegQ_i_0_0 ;
+wire ControlRegQ_i_0_3 ;
+wire DOUT_6_x_0 ;
+wire DOUT_6_x_3 ;
+wire DOUT_6_x_2 ;
+wire DOUT_6_x_6 ;
+wire PAIN_c_2 ;
+wire PAIN_c_1 ;
+wire PAIN_c_3 ;
+wire PAIN_c_5 ;
+wire PAIN_c_7 ;
+wire PAIN_c_6 ;
+wire PAIN_c_0 ;
+wire PAIN_c_4 ;
+wire PBIN_c_2 ;
+wire PBIN_c_1 ;
+wire PBIN_c_3 ;
+wire PBIN_c_5 ;
+wire PBIN_c_7 ;
+wire PBIN_c_6 ;
+wire PBIN_c_0 ;
+wire PBIN_c_4 ;
+wire PortAInRegQ_2 ;
+wire PortAInRegQ_1 ;
+wire PortAInRegQ_3 ;
+wire PortAInRegQ_5 ;
+wire PortAInRegQ_7 ;
+wire PortAInRegQ_6 ;
+wire PortAInRegQ_0 ;
+wire PortAInRegQ_4 ;
+wire PortBInRegQ_2 ;
+wire PortBInRegQ_1 ;
+wire PortBInRegQ_3 ;
+wire PortBInRegQ_5 ;
+wire PortBInRegQ_7 ;
+wire PortBInRegQ_6 ;
+wire PortBInRegQ_0 ;
+wire PortBInRegQ_4 ;
+wire DOUTSelect_1_i_0_0 ;
+wire PortCOutRegQ_4 ;
+wire PortCOutRegQ_2 ;
+wire PortCOutRegQ_0 ;
+wire PCIN_c_0 ;
+wire PCIN_c_1 ;
+wire PCIN_c_3 ;
+wire PCIN_c_5 ;
+wire PCIN_c_6 ;
+wire PCIN_c_4 ;
+wire PCIN_c_7 ;
+wire PCIN_c_2 ;
+wire ControlRegQ_4 ;
+wire ControlRegQ_0 ;
+wire ControlRegQ_3 ;
+wire ControlRegQ_i_3 ;
+wire ControlRegQ_i_0_d0 ;
+wire A_c_0 ;
+wire A_c_1 ;
+wire DOUT_6_3 ;
+wire DOUT_6_6 ;
+wire DOUT_6_4 ;
+wire DOUT_6_0 ;
+wire [5:0] DOUT_6_a_x;
+wire [2:2] DOUT_6_a;
+wire [7:0] DOUT_3;
+wire [6:4] DOUT_4_a;
+wire [6:4] DOUT_4;
+wire [7:0] DOUT_3_c;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @4:53
+  cycloneii_lcell_comb DOUT_6_1_ (
+	.combout(DOUT_6_0),
+	.dataa(A_c_1),
+	.datab(A_c_0),
+	.datac(DOUT_6_a_x[1]),
+	.datad(ControlRegQ_i_0_d0)
+);
+defparam DOUT_6_1_.lut_mask="078f";
+defparam DOUT_6_1_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_5_ (
+	.combout(DOUT_6_4),
+	.dataa(A_c_1),
+	.datab(A_c_0),
+	.datac(DOUT_6_a_x[5]),
+	.datad(ControlRegQ_3)
+);
+defparam DOUT_6_5_.lut_mask="8f07";
+defparam DOUT_6_5_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_a_2_ (
+	.combout(DOUT_6_a[2]),
+	.dataa(PCIN_c_2),
+	.datab(A_c_0),
+	.datac(PortCOutRegQ_0),
+	.datad(ControlRegQ_0)
+);
+defparam DOUT_6_a_2_.lut_mask="03dd";
+defparam DOUT_6_a_2_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_7_ (
+	.combout(DOUT_6_6),
+	.dataa(A_c_0),
+	.datab(PCIN_c_7),
+	.datac(A_c_1),
+	.datad(DOUT_3[7])
+);
+defparam DOUT_6_7_.lut_mask="efe0";
+defparam DOUT_6_7_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_4_a_4_ (
+	.combout(DOUT_4_a[4]),
+	.dataa(A_c_0),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_4),
+	.datad(ControlRegQ_i_3)
+);
+defparam DOUT_4_a_4_.lut_mask="05ab";
+defparam DOUT_4_a_4_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_4_4_ (
+	.combout(DOUT_4[4]),
+	.dataa(A_c_0),
+	.datab(PCIN_c_4),
+	.datac(PortCOutRegQ_2),
+	.datad(DOUT_4_a[4])
+);
+defparam DOUT_4_4_.lut_mask="ee50";
+defparam DOUT_4_4_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_4_a_6_ (
+	.combout(DOUT_4_a[6]),
+	.dataa(A_c_0),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_i_3),
+	.datad(ControlRegQ_4)
+);
+defparam DOUT_4_a_6_.lut_mask="00bf";
+defparam DOUT_4_a_6_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_4_6_ (
+	.combout(DOUT_4[6]),
+	.dataa(A_c_0),
+	.datab(PCIN_c_6),
+	.datac(PortCOutRegQ_4),
+	.datad(DOUT_4_a[6])
+);
+defparam DOUT_4_6_.lut_mask="44fa";
+defparam DOUT_4_6_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_4_ (
+	.combout(DOUT_6_3),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_1),
+	.datac(DOUT_3[4]),
+	.datad(DOUT_4[4])
+);
+defparam DOUT_6_4_.lut_mask="fc74";
+defparam DOUT_6_4_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_c_4_ (
+	.combout(DOUT_3_c[4]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_0),
+	.datac(PortBInRegQ_4),
+	.datad(PortAInRegQ_4)
+);
+defparam DOUT_3_c_4_.lut_mask="d9c8";
+defparam DOUT_3_c_4_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_4_ (
+	.combout(DOUT_3[4]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(PBIN_c_4),
+	.datac(PAIN_c_4),
+	.datad(DOUT_3_c[4])
+);
+defparam DOUT_3_4_.lut_mask="dda0";
+defparam DOUT_3_4_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_c_0_ (
+	.combout(DOUT_3_c[0]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_0),
+	.datac(PortBInRegQ_0),
+	.datad(PortAInRegQ_0)
+);
+defparam DOUT_3_c_0_.lut_mask="d9c8";
+defparam DOUT_3_c_0_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_0_ (
+	.combout(DOUT_3[0]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(PBIN_c_0),
+	.datac(PAIN_c_0),
+	.datad(DOUT_3_c[0])
+);
+defparam DOUT_3_0_.lut_mask="dda0";
+defparam DOUT_3_0_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_c_6_ (
+	.combout(DOUT_3_c[6]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_0),
+	.datac(PortBInRegQ_6),
+	.datad(PortAInRegQ_6)
+);
+defparam DOUT_3_c_6_.lut_mask="d9c8";
+defparam DOUT_3_c_6_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_6_ (
+	.combout(DOUT_3[6]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(PBIN_c_6),
+	.datac(PAIN_c_6),
+	.datad(DOUT_3_c[6])
+);
+defparam DOUT_3_6_.lut_mask="dda0";
+defparam DOUT_3_6_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_c_7_ (
+	.combout(DOUT_3_c[7]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_0),
+	.datac(PortBInRegQ_7),
+	.datad(PortAInRegQ_7)
+);
+defparam DOUT_3_c_7_.lut_mask="d9c8";
+defparam DOUT_3_c_7_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_7_ (
+	.combout(DOUT_3[7]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(PBIN_c_7),
+	.datac(PAIN_c_7),
+	.datad(DOUT_3_c[7])
+);
+defparam DOUT_3_7_.lut_mask="dda0";
+defparam DOUT_3_7_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_c_5_ (
+	.combout(DOUT_3_c[5]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_0),
+	.datac(PortBInRegQ_5),
+	.datad(PortAInRegQ_5)
+);
+defparam DOUT_3_c_5_.lut_mask="d9c8";
+defparam DOUT_3_c_5_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_5_ (
+	.combout(DOUT_3[5]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(PBIN_c_5),
+	.datac(PAIN_c_5),
+	.datad(DOUT_3_c[5])
+);
+defparam DOUT_3_5_.lut_mask="dda0";
+defparam DOUT_3_5_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_c_3_ (
+	.combout(DOUT_3_c[3]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_0),
+	.datac(PortBInRegQ_3),
+	.datad(PortAInRegQ_3)
+);
+defparam DOUT_3_c_3_.lut_mask="d9c8";
+defparam DOUT_3_c_3_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_3_ (
+	.combout(DOUT_3[3]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(PBIN_c_3),
+	.datac(PAIN_c_3),
+	.datad(DOUT_3_c[3])
+);
+defparam DOUT_3_3_.lut_mask="dda0";
+defparam DOUT_3_3_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_c_1_ (
+	.combout(DOUT_3_c[1]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_0),
+	.datac(PortBInRegQ_1),
+	.datad(PortAInRegQ_1)
+);
+defparam DOUT_3_c_1_.lut_mask="d9c8";
+defparam DOUT_3_c_1_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_1_ (
+	.combout(DOUT_3[1]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(PBIN_c_1),
+	.datac(PAIN_c_1),
+	.datad(DOUT_3_c[1])
+);
+defparam DOUT_3_1_.lut_mask="dda0";
+defparam DOUT_3_1_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_c_2_ (
+	.combout(DOUT_3_c[2]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(A_c_0),
+	.datac(PortBInRegQ_2),
+	.datad(PortAInRegQ_2)
+);
+defparam DOUT_3_c_2_.lut_mask="d9c8";
+defparam DOUT_3_c_2_.sum_lutc_input="datac";
+  cycloneii_lcell_comb DOUT_3_2_ (
+	.combout(DOUT_3[2]),
+	.dataa(DOUTSelect_1_i_0_0),
+	.datab(PBIN_c_2),
+	.datac(PAIN_c_2),
+	.datad(DOUT_3_c[2])
+);
+defparam DOUT_3_2_.lut_mask="dda0";
+defparam DOUT_3_2_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_x_6_ (
+	.combout(DOUT_6_x_6),
+	.dataa(VCC),
+	.datab(A_c_1),
+	.datac(DOUT_3[6]),
+	.datad(DOUT_4[6])
+);
+defparam DOUT_6_x_6_.lut_mask="fc30";
+defparam DOUT_6_x_6_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_x_2_ (
+	.combout(DOUT_6_x_2),
+	.dataa(VCC),
+	.datab(DOUT_3[2]),
+	.datac(A_c_1),
+	.datad(DOUT_6_a[2])
+);
+defparam DOUT_6_x_2_.lut_mask="0cfc";
+defparam DOUT_6_x_2_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_a_x_5_ (
+	.combout(DOUT_6_a_x[5]),
+	.dataa(VCC),
+	.datab(PCIN_c_5),
+	.datac(A_c_1),
+	.datad(DOUT_3[5])
+);
+defparam DOUT_6_a_x_5_.lut_mask="303f";
+defparam DOUT_6_a_x_5_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_x_3_ (
+	.combout(DOUT_6_x_3),
+	.dataa(VCC),
+	.datab(DOUT_3[3]),
+	.datac(A_c_1),
+	.datad(DOUT_6_a_x[3])
+);
+defparam DOUT_6_x_3_.lut_mask="fc0c";
+defparam DOUT_6_x_3_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_a_x_3_ (
+	.combout(DOUT_6_a_x[3]),
+	.dataa(VCC),
+	.datab(PCIN_c_3),
+	.datac(ControlRegQ_i_0_3),
+	.datad(A_c_0)
+);
+defparam DOUT_6_a_x_3_.lut_mask="0fcc";
+defparam DOUT_6_a_x_3_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_a_x_1_ (
+	.combout(DOUT_6_a_x[1]),
+	.dataa(VCC),
+	.datab(PCIN_c_1),
+	.datac(A_c_1),
+	.datad(DOUT_3[1])
+);
+defparam DOUT_6_a_x_1_.lut_mask="303f";
+defparam DOUT_6_a_x_1_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_x_0_ (
+	.combout(DOUT_6_x_0),
+	.dataa(VCC),
+	.datab(DOUT_3[0]),
+	.datac(A_c_1),
+	.datad(DOUT_6_a_x[0])
+);
+defparam DOUT_6_x_0_.lut_mask="fc0c";
+defparam DOUT_6_x_0_.sum_lutc_input="datac";
+// @4:53
+  cycloneii_lcell_comb DOUT_6_a_x_0_ (
+	.combout(DOUT_6_a_x[0]),
+	.dataa(VCC),
+	.datab(PCIN_c_0),
+	.datac(ControlRegQ_i_0_0),
+	.datad(A_c_0)
+);
+defparam DOUT_6_a_x_0_.lut_mask="0fcc";
+defparam DOUT_6_a_x_0_.sum_lutc_input="datac";
+endmodule /* dout_mux */
+
+// VQM4.1+ 
+module cntl_log (
+  PCIN_c_0,
+  PCEN_1_i_a2_x_0,
+  PCEN_1_0_a3_x_0,
+  PortCOutLd_i_a3_yy_x_0,
+  PortCOutLd_i_a3_0_0,
+  PortCOutLd_0_i_a3_0_0,
+  PortCOutLd_0_i_a3_1_x_0,
+  PortCOutLd_i_a3_xx_mm_1,
+  PortCOutLd_i_a3_xx_mm_0,
+  DOUTSelect_1_i_0_a2_x_0,
+  DOUTSelect_1_i_0_0,
+  PortCOutLd_m0_i_a2_x_0,
+  PortCOutLd_i_a3_xx_2,
+  PortCOutLd_i_a3_xx_0,
+  PortCOutLd_i_a3_xx_3,
+  ControlRegQ_m_0_i_0_0,
+  PortCOutLd_i_a2_0,
+  ControlRegQ_m_i_0_0,
+  PortCOutLd_m0_i_a3_0,
+  ControlRegQ_i_m_i_o3_0,
+  A_c_1,
+  A_c_0,
+  ControlRegQ_i_0_0,
+  ControlRegQ_i_0_3,
+  ControlRegQ_i_0_d0,
+  ControlRegQ_i_3,
+  DIN_c_0,
+  DIN_c_2,
+  DIN_c_6,
+  DIN_c_1,
+  DIN_c_4,
+  DIN_c_5,
+  ControlRegQ_0,
+  ControlRegQ_3,
+  ControlRegQ_4,
+  N_140_i,
+  N_148_i,
+  PortCOutLd_m2s2_0,
+  N_131_i,
+  PortAWrite_1_i_a2_x,
+  N_127_i,
+  PortARead_i_a3,
+  nRD_c,
+  PortBRead_i_a3,
+  nWR_c,
+  nCS_c,
+  un4_ncs_0_a3,
+  PortAWrite_1_i_a3,
+  PortAWrite_i_0_i_x_i,
+  PortBWrite_1_i_a3,
+  PortBWrite_i_0_i_x_i,
+  I_211_x_i,
+  I_212_x_i,
+  I_213_x_i,
+  I_214_x_i,
+  RESET_c,
+  CLK_c
+);
+input PCIN_c_0 ;
+output PCEN_1_i_a2_x_0 ;
+output PCEN_1_0_a3_x_0 ;
+output PortCOutLd_i_a3_yy_x_0 ;
+output PortCOutLd_i_a3_0_0 ;
+output PortCOutLd_0_i_a3_0_0 ;
+output PortCOutLd_0_i_a3_1_x_0 ;
+output PortCOutLd_i_a3_xx_mm_1 ;
+output PortCOutLd_i_a3_xx_mm_0 ;
+output DOUTSelect_1_i_0_a2_x_0 ;
+output DOUTSelect_1_i_0_0 ;
+output PortCOutLd_m0_i_a2_x_0 ;
+output PortCOutLd_i_a3_xx_2 ;
+output PortCOutLd_i_a3_xx_0 ;
+output PortCOutLd_i_a3_xx_3 ;
+output ControlRegQ_m_0_i_0_0 ;
+output PortCOutLd_i_a2_0 ;
+output ControlRegQ_m_i_0_0 ;
+output PortCOutLd_m0_i_a3_0 ;
+output ControlRegQ_i_m_i_o3_0 ;
+input A_c_1 ;
+input A_c_0 ;
+output ControlRegQ_i_0_0 ;
+output ControlRegQ_i_0_3 ;
+output ControlRegQ_i_0_d0 ;
+output ControlRegQ_i_3 ;
+input DIN_c_0 ;
+input DIN_c_2 ;
+input DIN_c_6 ;
+input DIN_c_1 ;
+input DIN_c_4 ;
+input DIN_c_5 ;
+output ControlRegQ_0 ;
+output ControlRegQ_3 ;
+output ControlRegQ_4 ;
+output N_140_i ;
+output N_148_i ;
+output PortCOutLd_m2s2_0 ;
+output N_131_i ;
+output PortAWrite_1_i_a2_x ;
+output N_127_i ;
+output PortARead_i_a3 ;
+input nRD_c ;
+output PortBRead_i_a3 ;
+input nWR_c ;
+input nCS_c ;
+output un4_ncs_0_a3 ;
+output PortAWrite_1_i_a3 ;
+output PortAWrite_i_0_i_x_i ;
+output PortBWrite_1_i_a3 ;
+output PortBWrite_i_0_i_x_i ;
+input I_211_x_i ;
+input I_212_x_i ;
+input I_213_x_i ;
+input I_214_x_i ;
+input RESET_c ;
+input CLK_c ;
+wire PCIN_c_0 ;
+wire PCEN_1_i_a2_x_0 ;
+wire PCEN_1_0_a3_x_0 ;
+wire PortCOutLd_i_a3_yy_x_0 ;
+wire PortCOutLd_i_a3_0_0 ;
+wire PortCOutLd_0_i_a3_0_0 ;
+wire PortCOutLd_0_i_a3_1_x_0 ;
+wire PortCOutLd_i_a3_xx_mm_1 ;
+wire PortCOutLd_i_a3_xx_mm_0 ;
+wire DOUTSelect_1_i_0_a2_x_0 ;
+wire DOUTSelect_1_i_0_0 ;
+wire PortCOutLd_m0_i_a2_x_0 ;
+wire PortCOutLd_i_a3_xx_2 ;
+wire PortCOutLd_i_a3_xx_0 ;
+wire PortCOutLd_i_a3_xx_3 ;
+wire ControlRegQ_m_0_i_0_0 ;
+wire PortCOutLd_i_a2_0 ;
+wire ControlRegQ_m_i_0_0 ;
+wire PortCOutLd_m0_i_a3_0 ;
+wire ControlRegQ_i_m_i_o3_0 ;
+wire A_c_1 ;
+wire A_c_0 ;
+wire ControlRegQ_i_0_0 ;
+wire ControlRegQ_i_0_3 ;
+wire ControlRegQ_i_0_d0 ;
+wire ControlRegQ_i_3 ;
+wire DIN_c_0 ;
+wire DIN_c_2 ;
+wire DIN_c_6 ;
+wire DIN_c_1 ;
+wire DIN_c_4 ;
+wire DIN_c_5 ;
+wire ControlRegQ_0 ;
+wire ControlRegQ_3 ;
+wire ControlRegQ_4 ;
+wire N_140_i ;
+wire N_148_i ;
+wire PortCOutLd_m2s2_0 ;
+wire N_131_i ;
+wire PortAWrite_1_i_a2_x ;
+wire N_127_i ;
+wire PortARead_i_a3 ;
+wire nRD_c ;
+wire PortBRead_i_a3 ;
+wire nWR_c ;
+wire nCS_c ;
+wire un4_ncs_0_a3 ;
+wire PortAWrite_1_i_a3 ;
+wire PortAWrite_i_0_i_x_i ;
+wire PortBWrite_1_i_a3 ;
+wire PortBWrite_i_0_i_x_i ;
+wire I_211_x_i ;
+wire I_212_x_i ;
+wire I_213_x_i ;
+wire I_214_x_i ;
+wire RESET_c ;
+wire CLK_c ;
+wire [2:1] PortCOutLd_i_a3_xx_mm_a;
+wire [3:3] PortCOutLd_0_i_a3_0_a;
+wire ControlRegWrite_i_a3 ;
+wire PortCOutLd_m2s2_0_a2_0 ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @2:220
+  cycloneii_lcell_ff ControlRegQ_6__Z (
+	.regout(ControlRegQ_4),
+	.datain(DIN_c_5),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(ControlRegWrite_i_a3)
+);
+// @2:220
+  cycloneii_lcell_ff ControlRegQ_5__Z (
+	.regout(ControlRegQ_3),
+	.datain(DIN_c_4),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(ControlRegWrite_i_a3)
+);
+// @2:220
+  cycloneii_lcell_ff ControlRegQ_i_4__Z (
+	.regout(ControlRegQ_i_3),
+	.datain(I_214_x_i),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(ControlRegWrite_i_a3)
+);
+// @2:220
+  cycloneii_lcell_ff ControlRegQ_i_0_3__Z (
+	.regout(ControlRegQ_i_0_3),
+	.datain(I_213_x_i),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(ControlRegWrite_i_a3)
+);
+// @2:220
+  cycloneii_lcell_ff ControlRegQ_2__Z (
+	.regout(ControlRegQ_0),
+	.datain(DIN_c_1),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(ControlRegWrite_i_a3)
+);
+// @2:220
+  cycloneii_lcell_ff ControlRegQ_i_1__Z (
+	.regout(ControlRegQ_i_0_d0),
+	.datain(I_212_x_i),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(ControlRegWrite_i_a3)
+);
+// @2:220
+  cycloneii_lcell_ff ControlRegQ_i_0_0__Z (
+	.regout(ControlRegQ_i_0_0),
+	.datain(I_211_x_i),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(ControlRegWrite_i_a3)
+);
+  assign  PortBWrite_i_0_i_x_i = ~ PortBWrite_1_i_a3;
+  assign  PortAWrite_i_0_i_x_i = ~ PortAWrite_1_i_a3;
+// @2:166
+  cycloneii_lcell_comb ControlLogicProc_un4_ncs_0_a3 (
+	.combout(un4_ncs_0_a3),
+	.dataa(DIN_c_6),
+	.datab(nCS_c),
+	.datac(A_c_0),
+	.datad(A_c_1)
+);
+defparam ControlLogicProc_un4_ncs_0_a3.lut_mask="1000";
+defparam ControlLogicProc_un4_ncs_0_a3.sum_lutc_input="datac";
+// @2:121
+  cycloneii_lcell_comb ControlRegQ_i_m_i_o3_3_ (
+	.combout(ControlRegQ_i_m_i_o3_0),
+	.dataa(VCC),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_i_3),
+	.datad(ControlRegQ_4)
+);
+defparam ControlRegQ_i_m_i_o3_3_.lut_mask="ff0c";
+defparam ControlRegQ_i_m_i_o3_3_.sum_lutc_input="datac";
+// @2:92
+  cycloneii_lcell_comb PortBWrite_1_i_a3_cZ (
+	.combout(PortBWrite_1_i_a3),
+	.dataa(nCS_c),
+	.datab(nWR_c),
+	.datac(A_c_0),
+	.datad(A_c_1)
+);
+defparam PortBWrite_1_i_a3_cZ.lut_mask="0010";
+defparam PortBWrite_1_i_a3_cZ.sum_lutc_input="datac";
+// @2:91
+  cycloneii_lcell_comb PortAWrite_1_i_a3_cZ (
+	.combout(PortAWrite_1_i_a3),
+	.dataa(nCS_c),
+	.datab(nWR_c),
+	.datac(A_c_0),
+	.datad(A_c_1)
+);
+defparam PortAWrite_1_i_a3_cZ.lut_mask="0001";
+defparam PortAWrite_1_i_a3_cZ.sum_lutc_input="datac";
+// @2:90
+  cycloneii_lcell_comb PortBRead_i_a3_cZ (
+	.combout(PortBRead_i_a3),
+	.dataa(A_c_0),
+	.datab(A_c_1),
+	.datac(nCS_c),
+	.datad(nRD_c)
+);
+defparam PortBRead_i_a3_cZ.lut_mask="fffd";
+defparam PortBRead_i_a3_cZ.sum_lutc_input="datac";
+// @2:89
+  cycloneii_lcell_comb PortARead_i_a3_cZ (
+	.combout(PortARead_i_a3),
+	.dataa(nCS_c),
+	.datab(nRD_c),
+	.datac(A_c_0),
+	.datad(A_c_1)
+);
+defparam PortARead_i_a3_cZ.lut_mask="fffe";
+defparam PortARead_i_a3_cZ.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_m0_i_a3_5_ (
+	.combout(PortCOutLd_m0_i_a3_0),
+	.dataa(A_c_0),
+	.datab(DIN_c_2),
+	.datac(DIN_c_0),
+	.datad(DIN_c_1)
+);
+defparam PortCOutLd_m0_i_a3_5_.lut_mask="0080";
+defparam PortCOutLd_m0_i_a3_5_.sum_lutc_input="datac";
+// @2:121
+  cycloneii_lcell_comb ControlRegQ_i_m_i_3_ (
+	.combout(N_127_i),
+	.dataa(ControlRegQ_i_0_3),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_i_3),
+	.datad(ControlRegQ_4)
+);
+defparam ControlRegQ_i_m_i_3_.lut_mask="00a2";
+defparam ControlRegQ_i_m_i_3_.sum_lutc_input="datac";
+// @2:121
+  cycloneii_lcell_comb ControlRegQ_m_i_0_3_ (
+	.combout(ControlRegQ_m_i_0_0),
+	.dataa(ControlRegQ_i_0_3),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_i_3),
+	.datad(ControlRegQ_4)
+);
+defparam ControlRegQ_m_i_0_3_.lut_mask="ffae";
+defparam ControlRegQ_m_i_0_3_.sum_lutc_input="datac";
+// @2:93
+  cycloneii_lcell_comb ControlRegWrite_i_a3_cZ (
+	.combout(ControlRegWrite_i_a3),
+	.dataa(A_c_1),
+	.datab(A_c_0),
+	.datac(DIN_c_6),
+	.datad(PortAWrite_1_i_a2_x)
+);
+defparam ControlRegWrite_i_a3_cZ.lut_mask="8000";
+defparam ControlRegWrite_i_a3_cZ.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_i_a2_0_ (
+	.combout(PortCOutLd_i_a2_0),
+	.dataa(A_c_1),
+	.datab(A_c_0),
+	.datac(DIN_c_6),
+	.datad(PortAWrite_1_i_a2_x)
+);
+defparam PortCOutLd_i_a2_0_.lut_mask="2a00";
+defparam PortCOutLd_i_a2_0_.sum_lutc_input="datac";
+// @2:121
+  cycloneii_lcell_comb ControlRegQ_m_0_i_0_3_ (
+	.combout(ControlRegQ_m_0_i_0_0),
+	.dataa(ControlRegQ_i_0_3),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_i_3),
+	.datad(ControlRegQ_4)
+);
+defparam ControlRegQ_m_0_i_0_3_.lut_mask="ffea";
+defparam ControlRegQ_m_0_i_0_3_.sum_lutc_input="datac";
+// @2:121
+  cycloneii_lcell_comb ControlRegQ_i_m_0_i_3_ (
+	.combout(N_131_i),
+	.dataa(ControlRegQ_i_0_3),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_i_3),
+	.datad(ControlRegQ_4)
+);
+defparam ControlRegQ_i_m_0_i_3_.lut_mask="002a";
+defparam ControlRegQ_i_m_0_i_3_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_i_a3_xx_7_ (
+	.combout(PortCOutLd_i_a3_xx_3),
+	.dataa(DIN_c_0),
+	.datab(DIN_c_1),
+	.datac(PortCOutLd_i_a2_0),
+	.datad(PortCOutLd_m0_i_a2_x_0)
+);
+defparam PortCOutLd_i_a3_xx_7_.lut_mask="8000";
+defparam PortCOutLd_i_a3_xx_7_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_i_a3_xx_4_ (
+	.combout(PortCOutLd_i_a3_xx_0),
+	.dataa(DIN_c_0),
+	.datab(PortCOutLd_i_a2_0),
+	.datac(DIN_c_1),
+	.datad(PortCOutLd_m0_i_a2_x_0)
+);
+defparam PortCOutLd_i_a3_xx_4_.lut_mask="0400";
+defparam PortCOutLd_i_a3_xx_4_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_m2s2_0_a2_0_cZ (
+	.combout(PortCOutLd_m2s2_0_a2_0),
+	.dataa(nCS_c),
+	.datab(nWR_c),
+	.datac(A_c_1),
+	.datad(A_c_0)
+);
+defparam PortCOutLd_m2s2_0_a2_0_cZ.lut_mask="0010";
+defparam PortCOutLd_m2s2_0_a2_0_cZ.sum_lutc_input="datac";
+// @2:144
+  cycloneii_lcell_comb DOUTSelect_1_i_0_0_ (
+	.combout(DOUTSelect_1_i_0_0),
+	.dataa(A_c_0),
+	.datab(A_c_1),
+	.datac(ControlRegQ_0),
+	.datad(DOUTSelect_1_i_0_a2_x_0)
+);
+defparam DOUTSelect_1_i_0_0_.lut_mask="ffce";
+defparam DOUTSelect_1_i_0_0_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_i_a3_xx_6_ (
+	.combout(PortCOutLd_i_a3_xx_2),
+	.dataa(DIN_c_1),
+	.datab(DIN_c_0),
+	.datac(PortCOutLd_i_a2_0),
+	.datad(PortCOutLd_m0_i_a2_x_0)
+);
+defparam PortCOutLd_i_a3_xx_6_.lut_mask="2000";
+defparam PortCOutLd_i_a3_xx_6_.sum_lutc_input="datac";
+  cycloneii_lcell_comb PortCOutLd_i_a3_xx_mm_a_1_ (
+	.combout(PortCOutLd_i_a3_xx_mm_a[1]),
+	.dataa(DIN_c_0),
+	.datab(DIN_c_1),
+	.datac(A_c_0),
+	.datad(DIN_c_2)
+);
+defparam PortCOutLd_i_a3_xx_mm_a_1_.lut_mask="0020";
+defparam PortCOutLd_i_a3_xx_mm_a_1_.sum_lutc_input="datac";
+  cycloneii_lcell_comb PortCOutLd_i_a3_xx_mm_1_ (
+	.combout(PortCOutLd_i_a3_xx_mm_0),
+	.dataa(PortCOutLd_i_a2_0),
+	.datab(PortCOutLd_i_a3_xx_mm_a[1]),
+	.datac(DOUTSelect_1_i_0_a2_x_0),
+	.datad(PortCOutLd_m2s2_0)
+);
+defparam PortCOutLd_i_a3_xx_mm_1_.lut_mask="0a88";
+defparam PortCOutLd_i_a3_xx_mm_1_.sum_lutc_input="datac";
+  cycloneii_lcell_comb PortCOutLd_i_a3_xx_mm_a_2_ (
+	.combout(PortCOutLd_i_a3_xx_mm_a[2]),
+	.dataa(DIN_c_1),
+	.datab(DIN_c_0),
+	.datac(A_c_0),
+	.datad(DIN_c_2)
+);
+defparam PortCOutLd_i_a3_xx_mm_a_2_.lut_mask="0020";
+defparam PortCOutLd_i_a3_xx_mm_a_2_.sum_lutc_input="datac";
+  cycloneii_lcell_comb PortCOutLd_i_a3_xx_mm_2_ (
+	.combout(PortCOutLd_i_a3_xx_mm_1),
+	.dataa(PortCOutLd_i_a2_0),
+	.datab(PortCOutLd_i_a3_xx_mm_a[2]),
+	.datac(PortCOutLd_0_i_a3_1_x_0),
+	.datad(PortCOutLd_m2s2_0)
+);
+defparam PortCOutLd_i_a3_xx_mm_2_.lut_mask="a088";
+defparam PortCOutLd_i_a3_xx_mm_2_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_0_i_a3_0_a_3_ (
+	.combout(PortCOutLd_0_i_a3_0_a[3]),
+	.dataa(DIN_c_0),
+	.datab(DIN_c_1),
+	.datac(A_c_0),
+	.datad(DIN_c_2)
+);
+defparam PortCOutLd_0_i_a3_0_a_3_.lut_mask="0080";
+defparam PortCOutLd_0_i_a3_0_a_3_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_0_i_a3_0_3_ (
+	.combout(PortCOutLd_0_i_a3_0_0),
+	.dataa(A_c_1),
+	.datab(DIN_c_6),
+	.datac(PortAWrite_1_i_a2_x),
+	.datad(PortCOutLd_0_i_a3_0_a[3])
+);
+defparam PortCOutLd_0_i_a3_0_3_.lut_mask="2000";
+defparam PortCOutLd_0_i_a3_0_3_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_i_a3_0_0_ (
+	.combout(PortCOutLd_i_a3_0_0),
+	.dataa(PortCOutLd_m2s2_0_a2_0),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_4),
+	.datad(ControlRegQ_0)
+);
+defparam PortCOutLd_i_a3_0_0_.lut_mask="0002";
+defparam PortCOutLd_i_a3_0_0_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_m2s2_0_cZ (
+	.combout(PortCOutLd_m2s2_0),
+	.dataa(PortCOutLd_m2s2_0_a2_0),
+	.datab(ControlRegQ_3),
+	.datac(ControlRegQ_4),
+	.datad(ControlRegQ_0)
+);
+defparam PortCOutLd_m2s2_0_cZ.lut_mask="02aa";
+defparam PortCOutLd_m2s2_0_cZ.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_i_a3_yy_x_7_ (
+	.combout(PortCOutLd_i_a3_yy_x_0),
+	.dataa(VCC),
+	.datab(A_c_0),
+	.datac(PortCOutLd_i_a2_0),
+	.datad(ControlRegQ_0)
+);
+defparam PortCOutLd_i_a3_yy_x_7_.lut_mask="f0c0";
+defparam PortCOutLd_i_a3_yy_x_7_.sum_lutc_input="datac";
+// @2:144
+  cycloneii_lcell_comb DOUTSelect_1_i_0_a2_x_0_ (
+	.combout(DOUTSelect_1_i_0_a2_x_0),
+	.dataa(VCC),
+	.datab(A_c_0),
+	.datac(ControlRegQ_3),
+	.datad(ControlRegQ_4)
+);
+defparam DOUTSelect_1_i_0_a2_x_0_.lut_mask="0003";
+defparam DOUTSelect_1_i_0_a2_x_0_.sum_lutc_input="datac";
+// @2:102
+  cycloneii_lcell_comb PCEN_1_i_a3_x_3_ (
+	.combout(N_148_i),
+	.dataa(VCC),
+	.datab(ControlRegQ_i_0_0),
+	.datac(ControlRegQ_0),
+	.datad(ControlRegQ_4)
+);
+defparam PCEN_1_i_a3_x_3_.lut_mask="fffc";
+defparam PCEN_1_i_a3_x_3_.sum_lutc_input="datac";
+// @2:102
+  cycloneii_lcell_comb PCEN_1_0_a3_x_2_ (
+	.combout(PCEN_1_0_a3_x_0),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(ControlRegQ_i_0_0),
+	.datad(ControlRegQ_0)
+);
+defparam PCEN_1_0_a3_x_2_.lut_mask="00f0";
+defparam PCEN_1_0_a3_x_2_.sum_lutc_input="datac";
+// @2:102
+  cycloneii_lcell_comb PCEN_1_i_a2_x_0_ (
+	.combout(PCEN_1_i_a2_x_0),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(ControlRegQ_i_0_0),
+	.datad(ControlRegQ_0)
+);
+defparam PCEN_1_i_a2_x_0_.lut_mask="fff0";
+defparam PCEN_1_i_a2_x_0_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_0_i_a3_1_x_3_ (
+	.combout(PortCOutLd_0_i_a3_1_x_0),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(A_c_0),
+	.datad(ControlRegQ_0)
+);
+defparam PortCOutLd_0_i_a3_1_x_3_.lut_mask="000f";
+defparam PortCOutLd_0_i_a3_1_x_3_.sum_lutc_input="datac";
+// @2:172
+  cycloneii_lcell_comb PortCOutLd_m0_i_a2_x_4_ (
+	.combout(PortCOutLd_m0_i_a2_x_0),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(DIN_c_2),
+	.datad(A_c_0)
+);
+defparam PortCOutLd_m0_i_a2_x_4_.lut_mask="f000";
+defparam PortCOutLd_m0_i_a2_x_4_.sum_lutc_input="datac";
+// @2:91
+  cycloneii_lcell_comb PortAWrite_1_i_a2_x_cZ (
+	.combout(PortAWrite_1_i_a2_x),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(nWR_c),
+	.datad(nCS_c)
+);
+defparam PortAWrite_1_i_a2_x_cZ.lut_mask="000f";
+defparam PortAWrite_1_i_a2_x_cZ.sum_lutc_input="datac";
+// @2:121
+  cycloneii_lcell_comb PAEN_0_m2_x (
+	.combout(N_140_i),
+	.dataa(VCC),
+	.datab(PCIN_c_0),
+	.datac(ControlRegQ_4),
+	.datad(ControlRegQ_i_3)
+);
+defparam PAEN_0_m2_x.lut_mask="3f30";
+defparam PAEN_0_m2_x.sum_lutc_input="datac";
+endmodule /* cntl_log */
+
+// VQM4.1+ 
+module portaout (
+  DIN_c_0,
+  DIN_c_1,
+  DIN_c_2,
+  DIN_c_3,
+  DIN_c_4,
+  DIN_c_5,
+  DIN_c_6,
+  DIN_c_7,
+  PortAOutRegQ_0,
+  PortAOutRegQ_1,
+  PortAOutRegQ_2,
+  PortAOutRegQ_3,
+  PortAOutRegQ_4,
+  PortAOutRegQ_5,
+  PortAOutRegQ_6,
+  PortAOutRegQ_7,
+  PortAWrite_1_i_a3,
+  RESET_c,
+  CLK_c
+);
+input DIN_c_0 ;
+input DIN_c_1 ;
+input DIN_c_2 ;
+input DIN_c_3 ;
+input DIN_c_4 ;
+input DIN_c_5 ;
+input DIN_c_6 ;
+input DIN_c_7 ;
+output PortAOutRegQ_0 ;
+output PortAOutRegQ_1 ;
+output PortAOutRegQ_2 ;
+output PortAOutRegQ_3 ;
+output PortAOutRegQ_4 ;
+output PortAOutRegQ_5 ;
+output PortAOutRegQ_6 ;
+output PortAOutRegQ_7 ;
+input PortAWrite_1_i_a3 ;
+input RESET_c ;
+input CLK_c ;
+wire DIN_c_0 ;
+wire DIN_c_1 ;
+wire DIN_c_2 ;
+wire DIN_c_3 ;
+wire DIN_c_4 ;
+wire DIN_c_5 ;
+wire DIN_c_6 ;
+wire DIN_c_7 ;
+wire PortAOutRegQ_0 ;
+wire PortAOutRegQ_1 ;
+wire PortAOutRegQ_2 ;
+wire PortAOutRegQ_3 ;
+wire PortAOutRegQ_4 ;
+wire PortAOutRegQ_5 ;
+wire PortAOutRegQ_6 ;
+wire PortAOutRegQ_7 ;
+wire PortAWrite_1_i_a3 ;
+wire RESET_c ;
+wire CLK_c ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:71
+  cycloneii_lcell_ff PortAOutRegQ_7__Z (
+	.regout(PortAOutRegQ_7),
+	.datain(DIN_c_7),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortAWrite_1_i_a3)
+);
+// @6:71
+  cycloneii_lcell_ff PortAOutRegQ_6__Z (
+	.regout(PortAOutRegQ_6),
+	.datain(DIN_c_6),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortAWrite_1_i_a3)
+);
+// @6:71
+  cycloneii_lcell_ff PortAOutRegQ_5__Z (
+	.regout(PortAOutRegQ_5),
+	.datain(DIN_c_5),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortAWrite_1_i_a3)
+);
+// @6:71
+  cycloneii_lcell_ff PortAOutRegQ_4__Z (
+	.regout(PortAOutRegQ_4),
+	.datain(DIN_c_4),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortAWrite_1_i_a3)
+);
+// @6:71
+  cycloneii_lcell_ff PortAOutRegQ_3__Z (
+	.regout(PortAOutRegQ_3),
+	.datain(DIN_c_3),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortAWrite_1_i_a3)
+);
+// @6:71
+  cycloneii_lcell_ff PortAOutRegQ_2__Z (
+	.regout(PortAOutRegQ_2),
+	.datain(DIN_c_2),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortAWrite_1_i_a3)
+);
+// @6:71
+  cycloneii_lcell_ff PortAOutRegQ_1__Z (
+	.regout(PortAOutRegQ_1),
+	.datain(DIN_c_1),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortAWrite_1_i_a3)
+);
+// @6:71
+  cycloneii_lcell_ff PortAOutRegQ_0__Z (
+	.regout(PortAOutRegQ_0),
+	.datain(DIN_c_0),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortAWrite_1_i_a3)
+);
+endmodule /* portaout */
+
+// VQM4.1+ 
+module portain (
+  PCIN_c_0,
+  PAIN_c_0,
+  PAIN_c_1,
+  PAIN_c_2,
+  PAIN_c_3,
+  PAIN_c_4,
+  PAIN_c_5,
+  PAIN_c_6,
+  PAIN_c_7,
+  PortAInRegQ_0,
+  PortAInRegQ_1,
+  PortAInRegQ_2,
+  PortAInRegQ_3,
+  PortAInRegQ_4,
+  PortAInRegQ_5,
+  PortAInRegQ_6,
+  PortAInRegQ_7,
+  RESET_c,
+  CLK_c
+);
+input PCIN_c_0 ;
+input PAIN_c_0 ;
+input PAIN_c_1 ;
+input PAIN_c_2 ;
+input PAIN_c_3 ;
+input PAIN_c_4 ;
+input PAIN_c_5 ;
+input PAIN_c_6 ;
+input PAIN_c_7 ;
+output PortAInRegQ_0 ;
+output PortAInRegQ_1 ;
+output PortAInRegQ_2 ;
+output PortAInRegQ_3 ;
+output PortAInRegQ_4 ;
+output PortAInRegQ_5 ;
+output PortAInRegQ_6 ;
+output PortAInRegQ_7 ;
+input RESET_c ;
+input CLK_c ;
+wire PCIN_c_0 ;
+wire PAIN_c_0 ;
+wire PAIN_c_1 ;
+wire PAIN_c_2 ;
+wire PAIN_c_3 ;
+wire PAIN_c_4 ;
+wire PAIN_c_5 ;
+wire PAIN_c_6 ;
+wire PAIN_c_7 ;
+wire PortAInRegQ_0 ;
+wire PortAInRegQ_1 ;
+wire PortAInRegQ_2 ;
+wire PortAInRegQ_3 ;
+wire PortAInRegQ_4 ;
+wire PortAInRegQ_5 ;
+wire PortAInRegQ_6 ;
+wire PortAInRegQ_7 ;
+wire RESET_c ;
+wire CLK_c ;
+wire GND ;
+wire VCC ;
+wire PCIN_c_0_i ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @5:71
+  cycloneii_lcell_ff PortAInRegQ_7__Z (
+	.regout(PortAInRegQ_7),
+	.datain(PAIN_c_7),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @5:71
+  cycloneii_lcell_ff PortAInRegQ_6__Z (
+	.regout(PortAInRegQ_6),
+	.datain(PAIN_c_6),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @5:71
+  cycloneii_lcell_ff PortAInRegQ_5__Z (
+	.regout(PortAInRegQ_5),
+	.datain(PAIN_c_5),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @5:71
+  cycloneii_lcell_ff PortAInRegQ_4__Z (
+	.regout(PortAInRegQ_4),
+	.datain(PAIN_c_4),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @5:71
+  cycloneii_lcell_ff PortAInRegQ_3__Z (
+	.regout(PortAInRegQ_3),
+	.datain(PAIN_c_3),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @5:71
+  cycloneii_lcell_ff PortAInRegQ_2__Z (
+	.regout(PortAInRegQ_2),
+	.datain(PAIN_c_2),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @5:71
+  cycloneii_lcell_ff PortAInRegQ_1__Z (
+	.regout(PortAInRegQ_1),
+	.datain(PAIN_c_1),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @5:71
+  cycloneii_lcell_ff PortAInRegQ_0__Z (
+	.regout(PortAInRegQ_0),
+	.datain(PAIN_c_0),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+  assign  PCIN_c_0_i = ~ PCIN_c_0;
+endmodule /* portain */
+
+// VQM4.1+ 
+module portbout (
+  DIN_c_0,
+  DIN_c_1,
+  DIN_c_2,
+  DIN_c_3,
+  DIN_c_4,
+  DIN_c_5,
+  DIN_c_6,
+  DIN_c_7,
+  PortBOutRegQ_0,
+  PortBOutRegQ_1,
+  PortBOutRegQ_2,
+  PortBOutRegQ_3,
+  PortBOutRegQ_4,
+  PortBOutRegQ_5,
+  PortBOutRegQ_6,
+  PortBOutRegQ_7,
+  PortBWrite_1_i_a3,
+  RESET_c,
+  CLK_c
+);
+input DIN_c_0 ;
+input DIN_c_1 ;
+input DIN_c_2 ;
+input DIN_c_3 ;
+input DIN_c_4 ;
+input DIN_c_5 ;
+input DIN_c_6 ;
+input DIN_c_7 ;
+output PortBOutRegQ_0 ;
+output PortBOutRegQ_1 ;
+output PortBOutRegQ_2 ;
+output PortBOutRegQ_3 ;
+output PortBOutRegQ_4 ;
+output PortBOutRegQ_5 ;
+output PortBOutRegQ_6 ;
+output PortBOutRegQ_7 ;
+input PortBWrite_1_i_a3 ;
+input RESET_c ;
+input CLK_c ;
+wire DIN_c_0 ;
+wire DIN_c_1 ;
+wire DIN_c_2 ;
+wire DIN_c_3 ;
+wire DIN_c_4 ;
+wire DIN_c_5 ;
+wire DIN_c_6 ;
+wire DIN_c_7 ;
+wire PortBOutRegQ_0 ;
+wire PortBOutRegQ_1 ;
+wire PortBOutRegQ_2 ;
+wire PortBOutRegQ_3 ;
+wire PortBOutRegQ_4 ;
+wire PortBOutRegQ_5 ;
+wire PortBOutRegQ_6 ;
+wire PortBOutRegQ_7 ;
+wire PortBWrite_1_i_a3 ;
+wire RESET_c ;
+wire CLK_c ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @8:74
+  cycloneii_lcell_ff PortBOutRegQ_7__Z (
+	.regout(PortBOutRegQ_7),
+	.datain(DIN_c_7),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortBWrite_1_i_a3)
+);
+// @8:74
+  cycloneii_lcell_ff PortBOutRegQ_6__Z (
+	.regout(PortBOutRegQ_6),
+	.datain(DIN_c_6),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortBWrite_1_i_a3)
+);
+// @8:74
+  cycloneii_lcell_ff PortBOutRegQ_5__Z (
+	.regout(PortBOutRegQ_5),
+	.datain(DIN_c_5),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortBWrite_1_i_a3)
+);
+// @8:74
+  cycloneii_lcell_ff PortBOutRegQ_4__Z (
+	.regout(PortBOutRegQ_4),
+	.datain(DIN_c_4),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortBWrite_1_i_a3)
+);
+// @8:74
+  cycloneii_lcell_ff PortBOutRegQ_3__Z (
+	.regout(PortBOutRegQ_3),
+	.datain(DIN_c_3),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortBWrite_1_i_a3)
+);
+// @8:74
+  cycloneii_lcell_ff PortBOutRegQ_2__Z (
+	.regout(PortBOutRegQ_2),
+	.datain(DIN_c_2),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortBWrite_1_i_a3)
+);
+// @8:74
+  cycloneii_lcell_ff PortBOutRegQ_1__Z (
+	.regout(PortBOutRegQ_1),
+	.datain(DIN_c_1),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortBWrite_1_i_a3)
+);
+// @8:74
+  cycloneii_lcell_ff PortBOutRegQ_0__Z (
+	.regout(PortBOutRegQ_0),
+	.datain(DIN_c_0),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PortBWrite_1_i_a3)
+);
+endmodule /* portbout */
+
+// VQM4.1+ 
+module portbin (
+  PCIN_c_0,
+  PBIN_c_0,
+  PBIN_c_1,
+  PBIN_c_2,
+  PBIN_c_3,
+  PBIN_c_4,
+  PBIN_c_5,
+  PBIN_c_6,
+  PBIN_c_7,
+  PortBInRegQ_0,
+  PortBInRegQ_1,
+  PortBInRegQ_2,
+  PortBInRegQ_3,
+  PortBInRegQ_4,
+  PortBInRegQ_5,
+  PortBInRegQ_6,
+  PortBInRegQ_7,
+  RESET_c,
+  CLK_c
+);
+input PCIN_c_0 ;
+input PBIN_c_0 ;
+input PBIN_c_1 ;
+input PBIN_c_2 ;
+input PBIN_c_3 ;
+input PBIN_c_4 ;
+input PBIN_c_5 ;
+input PBIN_c_6 ;
+input PBIN_c_7 ;
+output PortBInRegQ_0 ;
+output PortBInRegQ_1 ;
+output PortBInRegQ_2 ;
+output PortBInRegQ_3 ;
+output PortBInRegQ_4 ;
+output PortBInRegQ_5 ;
+output PortBInRegQ_6 ;
+output PortBInRegQ_7 ;
+input RESET_c ;
+input CLK_c ;
+wire PCIN_c_0 ;
+wire PBIN_c_0 ;
+wire PBIN_c_1 ;
+wire PBIN_c_2 ;
+wire PBIN_c_3 ;
+wire PBIN_c_4 ;
+wire PBIN_c_5 ;
+wire PBIN_c_6 ;
+wire PBIN_c_7 ;
+wire PortBInRegQ_0 ;
+wire PortBInRegQ_1 ;
+wire PortBInRegQ_2 ;
+wire PortBInRegQ_3 ;
+wire PortBInRegQ_4 ;
+wire PortBInRegQ_5 ;
+wire PortBInRegQ_6 ;
+wire PortBInRegQ_7 ;
+wire RESET_c ;
+wire CLK_c ;
+wire GND ;
+wire VCC ;
+wire PCIN_c_0_i ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @7:71
+  cycloneii_lcell_ff PortBInRegQ_7__Z (
+	.regout(PortBInRegQ_7),
+	.datain(PBIN_c_7),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @7:71
+  cycloneii_lcell_ff PortBInRegQ_6__Z (
+	.regout(PortBInRegQ_6),
+	.datain(PBIN_c_6),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @7:71
+  cycloneii_lcell_ff PortBInRegQ_5__Z (
+	.regout(PortBInRegQ_5),
+	.datain(PBIN_c_5),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @7:71
+  cycloneii_lcell_ff PortBInRegQ_4__Z (
+	.regout(PortBInRegQ_4),
+	.datain(PBIN_c_4),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @7:71
+  cycloneii_lcell_ff PortBInRegQ_3__Z (
+	.regout(PortBInRegQ_3),
+	.datain(PBIN_c_3),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @7:71
+  cycloneii_lcell_ff PortBInRegQ_2__Z (
+	.regout(PortBInRegQ_2),
+	.datain(PBIN_c_2),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @7:71
+  cycloneii_lcell_ff PortBInRegQ_1__Z (
+	.regout(PortBInRegQ_1),
+	.datain(PBIN_c_1),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+// @7:71
+  cycloneii_lcell_ff PortBInRegQ_0__Z (
+	.regout(PortBInRegQ_0),
+	.datain(PBIN_c_0),
+	.clk(CLK_c),
+	.aclr(RESET_c),
+	.ena(PCIN_c_0_i)
+);
+  assign  PCIN_c_0_i = ~ PCIN_c_0;
+endmodule /* portbin */
+
+// VQM4.1+ 
+module portcout (
+  PortCOutLd_i_a3_yy_x_0,
+  un1_portcoutld_1_i_a_0,
+  ControlRegQ_i_m_i_o3_0,
+  DOUTSelect_1_i_0_a2_x_0,
+  PortCOutLd_m0_i_a3_0,
+  PortCOutLd_0_i_a3_0_0,
+  A_c_0,
+  A_c_1,
+  un1_portcoutld_1_i_0_0,
+  PortCOutLd_i_a3_0_0,
+  PortCOutLd_0_i_a3_1_x_0,
+  PortCOutLd_i_a3_xx_0,
+  PortCOutLd_i_a3_xx_2,
+  PortCOutLd_i_a3_xx_3,
+  PortCOutLd_i_a2_0,
+  DIN_c_3,
+  DIN_c_0,
+  DIN_c_4,
+  DIN_c_6,
+  ControlRegQ_i_0,
+  ControlRegQ_i_3,
+  ControlRegQ_0,
+  ControlRegQ_3,
+  ControlRegQ_4,
+  PortCOutLd_i_a3_xx_mm_0,
+  PortCOutLd_i_a3_xx_mm_1,
+  PortCOutRegQ_ena_0,
+  PCIN_c_0,
+  PCIN_c_2,
+  PCIN_c_4,
+  PortCOutRegQ_7,
+  PortCOutRegQ_5,
+  PortCOutRegQ_2,
+  PortCOutRegQ_1,
+  PortCOutRegQ_0,
+  PortCOutRegQ_3,
+  PortCOutRegQ_4,
+  PortCOutRegQ_6,
+  un4_ncs_0_a3,
+  PortAWrite_1_i_a2_x,
+  PortCOutLd_m2s2_0,
+  PortBWrite_1_i_a3,
+  PortCOutRegD_1_sqmuxa_16_i_i_o2,
+  PortAWrite_1_i_a3,
+  I_111,
+  I_87,
+  I_66_x,
+  I_59_x,
+  PortARead_i_a3,
+  RisePortAReadQ,
+  PortAWrite_i_0_i_x_i,
+  RisePortAWriteQ,
+  PortBRead_i_a3,
+  PortBWrite_i_0_i_x_i,
+  RESET_c,
+  CLK_c
+);
+input PortCOutLd_i_a3_yy_x_0 ;
+output un1_portcoutld_1_i_a_0 ;
+input ControlRegQ_i_m_i_o3_0 ;
+input DOUTSelect_1_i_0_a2_x_0 ;
+input PortCOutLd_m0_i_a3_0 ;
+input PortCOutLd_0_i_a3_0_0 ;
+input A_c_0 ;
+input A_c_1 ;
+output un1_portcoutld_1_i_0_0 ;
+input PortCOutLd_i_a3_0_0 ;
+input PortCOutLd_0_i_a3_1_x_0 ;
+input PortCOutLd_i_a3_xx_0 ;
+input PortCOutLd_i_a3_xx_2 ;
+input PortCOutLd_i_a3_xx_3 ;
+input PortCOutLd_i_a2_0 ;
+input DIN_c_3 ;
+input DIN_c_0 ;
+input DIN_c_4 ;
+input DIN_c_6 ;
+input ControlRegQ_i_0 ;
+input ControlRegQ_i_3 ;
+input ControlRegQ_0 ;
+input ControlRegQ_3 ;
+input ControlRegQ_4 ;
+input PortCOutLd_i_a3_xx_mm_0 ;
+input PortCOutLd_i_a3_xx_mm_1 ;
+input PortCOutRegQ_ena_0 ;
+input PCIN_c_0 ;
+input PCIN_c_2 ;
+input PCIN_c_4 ;
+output PortCOutRegQ_7 ;
+output PortCOutRegQ_5 ;
+output PortCOutRegQ_2 ;
+output PortCOutRegQ_1 ;
+output PortCOutRegQ_0 ;
+output PortCOutRegQ_3 ;
+output PortCOutRegQ_4 ;
+output PortCOutRegQ_6 ;
+input un4_ncs_0_a3 ;
+input PortAWrite_1_i_a2_x ;
+input PortCOutLd_m2s2_0 ;
+input PortBWrite_1_i_a3 ;
+output PortCOutRegD_1_sqmuxa_16_i_i_o2 ;
+input PortAWrite_1_i_a3 ;
+input I_111 ;
+input I_87 ;
+input I_66_x ;
+input I_59_x ;
+input PortARead_i_a3 ;
+output RisePortAReadQ ;
+input PortAWrite_i_0_i_x_i ;
+output RisePortAWriteQ ;
+input PortBRead_i_a3 ;
+input PortBWrite_i_0_i_x_i ;
+input RESET_c ;
+input CLK_c ;
+wire PortCOutLd_i_a3_yy_x_0 ;
+wire un1_portcoutld_1_i_a_0 ;
+wire ControlRegQ_i_m_i_o3_0 ;
+wire DOUTSelect_1_i_0_a2_x_0 ;
+wire PortCOutLd_m0_i_a3_0 ;
+wire PortCOutLd_0_i_a3_0_0 ;
+wire A_c_0 ;
+wire A_c_1 ;
+wire un1_portcoutld_1_i_0_0 ;
+wire PortCOutLd_i_a3_0_0 ;
+wire PortCOutLd_0_i_a3_1_x_0 ;
+wire PortCOutLd_i_a3_xx_0 ;
+wire PortCOutLd_i_a3_xx_2 ;
+wire PortCOutLd_i_a3_xx_3 ;
+wire PortCOutLd_i_a2_0 ;
+wire DIN_c_3 ;
+wire DIN_c_0 ;
+wire DIN_c_4 ;
+wire DIN_c_6 ;
+wire ControlRegQ_i_0 ;
+wire ControlRegQ_i_3 ;
+wire ControlRegQ_0 ;
+wire ControlRegQ_3 ;
+wire ControlRegQ_4 ;
+wire PortCOutLd_i_a3_xx_mm_0 ;
+wire PortCOutLd_i_a3_xx_mm_1 ;
+wire PortCOutRegQ_ena_0 ;
+wire PCIN_c_0 ;
+wire PCIN_c_2 ;
+wire PCIN_c_4 ;
+wire PortCOutRegQ_7 ;
+wire PortCOutRegQ_5 ;
+wire PortCOutRegQ_2 ;
+wire PortCOutRegQ_1 ;
+wire PortCOutRegQ_0 ;
+wire PortCOutRegQ_3 ;
+wire PortCOutRegQ_4 ;
+wire PortCOutRegQ_6 ;
+wire un4_ncs_0_a3 ;
+wire PortAWrite_1_i_a2_x ;
+wire PortCOutLd_m2s2_0 ;
+wire PortBWrite_1_i_a3 ;
+wire PortCOutRegD_1_sqmuxa_16_i_i_o2 ;
+wire PortAWrite_1_i_a3 ;
+wire I_111 ;
+wire I_87 ;
+wire I_66_x ;
+wire I_59_x ;
+wire PortARead_i_a3 ;
+wire RisePortAReadQ ;
+wire PortAWrite_i_0_i_x_i ;
+wire RisePortAWriteQ ;
+wire PortBRead_i_a3 ;
+wire PortBWrite_i_0_i_x_i ;
+wire RESET_c ;
+wire CLK_c ;
+wire [6:4] PortCOutRegD_iv;
+wire [3:3] PortCOutRegQ_1_Z;
+wire [7:1] PortCOutRegQ_ena;
+wire [6:4] DIN_i_m;
+wire [4:4] DIN_i_m_a_x;
+wire [0:0] un1_portcoutld_1_i_0_a_x;
+wire [3:3] PortCOutRegD_m0_0_0;
+wire [6:4] PortCOutRegD_iv_a;
+wire [0:0] DIN_i_m_0_0_0_x;
+wire [3:3] PortCOutRegD_0_a;
+wire [3:3] PortCOutRegD_0;
+wire [3:3] PortCOutRegD_0_d_d_x;
+wire RisePortBWriteQ ;
+wire RisePortBReadQ ;
+wire RisePCIN6Q ;
+wire RisePCIN4Q ;
+wire RisePCIN2Q ;
+wire PortCOutRegD_d3_2_i ;
+wire PortCOutRegD_d3_0 ;
+wire PortCOutRegD_d3 ;
+wire PortCOutRegD_d3_0_0 ;
+wire PortCOutRegD_d3_0_0_a_x ;
+wire un1_PortCOutRegD_2_sqmuxa_2 ;
+wire un1_PortCOutRegD_4_sqmuxa_tz ;
+wire un1_PortCOutRegD_4_sqmuxa_tz_a_x ;
+wire PortCOutRegD_1_sqmuxa_16_i_i_o2_a_x ;
+wire PortCOutRegD_d3_0_0_0_tz ;
+wire PortCOutRegD_d3_a ;
+wire un1_PortCOutRegD_4_sqmuxa_2 ;
+wire PortCOutRegD_d3_2_i_o2_0_a ;
+wire PortCOutRegD_d3_2_i_o2_0 ;
+wire PortCOutRegD_1_sqmuxa_16_i_i_a2_0_0_x ;
+wire PortCOutRegD_1_sqmuxa_5_a ;
+wire PortCOutRegD_1_sqmuxa_5 ;
+wire PortCOutRegD_1_sqmuxa_2_a ;
+wire PortCOutRegD_1_sqmuxa_2 ;
+wire un1_PortCOutRegD_2_sqmuxa_a ;
+wire un1_PortCOutRegD_2_sqmuxa_combout ;
+wire PortCOutRegD_d3_0_a ;
+wire PortCOutRegD_d4_a ;
+wire PortCOutRegD_1_sqmuxa_3_x ;
+wire PortCOutRegD_d4 ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @9:388
+  cycloneii_lcell_ff PortCOutRegQ_6__Z (
+	.regout(PortCOutRegQ_6),
+	.datain(PortCOutRegD_iv[6]),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:388
+  cycloneii_lcell_ff PortCOutRegQ_4__Z (
+	.regout(PortCOutRegQ_4),
+	.datain(PortCOutRegD_iv[4]),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:388
+  cycloneii_lcell_ff PortCOutRegQ_3__Z (
+	.regout(PortCOutRegQ_3),
+	.datain(PortCOutRegQ_1_Z[3]),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:404
+  cycloneii_lcell_ff RisePortBWriteQ_Z (
+	.regout(RisePortBWriteQ),
+	.datain(PortBWrite_i_0_i_x_i),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:404
+  cycloneii_lcell_ff RisePortBReadQ_Z (
+	.regout(RisePortBReadQ),
+	.datain(PortBRead_i_a3),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:404
+  cycloneii_lcell_ff RisePortAWriteQ_Z (
+	.regout(RisePortAWriteQ),
+	.datain(PortAWrite_i_0_i_x_i),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:404
+  cycloneii_lcell_ff RisePortAReadQ_Z (
+	.regout(RisePortAReadQ),
+	.datain(PortARead_i_a3),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:404
+  cycloneii_lcell_ff RisePCIN6Q_Z (
+	.regout(RisePCIN6Q),
+	.datain(PCIN_c_4),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:404
+  cycloneii_lcell_ff RisePCIN4Q_Z (
+	.regout(RisePCIN4Q),
+	.datain(PCIN_c_2),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:404
+  cycloneii_lcell_ff RisePCIN2Q_Z (
+	.regout(RisePCIN2Q),
+	.datain(PCIN_c_0),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:388
+  cycloneii_lcell_ff PortCOutRegQ_0__Z (
+	.regout(PortCOutRegQ_0),
+	.datain(PortCOutRegQ_ena_0),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:388
+  cycloneii_lcell_ff PortCOutRegQ_1__Z (
+	.regout(PortCOutRegQ_1),
+	.datain(PortCOutRegQ_ena[1]),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:388
+  cycloneii_lcell_ff PortCOutRegQ_2__Z (
+	.regout(PortCOutRegQ_2),
+	.datain(PortCOutRegQ_ena[2]),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:388
+  cycloneii_lcell_ff PortCOutRegQ_5__Z (
+	.regout(PortCOutRegQ_5),
+	.datain(PortCOutRegQ_ena[5]),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:388
+  cycloneii_lcell_ff PortCOutRegQ_7__Z (
+	.regout(PortCOutRegQ_7),
+	.datain(PortCOutRegQ_ena[7]),
+	.clk(CLK_c),
+	.aclr(RESET_c)
+);
+// @9:388
+  cycloneii_lcell_comb PortCOutRegQ_ena_1_ (
+	.combout(PortCOutRegQ_ena[1]),
+	.dataa(VCC),
+	.datab(PortCOutRegQ_1),
+	.datac(PortCOutRegD_d3_2_i),
+	.datad(I_59_x)
+);
+defparam PortCOutRegQ_ena_1_.lut_mask="fc0c";
+defparam PortCOutRegQ_ena_1_.sum_lutc_input="datac";
+// @9:388
+  cycloneii_lcell_comb PortCOutRegQ_ena_2_ (
+	.combout(PortCOutRegQ_ena[2]),
+	.dataa(VCC),
+	.datab(I_66_x),
+	.datac(PortCOutRegQ_2),
+	.datad(PortCOutLd_i_a3_xx_mm_1)
+);
+defparam PortCOutRegQ_ena_2_.lut_mask="ccf0";
+defparam PortCOutRegQ_ena_2_.sum_lutc_input="datac";
+// @9:388
+  cycloneii_lcell_comb PortCOutRegQ_ena_5_ (
+	.combout(PortCOutRegQ_ena[5]),
+	.dataa(VCC),
+	.datab(PortCOutRegQ_5),
+	.datac(I_87),
+	.datad(PortCOutRegD_d3_0)
+);
+defparam PortCOutRegQ_ena_5_.lut_mask="f0cc";
+defparam PortCOutRegQ_ena_5_.sum_lutc_input="datac";
+// @9:388
+  cycloneii_lcell_comb PortCOutRegQ_ena_7_ (
+	.combout(PortCOutRegQ_ena[7]),
+	.dataa(VCC),
+	.datab(PortCOutRegQ_7),
+	.datac(PortCOutRegD_d3),
+	.datad(I_111)
+);
+defparam PortCOutRegQ_ena_7_.lut_mask="fc0c";
+defparam PortCOutRegQ_ena_7_.sum_lutc_input="datac";
+// @9:340
+  cycloneii_lcell_comb PortCOutRegD_d3_0_0_cZ (
+	.combout(PortCOutRegD_d3_0_0),
+	.dataa(ControlRegQ_4),
+	.datab(ControlRegQ_i_3),
+	.datac(ControlRegQ_3),
+	.datad(PortCOutRegD_d3_0_0_a_x)
+);
+defparam PortCOutRegD_d3_0_0_cZ.lut_mask="15ff";
+defparam PortCOutRegD_d3_0_0_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb un1_PortCOutRegD_2_sqmuxa_2_cZ (
+	.combout(un1_PortCOutRegD_2_sqmuxa_2),
+	.dataa(PortAWrite_1_i_a3),
+	.datab(PCIN_c_4),
+	.datac(RisePCIN6Q),
+	.datad(PortCOutRegQ_7)
+);
+defparam un1_PortCOutRegD_2_sqmuxa_2_cZ.lut_mask="0400";
+defparam un1_PortCOutRegD_2_sqmuxa_2_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb un1_PortCOutRegD_4_sqmuxa_tz_cZ (
+	.combout(un1_PortCOutRegD_4_sqmuxa_tz),
+	.dataa(un1_PortCOutRegD_4_sqmuxa_tz_a_x),
+	.datab(ControlRegQ_4),
+	.datac(ControlRegQ_i_3),
+	.datad(ControlRegQ_3)
+);
+defparam un1_PortCOutRegD_4_sqmuxa_tz_cZ.lut_mask="8b88";
+defparam un1_PortCOutRegD_4_sqmuxa_tz_cZ.sum_lutc_input="datac";
+// @9:163
+  cycloneii_lcell_comb PortCOutRegD_1_sqmuxa_16_i_i_o2_cZ (
+	.combout(PortCOutRegD_1_sqmuxa_16_i_i_o2),
+	.dataa(PortBWrite_1_i_a3),
+	.datab(RisePortBWriteQ),
+	.datac(ControlRegQ_i_0),
+	.datad(PortCOutRegD_1_sqmuxa_16_i_i_o2_a_x)
+);
+defparam PortCOutRegD_1_sqmuxa_16_i_i_o2_cZ.lut_mask="1f10";
+defparam PortCOutRegD_1_sqmuxa_16_i_i_o2_cZ.sum_lutc_input="datac";
+// @9:280
+  cycloneii_lcell_comb PortCOutRegD_d3_0_0_0_tz_cZ (
+	.combout(PortCOutRegD_d3_0_0_0_tz),
+	.dataa(PCIN_c_2),
+	.datab(PortARead_i_a3),
+	.datac(RisePortAReadQ),
+	.datad(PortCOutRegQ_3)
+);
+defparam PortCOutRegD_d3_0_0_0_tz_cZ.lut_mask="aaa2";
+defparam PortCOutRegD_d3_0_0_0_tz_cZ.sum_lutc_input="datac";
+// @9:321
+  cycloneii_lcell_comb DIN_i_m_6_ (
+	.combout(DIN_i_m[6]),
+	.dataa(DIN_c_6),
+	.datab(DIN_i_m_a_x[4]),
+	.datac(ControlRegQ_4),
+	.datad(ControlRegQ_3)
+);
+defparam DIN_i_m_6_.lut_mask="0004";
+defparam DIN_i_m_6_.sum_lutc_input="datac";
+// @9:262
+  cycloneii_lcell_comb DIN_i_m_4_ (
+	.combout(DIN_i_m[4]),
+	.dataa(DIN_c_4),
+	.datab(DIN_i_m_a_x[4]),
+	.datac(ControlRegQ_4),
+	.datad(ControlRegQ_3)
+);
+defparam DIN_i_m_4_.lut_mask="0004";
+defparam DIN_i_m_4_.sum_lutc_input="datac";
+// @9:340
+  cycloneii_lcell_comb PortCOutRegD_d3_a_cZ (
+	.combout(PortCOutRegD_d3_a),
+	.dataa(PortCOutLd_i_a2_0),
+	.datab(PortCOutLd_i_a3_xx_3),
+	.datac(PortCOutLd_0_i_a3_1_x_0),
+	.datad(PortCOutLd_m2s2_0)
+);
+defparam PortCOutRegD_d3_a_cZ.lut_mask="0acc";
+defparam PortCOutRegD_d3_a_cZ.sum_lutc_input="datac";
+// @9:340
+  cycloneii_lcell_comb PortCOutRegD_d3_cZ (
+	.combout(PortCOutRegD_d3),
+	.dataa(VCC),
+	.datab(PortCOutLd_i_a3_0_0),
+	.datac(PortCOutRegD_d3_a),
+	.datad(PortCOutRegD_d3_0_0)
+);
+defparam PortCOutRegD_d3_cZ.lut_mask="fcff";
+defparam PortCOutRegD_d3_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb un1_PortCOutRegD_4_sqmuxa_2_cZ (
+	.combout(un1_PortCOutRegD_4_sqmuxa_2),
+	.dataa(PCIN_c_2),
+	.datab(PortARead_i_a3),
+	.datac(RisePCIN4Q),
+	.datad(PortCOutRegQ_5)
+);
+defparam un1_PortCOutRegD_4_sqmuxa_2_cZ.lut_mask="0800";
+defparam un1_PortCOutRegD_4_sqmuxa_2_cZ.sum_lutc_input="datac";
+// @9:163
+  cycloneii_lcell_comb PortCOutRegD_d3_2_i_o2_0_a_cZ (
+	.combout(PortCOutRegD_d3_2_i_o2_0_a),
+	.dataa(PortBWrite_1_i_a3),
+	.datab(RisePortBWriteQ),
+	.datac(ControlRegQ_i_0),
+	.datad(PortCOutRegQ_0)
+);
+defparam PortCOutRegD_d3_2_i_o2_0_a_cZ.lut_mask="101f";
+defparam PortCOutRegD_d3_2_i_o2_0_a_cZ.sum_lutc_input="datac";
+// @9:163
+  cycloneii_lcell_comb PortCOutRegD_d3_2_i_o2_0_cZ (
+	.combout(PortCOutRegD_d3_2_i_o2_0),
+	.dataa(PCIN_c_0),
+	.datab(ControlRegQ_i_0),
+	.datac(PortCOutRegD_1_sqmuxa_16_i_i_a2_0_0_x),
+	.datad(PortCOutRegD_d3_2_i_o2_0_a)
+);
+defparam PortCOutRegD_d3_2_i_o2_0_cZ.lut_mask="fd55";
+defparam PortCOutRegD_d3_2_i_o2_0_cZ.sum_lutc_input="datac";
+// @7:71
+  cycloneii_lcell_comb un1_portcoutld_1_i_0_0_ (
+	.combout(un1_portcoutld_1_i_0_0),
+	.dataa(PortBWrite_1_i_a3),
+	.datab(ControlRegQ_0),
+	.datac(ControlRegQ_i_0),
+	.datad(un1_portcoutld_1_i_0_a_x[0])
+);
+defparam un1_portcoutld_1_i_0_0_.lut_mask="8c80";
+defparam un1_portcoutld_1_i_0_0_.sum_lutc_input="datac";
+// @9:388
+  cycloneii_lcell_comb PortCOutRegD_1_sqmuxa_5_a_cZ (
+	.combout(PortCOutRegD_1_sqmuxa_5_a),
+	.dataa(PortAWrite_1_i_a3),
+	.datab(PortARead_i_a3),
+	.datac(ControlRegQ_i_3),
+	.datad(PortCOutRegQ_5)
+);
+defparam PortCOutRegD_1_sqmuxa_5_a_cZ.lut_mask="5c5f";
+defparam PortCOutRegD_1_sqmuxa_5_a_cZ.sum_lutc_input="datac";
+// @9:388
+  cycloneii_lcell_comb PortCOutRegD_1_sqmuxa_5_cZ (
+	.combout(PortCOutRegD_1_sqmuxa_5),
+	.dataa(VCC),
+	.datab(ControlRegQ_4),
+	.datac(ControlRegQ_3),
+	.datad(PortCOutRegD_1_sqmuxa_5_a)
+);
+defparam PortCOutRegD_1_sqmuxa_5_cZ.lut_mask="0030";
+defparam PortCOutRegD_1_sqmuxa_5_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb PortCOutRegD_1_sqmuxa_2_a_cZ (
+	.combout(PortCOutRegD_1_sqmuxa_2_a),
+	.dataa(A_c_1),
+	.datab(A_c_0),
+	.datac(PortAWrite_1_i_a2_x),
+	.datad(ControlRegQ_0)
+);
+defparam PortCOutRegD_1_sqmuxa_2_a_cZ.lut_mask="0020";
+defparam PortCOutRegD_1_sqmuxa_2_a_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb PortCOutRegD_1_sqmuxa_2_cZ (
+	.combout(PortCOutRegD_1_sqmuxa_2),
+	.dataa(PortCOutLd_0_i_a3_0_0),
+	.datab(ControlRegQ_4),
+	.datac(ControlRegQ_3),
+	.datad(PortCOutRegD_1_sqmuxa_2_a)
+);
+defparam PortCOutRegD_1_sqmuxa_2_cZ.lut_mask="0302";
+defparam PortCOutRegD_1_sqmuxa_2_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb un1_PortCOutRegD_2_sqmuxa_a_cZ (
+	.combout(un1_PortCOutRegD_2_sqmuxa_a),
+	.dataa(PortAWrite_1_i_a3),
+	.datab(PortARead_i_a3),
+	.datac(ControlRegQ_3),
+	.datad(ControlRegQ_4)
+);
+defparam un1_PortCOutRegD_2_sqmuxa_a_cZ.lut_mask="440f";
+defparam un1_PortCOutRegD_2_sqmuxa_a_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb un1_PortCOutRegD_2_sqmuxa (
+	.combout(un1_PortCOutRegD_2_sqmuxa_combout),
+	.dataa(ControlRegQ_i_3),
+	.datab(ControlRegQ_4),
+	.datac(un1_PortCOutRegD_2_sqmuxa_2),
+	.datad(un1_PortCOutRegD_2_sqmuxa_a)
+);
+defparam un1_PortCOutRegD_2_sqmuxa.lut_mask="c020";
+defparam un1_PortCOutRegD_2_sqmuxa.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb PortCOutRegD_m0_0_0_3_ (
+	.combout(PortCOutRegD_m0_0_0[3]),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(PortCOutRegQ_4),
+	.datad(un1_PortCOutRegD_4_sqmuxa_2)
+);
+defparam PortCOutRegD_m0_0_0_3_.lut_mask="f000";
+defparam PortCOutRegD_m0_0_0_3_.sum_lutc_input="datac";
+// @9:280
+  cycloneii_lcell_comb PortCOutRegD_d3_0_a_cZ (
+	.combout(PortCOutRegD_d3_0_a),
+	.dataa(PortCOutLd_i_a2_0),
+	.datab(PortCOutLd_m0_i_a3_0),
+	.datac(DOUTSelect_1_i_0_a2_x_0),
+	.datad(PortCOutLd_m2s2_0)
+);
+defparam PortCOutRegD_d3_0_a_cZ.lut_mask="5f77";
+defparam PortCOutRegD_d3_0_a_cZ.sum_lutc_input="datac";
+// @9:280
+  cycloneii_lcell_comb PortCOutRegD_d3_0_cZ (
+	.combout(PortCOutRegD_d3_0),
+	.dataa(un4_ncs_0_a3),
+	.datab(PortCOutRegD_d3_0_0_0_tz),
+	.datac(ControlRegQ_i_m_i_o3_0),
+	.datad(PortCOutRegD_d3_0_a)
+);
+defparam PortCOutRegD_d3_0_cZ.lut_mask="30bf";
+defparam PortCOutRegD_d3_0_cZ.sum_lutc_input="datac";
+// @7:71
+  cycloneii_lcell_comb un1_portcoutld_1_i_a_0_ (
+	.combout(un1_portcoutld_1_i_a_0),
+	.dataa(PCIN_c_0),
+	.datab(RisePCIN2Q),
+	.datac(ControlRegQ_0),
+	.datad(PortCOutRegQ_1)
+);
+defparam un1_portcoutld_1_i_a_0_.lut_mask="2000";
+defparam un1_portcoutld_1_i_a_0_.sum_lutc_input="datac";
+// @9:163
+  cycloneii_lcell_comb PortCOutRegD_d3_2_i_cZ (
+	.combout(PortCOutRegD_d3_2_i),
+	.dataa(ControlRegQ_0),
+	.datab(PortCOutLd_i_a3_0_0),
+	.datac(PortCOutLd_i_a3_xx_mm_0),
+	.datad(PortCOutRegD_d3_2_i_o2_0)
+);
+defparam PortCOutRegD_d3_2_i_cZ.lut_mask="fefc";
+defparam PortCOutRegD_d3_2_i_cZ.sum_lutc_input="datac";
+// @9:321
+  cycloneii_lcell_comb PortCOutRegD_iv_a_6_ (
+	.combout(PortCOutRegD_iv_a[6]),
+	.dataa(PortCOutLd_i_a3_xx_2),
+	.datab(PortCOutLd_i_a3_yy_x_0),
+	.datac(PortCOutLd_i_a3_0_0),
+	.datad(PortCOutLd_m2s2_0)
+);
+defparam PortCOutRegD_iv_a_6_.lut_mask="0305";
+defparam PortCOutRegD_iv_a_6_.sum_lutc_input="datac";
+// @9:321
+  cycloneii_lcell_comb PortCOutRegD_iv_6_ (
+	.combout(PortCOutRegD_iv[6]),
+	.dataa(DIN_i_m_0_0_0_x[0]),
+	.datab(PortCOutRegQ_6),
+	.datac(DIN_i_m[6]),
+	.datad(PortCOutRegD_iv_a[6])
+);
+defparam PortCOutRegD_iv_6_.lut_mask="0c05";
+defparam PortCOutRegD_iv_6_.sum_lutc_input="datac";
+// @9:262
+  cycloneii_lcell_comb PortCOutRegD_iv_a_4_ (
+	.combout(PortCOutRegD_iv_a[4]),
+	.dataa(PortCOutLd_i_a3_xx_0),
+	.datab(PortCOutLd_i_a3_yy_x_0),
+	.datac(PortCOutLd_i_a3_0_0),
+	.datad(PortCOutLd_m2s2_0)
+);
+defparam PortCOutRegD_iv_a_4_.lut_mask="0305";
+defparam PortCOutRegD_iv_a_4_.sum_lutc_input="datac";
+// @9:262
+  cycloneii_lcell_comb PortCOutRegD_iv_4_ (
+	.combout(PortCOutRegD_iv[4]),
+	.dataa(DIN_i_m_0_0_0_x[0]),
+	.datab(PortCOutRegQ_4),
+	.datac(DIN_i_m[4]),
+	.datad(PortCOutRegD_iv_a[4])
+);
+defparam PortCOutRegD_iv_4_.lut_mask="0c05";
+defparam PortCOutRegD_iv_4_.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb PortCOutRegD_0_a_3_ (
+	.combout(PortCOutRegD_0_a[3]),
+	.dataa(PortCOutRegQ_6),
+	.datab(un1_PortCOutRegD_4_sqmuxa_tz),
+	.datac(PortCOutRegD_m0_0_0[3]),
+	.datad(un1_PortCOutRegD_2_sqmuxa_combout)
+);
+defparam PortCOutRegD_0_a_3_.lut_mask="553f";
+defparam PortCOutRegD_0_a_3_.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb PortCOutRegD_0_3_ (
+	.combout(PortCOutRegD_0[3]),
+	.dataa(PortCOutLd_0_i_a3_0_0),
+	.datab(PortCOutRegD_0_d_d_x[3]),
+	.datac(PortCOutRegD_1_sqmuxa_2),
+	.datad(PortCOutRegD_0_a[3])
+);
+defparam PortCOutRegD_0_3_.lut_mask="c8cd";
+defparam PortCOutRegD_0_3_.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb PortCOutRegD_d4_a_cZ (
+	.combout(PortCOutRegD_d4_a),
+	.dataa(PortCOutLd_0_i_a3_0_0),
+	.datab(un1_PortCOutRegD_4_sqmuxa_2),
+	.datac(un1_PortCOutRegD_4_sqmuxa_tz),
+	.datad(PortCOutRegD_1_sqmuxa_3_x)
+);
+defparam PortCOutRegD_d4_a_cZ.lut_mask="0015";
+defparam PortCOutRegD_d4_a_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb PortCOutRegD_d4_cZ (
+	.combout(PortCOutRegD_d4),
+	.dataa(PortCOutRegD_1_sqmuxa_2),
+	.datab(un1_PortCOutRegD_2_sqmuxa_combout),
+	.datac(PortCOutRegD_1_sqmuxa_5),
+	.datad(PortCOutRegD_d4_a)
+);
+defparam PortCOutRegD_d4_cZ.lut_mask="0100";
+defparam PortCOutRegD_d4_cZ.sum_lutc_input="datac";
+// @9:388
+  cycloneii_lcell_comb PortCOutRegQ_1_3_ (
+	.combout(PortCOutRegQ_1_Z[3]),
+	.dataa(VCC),
+	.datab(PortCOutRegQ_3),
+	.datac(PortCOutRegD_d4),
+	.datad(PortCOutRegD_0[3])
+);
+defparam PortCOutRegQ_1_3_.lut_mask="cfc0";
+defparam PortCOutRegQ_1_3_.sum_lutc_input="datac";
+// @7:71
+  cycloneii_lcell_comb un1_portcoutld_1_i_0_a_x_0_ (
+	.combout(un1_portcoutld_1_i_0_a_x[0]),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(PortBRead_i_a3),
+	.datad(PortCOutRegQ_1)
+);
+defparam un1_portcoutld_1_i_0_a_x_0_.lut_mask="0f00";
+defparam un1_portcoutld_1_i_0_a_x_0_.sum_lutc_input="datac";
+// @9:262
+  cycloneii_lcell_comb DIN_i_m_a_x_4_ (
+	.combout(DIN_i_m_a_x[4]),
+	.dataa(VCC),
+	.datab(A_c_1),
+	.datac(A_c_0),
+	.datad(PortAWrite_1_i_a2_x)
+);
+defparam DIN_i_m_a_x_4_.lut_mask="0c00";
+defparam DIN_i_m_a_x_4_.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb PortCOutRegD_0_d_d_x_3_ (
+	.combout(PortCOutRegD_0_d_d_x[3]),
+	.dataa(VCC),
+	.datab(DIN_c_0),
+	.datac(DIN_c_3),
+	.datad(PortCOutLd_0_i_a3_0_0)
+);
+defparam PortCOutRegD_0_d_d_x_3_.lut_mask="ccf0";
+defparam PortCOutRegD_0_d_d_x_3_.sum_lutc_input="datac";
+// @9:163
+  cycloneii_lcell_comb PortCOutRegD_1_sqmuxa_16_i_i_o2_a_x_cZ (
+	.combout(PortCOutRegD_1_sqmuxa_16_i_i_o2_a_x),
+	.dataa(VCC),
+	.datab(PortBRead_i_a3),
+	.datac(RisePortBReadQ),
+	.datad(PortCOutRegQ_0)
+);
+defparam PortCOutRegD_1_sqmuxa_16_i_i_o2_a_x_cZ.lut_mask="000c";
+defparam PortCOutRegD_1_sqmuxa_16_i_i_o2_a_x_cZ.sum_lutc_input="datac";
+// @9:210
+  cycloneii_lcell_comb un1_PortCOutRegD_4_sqmuxa_tz_a_x_cZ (
+	.combout(un1_PortCOutRegD_4_sqmuxa_tz_a_x),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(PortAWrite_1_i_a3),
+	.datad(PortARead_i_a3)
+);
+defparam un1_PortCOutRegD_4_sqmuxa_tz_a_x_cZ.lut_mask="0f00";
+defparam un1_PortCOutRegD_4_sqmuxa_tz_a_x_cZ.sum_lutc_input="datac";
+// @9:251
+  cycloneii_lcell_comb PortCOutRegD_1_sqmuxa_3_x_cZ (
+	.combout(PortCOutRegD_1_sqmuxa_3_x),
+	.dataa(VCC),
+	.datab(PortAWrite_1_i_a3),
+	.datac(PortARead_i_a3),
+	.datad(ControlRegQ_4)
+);
+defparam PortCOutRegD_1_sqmuxa_3_x_cZ.lut_mask="cf00";
+defparam PortCOutRegD_1_sqmuxa_3_x_cZ.sum_lutc_input="datac";
+// @9:163
+  cycloneii_lcell_comb PortCOutRegD_1_sqmuxa_16_i_i_a2_0_0_x_cZ (
+	.combout(PortCOutRegD_1_sqmuxa_16_i_i_a2_0_0_x),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(PortBRead_i_a3),
+	.datad(RisePortBReadQ)
+);
+defparam PortCOutRegD_1_sqmuxa_16_i_i_a2_0_0_x_cZ.lut_mask="00f0";
+defparam PortCOutRegD_1_sqmuxa_16_i_i_a2_0_0_x_cZ.sum_lutc_input="datac";
+// @9:340
+  cycloneii_lcell_comb PortCOutRegD_d3_0_0_a_x_cZ (
+	.combout(PortCOutRegD_d3_0_0_a_x),
+	.dataa(VCC),
+	.datab(PortAWrite_1_i_a3),
+	.datac(PCIN_c_4),
+	.datad(RisePortAWriteQ)
+);
+defparam PortCOutRegD_d3_0_0_a_x_cZ.lut_mask="0f3f";
+defparam PortCOutRegD_d3_0_0_a_x_cZ.sum_lutc_input="datac";
+// @9:262
+  cycloneii_lcell_comb DIN_i_m_0_0_0_x_0_ (
+	.combout(DIN_i_m_0_0_0_x[0]),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(un4_ncs_0_a3),
+	.datad(DIN_c_0)
+);
+defparam DIN_i_m_0_0_0_x_0_.lut_mask="00f0";
+defparam DIN_i_m_0_0_0_x_0_.sum_lutc_input="datac";
+endmodule /* portcout */
+
+// VQM4.1+ 
+module gw8255 (
+  RESET,
+  CLK,
+  nCS,
+  nRD,
+  nWR,
+  A,
+  DIN,
+  PAIN,
+  PBIN,
+  PCIN,
+  DOUT,
+  PAOUT,
+  PAEN,
+  PBOUT,
+  PBEN,
+  PCOUT,
+  PCEN
+);
+input RESET ;
+input CLK ;
+input nCS ;
+input nRD ;
+input nWR ;
+input [1:0] A ;
+input [7:0] DIN ;
+input [7:0] PAIN ;
+input [7:0] PBIN ;
+input [7:0] PCIN ;
+output [7:0] DOUT ;
+output [7:0] PAOUT ;
+output PAEN ;
+output [7:0] PBOUT ;
+output PBEN ;
+output [7:0] PCOUT ;
+output [7:0] PCEN ;
+wire RESET ;
+wire CLK ;
+wire nCS ;
+wire nRD ;
+wire nWR ;
+wire PAEN ;
+wire PBEN ;
+wire [7:0] DIN_c;
+wire [1:0] A_c;
+wire [4:4] I_cntl_log_PortCOutLd_m0_i_a2_x;
+wire [5:5] I_cntl_log_PortCOutLd_m0_i_a3;
+wire [4:1] I_cntl_log_ControlRegQ_i;
+wire [6:2] I_cntl_log_ControlRegQ;
+wire [2:1] I_cntl_log_PortCOutLd_i_a3_xx_mm;
+wire [7:0] I_portcout_PortCOutRegQ;
+wire [0:0] I_cntl_log_PortCOutLd_i_a2;
+wire [0:0] I_cntl_log_DOUTSelect_1_i_0_a2_x;
+wire [0:0] I_cntl_log_PortCOutLd_i_a3_0;
+wire [0:0] I_portcout_un1_portcoutld_1_i_a;
+wire [0:0] I_portcout_PortCOutRegQ_ena;
+wire [0:0] I_portcout_un1_portcoutld_1_i_0;
+wire [7:0] PCIN_c;
+wire [7:0] PBIN_c;
+wire [7:0] PAIN_c;
+wire [3:3] I_cntl_log_ControlRegQ_m_0_i_0;
+wire [3:3] I_cntl_log_ControlRegQ_m_i_0;
+wire [2:2] I_cntl_log_PCEN_1_0_a3_x;
+wire [0:0] I_cntl_log_PCEN_1_i_a2_x;
+wire [7:0] I_portbout_PortBOutRegQ;
+wire [7:0] I_portaout_PortAOutRegQ;
+wire [7:1] I_dout_mux_DOUT_6;
+wire [6:0] I_dout_mux_DOUT_6_x;
+wire [3:0] I_cntl_log_ControlRegQ_i_0;
+wire [7:0] I_portain_PortAInRegQ;
+wire [7:0] I_portbin_PortBInRegQ;
+wire [0:0] I_cntl_log_DOUTSelect_1_i_0;
+wire [7:7] I_cntl_log_PortCOutLd_i_a3_yy_x;
+wire [3:3] I_cntl_log_PortCOutLd_0_i_a3_0;
+wire [3:3] I_cntl_log_PortCOutLd_0_i_a3_1_x;
+wire [7:4] I_cntl_log_PortCOutLd_i_a3_xx;
+wire [3:3] I_cntl_log_ControlRegQ_i_m_i_o3;
+wire VCC ;
+wire GND ;
+wire I_214_x_i ;
+wire I_213_x_i ;
+wire I_212_x_i ;
+wire I_211_x_i ;
+wire I_71_m7_0_a3 ;
+wire nCS_c ;
+wire nRD_c ;
+wire I_117 ;
+wire nWR_c ;
+wire I_97 ;
+wire I_71_m7_0_o4_1 ;
+wire I_71_m7_0_o4_1_a_x ;
+wire I_105 ;
+wire I_105_a_x ;
+wire I_109 ;
+wire I_109_a_x ;
+wire I_portcout_RisePortAWriteQ ;
+wire I_59_a ;
+wire I_portcout_PortCOutRegD_1_sqmuxa_16_i_i_o2 ;
+wire I_110_a ;
+wire I_71_m7_0_m3_a ;
+wire I_71_m7_0_m3 ;
+wire I_portcout_RisePortAReadQ ;
+wire I_111_a ;
+wire I_111 ;
+wire I_110_x ;
+wire I_87_a ;
+wire I_87 ;
+wire I_73_x ;
+wire I_59_x ;
+wire I_cntl_log_ControlLogicProc_un4_ncs_0_a3 ;
+wire I_43_x ;
+wire I_66_x ;
+wire g0_6_combout ;
+wire g0_1_a ;
+wire I_37_i ;
+wire g0_i_o4_3 ;
+wire g0_i_o4_3_a ;
+wire g0_5_combout ;
+wire I_cntl_log_PortCOutLd_m2s2_0 ;
+wire g0_i_m2_a ;
+wire g0_i_m2_combout ;
+wire g0_a ;
+wire CLK_c ;
+wire RESET_c ;
+wire I_cntl_log_N_131_i ;
+wire I_cntl_log_N_127_i ;
+wire I_cntl_log_N_148_i ;
+wire I_cntl_log_N_140_i ;
+wire I_cntl_log_PortAWrite_1_i_a2_x ;
+wire I_cntl_log_PortARead_i_a3 ;
+wire I_cntl_log_PortBRead_i_a3 ;
+wire I_cntl_log_PortAWrite_1_i_a3 ;
+wire PortAWrite_i_0_i_x_i ;
+wire I_cntl_log_PortBWrite_1_i_a3 ;
+wire PortBWrite_i_0_i_x_i ;
+//@1:1
+  assign VCC = 1'b1;
+//@1:1
+  assign GND = 1'b0;
+  assign  I_214_x_i = ~ DIN_c[4];
+  assign  I_213_x_i = ~ DIN_c[3];
+  assign  I_212_x_i = ~ DIN_c[1];
+  assign  I_211_x_i = ~ DIN_c[0];
+  cycloneii_lcell_comb I_71_m7_0_a3_cZ (
+	.combout(I_71_m7_0_a3),
+	.dataa(nCS_c),
+	.datab(nRD_c),
+	.datac(A_c[0]),
+	.datad(A_c[1])
+);
+defparam I_71_m7_0_a3_cZ.lut_mask="0001";
+defparam I_71_m7_0_a3_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_117_cZ (
+	.combout(I_117),
+	.dataa(nCS_c),
+	.datab(nWR_c),
+	.datac(DIN_c[7]),
+	.datad(A_c[1])
+);
+defparam I_117_cZ.lut_mask="0100";
+defparam I_117_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_97_cZ (
+	.combout(I_97),
+	.dataa(DIN_c[1]),
+	.datab(DIN_c[2]),
+	.datac(I_117),
+	.datad(I_cntl_log_PortCOutLd_m0_i_a2_x[4])
+);
+defparam I_97_cZ.lut_mask="8000";
+defparam I_97_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_71_m7_0_o4_1_cZ (
+	.combout(I_71_m7_0_o4_1),
+	.dataa(nCS_c),
+	.datab(DIN_c[7]),
+	.datac(I_cntl_log_PortCOutLd_m0_i_a3[5]),
+	.datad(I_71_m7_0_o4_1_a_x)
+);
+defparam I_71_m7_0_o4_1_cZ.lut_mask="efff";
+defparam I_71_m7_0_o4_1_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_105_cZ (
+	.combout(I_105),
+	.dataa(A_c[0]),
+	.datab(DIN_c[0]),
+	.datac(I_105_a_x),
+	.datad(I_97)
+);
+defparam I_105_cZ.lut_mask="d850";
+defparam I_105_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_109_cZ (
+	.combout(I_109),
+	.dataa(I_105),
+	.datab(I_109_a_x),
+	.datac(I_portcout_RisePortAWriteQ),
+	.datad(I_cntl_log_ControlRegQ_i[4])
+);
+defparam I_109_cZ.lut_mask="c5cc";
+defparam I_109_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_59_a_cZ (
+	.combout(I_59_a),
+	.dataa(DIN_c[0]),
+	.datab(I_cntl_log_ControlRegQ[2]),
+	.datac(I_cntl_log_PortCOutLd_i_a3_xx_mm[1]),
+	.datad(I_portcout_PortCOutRegD_1_sqmuxa_16_i_i_o2)
+);
+defparam I_59_a_cZ.lut_mask="5d51";
+defparam I_59_a_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_110_a_cZ (
+	.combout(I_110_a),
+	.dataa(DIN_c[0]),
+	.datab(A_c[0]),
+	.datac(I_117),
+	.datad(I_97)
+);
+defparam I_110_a_cZ.lut_mask="7430";
+defparam I_110_a_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_71_m7_0_m3_a_cZ (
+	.combout(I_71_m7_0_m3_a),
+	.dataa(A_c[1]),
+	.datab(DIN_c[7]),
+	.datac(A_c[0]),
+	.datad(I_71_m7_0_o4_1)
+);
+defparam I_71_m7_0_m3_a_cZ.lut_mask="0020";
+defparam I_71_m7_0_m3_a_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_71_m7_0_m3_cZ (
+	.combout(I_71_m7_0_m3),
+	.dataa(DIN_c[0]),
+	.datab(I_71_m7_0_m3_a),
+	.datac(I_portcout_PortCOutRegQ[3]),
+	.datad(I_portcout_RisePortAReadQ)
+);
+defparam I_71_m7_0_m3_cZ.lut_mask="4447";
+defparam I_71_m7_0_m3_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_111_a_cZ (
+	.combout(I_111_a),
+	.dataa(DIN_c[0]),
+	.datab(I_97),
+	.datac(I_105),
+	.datad(I_portcout_RisePortAWriteQ)
+);
+defparam I_111_a_cZ.lut_mask="440f";
+defparam I_111_a_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_111_cZ (
+	.combout(I_111),
+	.dataa(VCC),
+	.datab(I_cntl_log_ControlRegQ[6]),
+	.datac(I_111_a),
+	.datad(I_110_x)
+);
+defparam I_111_cZ.lut_mask="0c3f";
+defparam I_111_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_87_a_cZ (
+	.combout(I_87_a),
+	.dataa(VCC),
+	.datab(I_cntl_log_ControlRegQ[5]),
+	.datac(I_cntl_log_ControlRegQ_i[4]),
+	.datad(I_cntl_log_ControlRegQ[6])
+);
+defparam I_87_a_cZ.lut_mask="00f3";
+defparam I_87_a_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_87_cZ (
+	.combout(I_87),
+	.dataa(I_73_x),
+	.datab(I_71_m7_0_a3),
+	.datac(I_71_m7_0_m3),
+	.datad(I_87_a)
+);
+defparam I_87_cZ.lut_mask="55cf";
+defparam I_87_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_110_x_cZ (
+	.combout(I_110_x),
+	.dataa(VCC),
+	.datab(I_110_a),
+	.datac(I_cntl_log_ControlRegQ[5]),
+	.datad(I_109)
+);
+defparam I_110_x_cZ.lut_mask="fc0c";
+defparam I_110_x_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_59_x_cZ (
+	.combout(I_59_x),
+	.dataa(VCC),
+	.datab(I_cntl_log_ControlLogicProc_un4_ncs_0_a3),
+	.datac(I_43_x),
+	.datad(I_59_a)
+);
+defparam I_59_x_cZ.lut_mask="03cf";
+defparam I_59_x_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_109_a_x_cZ (
+	.combout(I_109_a_x),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(DIN_c[0]),
+	.datad(I_97)
+);
+defparam I_109_a_x_cZ.lut_mask="0f00";
+defparam I_109_a_x_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_105_a_x_cZ (
+	.combout(I_105_a_x),
+	.dataa(VCC),
+	.datab(nCS_c),
+	.datac(nWR_c),
+	.datad(A_c[1])
+);
+defparam I_105_a_x_cZ.lut_mask="0003";
+defparam I_105_a_x_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_43_x_cZ (
+	.combout(I_43_x),
+	.dataa(VCC),
+	.datab(DIN_c[1]),
+	.datac(I_cntl_log_ControlRegQ[2]),
+	.datad(I_portcout_PortCOutRegD_1_sqmuxa_16_i_i_o2)
+);
+defparam I_43_x_cZ.lut_mask="f303";
+defparam I_43_x_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_71_m7_0_o4_1_a_x_cZ (
+	.combout(I_71_m7_0_o4_1_a_x),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(nWR_c),
+	.datad(A_c[1])
+);
+defparam I_71_m7_0_o4_1_a_x_cZ.lut_mask="0f00";
+defparam I_71_m7_0_o4_1_a_x_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_66_x_cZ (
+	.combout(I_66_x),
+	.dataa(VCC),
+	.datab(A_c[0]),
+	.datac(DIN_c[0]),
+	.datad(DIN_c[2])
+);
+defparam I_66_x_cZ.lut_mask="f3c0";
+defparam I_66_x_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb I_73_x_cZ (
+	.combout(I_73_x),
+	.dataa(VCC),
+	.datab(I_cntl_log_ControlLogicProc_un4_ncs_0_a3),
+	.datac(DIN_c[0]),
+	.datad(DIN_c[5])
+);
+defparam I_73_x_cZ.lut_mask="0c3f";
+defparam I_73_x_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb g0_6 (
+	.combout(g0_6_combout),
+	.dataa(DIN_c[2]),
+	.datab(DIN_c[3]),
+	.datac(DIN_c[1]),
+	.datad(A_c[0])
+);
+defparam g0_6.lut_mask="0100";
+defparam g0_6.sum_lutc_input="datac";
+  cycloneii_lcell_comb g0_1_a_cZ (
+	.combout(g0_1_a),
+	.dataa(nRD_c),
+	.datab(nCS_c),
+	.datac(nWR_c),
+	.datad(I_cntl_log_ControlRegQ_i[1])
+);
+defparam g0_1_a_cZ.lut_mask="0311";
+defparam g0_1_a_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb g0_1 (
+	.combout(I_37_i),
+	.dataa(A_c[1]),
+	.datab(A_c[0]),
+	.datac(I_portcout_PortCOutRegQ[2]),
+	.datad(g0_1_a)
+);
+defparam g0_1.lut_mask="b0f0";
+defparam g0_1.sum_lutc_input="datac";
+  cycloneii_lcell_comb g0_i_o4_3_cZ (
+	.combout(g0_i_o4_3),
+	.dataa(I_cntl_log_PortCOutLd_i_a2[0]),
+	.datab(A_c[0]),
+	.datac(A_c[1]),
+	.datad(g0_i_o4_3_a)
+);
+defparam g0_i_o4_3_cZ.lut_mask="8000";
+defparam g0_i_o4_3_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb g0_5 (
+	.combout(g0_5_combout),
+	.dataa(I_cntl_log_PortCOutLd_i_a2[0]),
+	.datab(g0_6_combout),
+	.datac(I_cntl_log_DOUTSelect_1_i_0_a2_x[0]),
+	.datad(I_cntl_log_PortCOutLd_m2s2_0)
+);
+defparam g0_5.lut_mask="0a88";
+defparam g0_5.sum_lutc_input="datac";
+  cycloneii_lcell_comb g0_i_m2_a_cZ (
+	.combout(g0_i_m2_a),
+	.dataa(g0_6_combout),
+	.datab(g0_i_o4_3),
+	.datac(I_cntl_log_DOUTSelect_1_i_0_a2_x[0]),
+	.datad(I_cntl_log_PortCOutLd_m2s2_0)
+);
+defparam g0_i_m2_a_cZ.lut_mask="0c88";
+defparam g0_i_m2_a_cZ.sum_lutc_input="datac";
+  cycloneii_lcell_comb g0_i_m2 (
+	.combout(g0_i_m2_combout),
+	.dataa(DIN_c[0]),
+	.datab(I_cntl_log_ControlRegQ[2]),
+	.datac(g0_i_m2_a),
+	.datad(I_37_i)
+);
+defparam g0_i_m2.lut_mask="aea2";
+defparam g0_i_m2.sum_lutc_input="datac";
+// @9:388
+  cycloneii_lcell_comb g0_a_cZ (
+	.combout(g0_a),
+	.dataa(I_portcout_PortCOutRegQ[0]),
+	.datab(I_cntl_log_PortCOutLd_i_a3_0[0]),
+	.datac(I_portcout_un1_portcoutld_1_i_a[0]),
+	.datad(g0_i_m2_combout)
+);
+defparam g0_a_cZ.lut_mask="0102";
+defparam g0_a_cZ.sum_lutc_input="datac";
+// @9:388
+  cycloneii_lcell_comb g0 (
+	.combout(I_portcout_PortCOutRegQ_ena[0]),
+	.dataa(g0_5_combout),
+	.datab(I_portcout_un1_portcoutld_1_i_0[0]),
+	.datac(g0_i_m2_combout),
+	.datad(g0_a)
+);
+defparam g0.lut_mask="e1f0";
+defparam g0.sum_lutc_input="datac";
+  cycloneii_lcell_comb g0_i_o4_3_a_cZ (
+	.combout(g0_i_o4_3_a),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(DIN_c[7]),
+	.datad(nCS_c)
+);
+defparam g0_i_o4_3_a_cZ.lut_mask="000f";
+defparam g0_i_o4_3_a_cZ.sum_lutc_input="datac";
+// @10:43
+  cycloneii_io PCIN_in_7_ (
+	.padio(PCIN[7]),
+	.combout(PCIN_c[7]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCIN_in_7_.operation_mode = "input";
+// @10:43
+  cycloneii_io PCIN_in_6_ (
+	.padio(PCIN[6]),
+	.combout(PCIN_c[6]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCIN_in_6_.operation_mode = "input";
+// @10:43
+  cycloneii_io PCIN_in_5_ (
+	.padio(PCIN[5]),
+	.combout(PCIN_c[5]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCIN_in_5_.operation_mode = "input";
+// @10:43
+  cycloneii_io PCIN_in_4_ (
+	.padio(PCIN[4]),
+	.combout(PCIN_c[4]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCIN_in_4_.operation_mode = "input";
+// @10:43
+  cycloneii_io PCIN_in_3_ (
+	.padio(PCIN[3]),
+	.combout(PCIN_c[3]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCIN_in_3_.operation_mode = "input";
+// @10:43
+  cycloneii_io PCIN_in_2_ (
+	.padio(PCIN[2]),
+	.combout(PCIN_c[2]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCIN_in_2_.operation_mode = "input";
+// @10:43
+  cycloneii_io PCIN_in_1_ (
+	.padio(PCIN[1]),
+	.combout(PCIN_c[1]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCIN_in_1_.operation_mode = "input";
+// @10:43
+  cycloneii_io PCIN_in_0_ (
+	.padio(PCIN[0]),
+	.combout(PCIN_c[0]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCIN_in_0_.operation_mode = "input";
+// @10:42
+  cycloneii_io PBIN_in_7_ (
+	.padio(PBIN[7]),
+	.combout(PBIN_c[7]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBIN_in_7_.operation_mode = "input";
+// @10:42
+  cycloneii_io PBIN_in_6_ (
+	.padio(PBIN[6]),
+	.combout(PBIN_c[6]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBIN_in_6_.operation_mode = "input";
+// @10:42
+  cycloneii_io PBIN_in_5_ (
+	.padio(PBIN[5]),
+	.combout(PBIN_c[5]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBIN_in_5_.operation_mode = "input";
+// @10:42
+  cycloneii_io PBIN_in_4_ (
+	.padio(PBIN[4]),
+	.combout(PBIN_c[4]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBIN_in_4_.operation_mode = "input";
+// @10:42
+  cycloneii_io PBIN_in_3_ (
+	.padio(PBIN[3]),
+	.combout(PBIN_c[3]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBIN_in_3_.operation_mode = "input";
+// @10:42
+  cycloneii_io PBIN_in_2_ (
+	.padio(PBIN[2]),
+	.combout(PBIN_c[2]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBIN_in_2_.operation_mode = "input";
+// @10:42
+  cycloneii_io PBIN_in_1_ (
+	.padio(PBIN[1]),
+	.combout(PBIN_c[1]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBIN_in_1_.operation_mode = "input";
+// @10:42
+  cycloneii_io PBIN_in_0_ (
+	.padio(PBIN[0]),
+	.combout(PBIN_c[0]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBIN_in_0_.operation_mode = "input";
+// @10:41
+  cycloneii_io PAIN_in_7_ (
+	.padio(PAIN[7]),
+	.combout(PAIN_c[7]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAIN_in_7_.operation_mode = "input";
+// @10:41
+  cycloneii_io PAIN_in_6_ (
+	.padio(PAIN[6]),
+	.combout(PAIN_c[6]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAIN_in_6_.operation_mode = "input";
+// @10:41
+  cycloneii_io PAIN_in_5_ (
+	.padio(PAIN[5]),
+	.combout(PAIN_c[5]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAIN_in_5_.operation_mode = "input";
+// @10:41
+  cycloneii_io PAIN_in_4_ (
+	.padio(PAIN[4]),
+	.combout(PAIN_c[4]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAIN_in_4_.operation_mode = "input";
+// @10:41
+  cycloneii_io PAIN_in_3_ (
+	.padio(PAIN[3]),
+	.combout(PAIN_c[3]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAIN_in_3_.operation_mode = "input";
+// @10:41
+  cycloneii_io PAIN_in_2_ (
+	.padio(PAIN[2]),
+	.combout(PAIN_c[2]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAIN_in_2_.operation_mode = "input";
+// @10:41
+  cycloneii_io PAIN_in_1_ (
+	.padio(PAIN[1]),
+	.combout(PAIN_c[1]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAIN_in_1_.operation_mode = "input";
+// @10:41
+  cycloneii_io PAIN_in_0_ (
+	.padio(PAIN[0]),
+	.combout(PAIN_c[0]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAIN_in_0_.operation_mode = "input";
+// @10:40
+  cycloneii_io DIN_in_7_ (
+	.padio(DIN[7]),
+	.combout(DIN_c[7]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DIN_in_7_.operation_mode = "input";
+// @10:40
+  cycloneii_io DIN_in_6_ (
+	.padio(DIN[6]),
+	.combout(DIN_c[6]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DIN_in_6_.operation_mode = "input";
+// @10:40
+  cycloneii_io DIN_in_5_ (
+	.padio(DIN[5]),
+	.combout(DIN_c[5]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DIN_in_5_.operation_mode = "input";
+// @10:40
+  cycloneii_io DIN_in_4_ (
+	.padio(DIN[4]),
+	.combout(DIN_c[4]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DIN_in_4_.operation_mode = "input";
+// @10:40
+  cycloneii_io DIN_in_3_ (
+	.padio(DIN[3]),
+	.combout(DIN_c[3]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DIN_in_3_.operation_mode = "input";
+// @10:40
+  cycloneii_io DIN_in_2_ (
+	.padio(DIN[2]),
+	.combout(DIN_c[2]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DIN_in_2_.operation_mode = "input";
+// @10:40
+  cycloneii_io DIN_in_1_ (
+	.padio(DIN[1]),
+	.combout(DIN_c[1]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DIN_in_1_.operation_mode = "input";
+// @10:40
+  cycloneii_io DIN_in_0_ (
+	.padio(DIN[0]),
+	.combout(DIN_c[0]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DIN_in_0_.operation_mode = "input";
+// @10:39
+  cycloneii_io A_in_1_ (
+	.padio(A[1]),
+	.combout(A_c[1]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam A_in_1_.operation_mode = "input";
+// @10:39
+  cycloneii_io A_in_0_ (
+	.padio(A[0]),
+	.combout(A_c[0]),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam A_in_0_.operation_mode = "input";
+// @10:38
+  cycloneii_io nWR_in (
+	.padio(nWR),
+	.combout(nWR_c),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam nWR_in.operation_mode = "input";
+// @10:37
+  cycloneii_io nRD_in (
+	.padio(nRD),
+	.combout(nRD_c),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam nRD_in.operation_mode = "input";
+// @10:36
+  cycloneii_io nCS_in (
+	.padio(nCS),
+	.combout(nCS_c),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam nCS_in.operation_mode = "input";
+// @10:35
+  cycloneii_io CLK_in (
+	.padio(CLK),
+	.combout(CLK_c),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam CLK_in.operation_mode = "input";
+// @10:34
+  cycloneii_io RESET_in (
+	.padio(RESET),
+	.combout(RESET_c),
+	.datain(GND),
+	.oe(GND),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam RESET_in.operation_mode = "input";
+// @10:51
+  cycloneii_io PCEN_out_7_ (
+	.padio(PCEN[7]),
+	.datain(I_cntl_log_ControlRegQ_m_0_i_0[3]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCEN_out_7_.operation_mode = "output";
+// @10:51
+  cycloneii_io PCEN_out_6_ (
+	.padio(PCEN[6]),
+	.datain(I_cntl_log_N_131_i),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCEN_out_6_.operation_mode = "output";
+// @10:51
+  cycloneii_io PCEN_out_5_ (
+	.padio(PCEN[5]),
+	.datain(I_cntl_log_ControlRegQ_m_i_0[3]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCEN_out_5_.operation_mode = "output";
+// @10:51
+  cycloneii_io PCEN_out_4_ (
+	.padio(PCEN[4]),
+	.datain(I_cntl_log_N_127_i),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCEN_out_4_.operation_mode = "output";
+// @10:51
+  cycloneii_io PCEN_out_3_ (
+	.padio(PCEN[3]),
+	.datain(I_cntl_log_N_148_i),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCEN_out_3_.operation_mode = "output";
+// @10:51
+  cycloneii_io PCEN_out_2_ (
+	.padio(PCEN[2]),
+	.datain(I_cntl_log_PCEN_1_0_a3_x[2]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCEN_out_2_.operation_mode = "output";
+// @10:51
+  cycloneii_io PCEN_out_1_ (
+	.padio(PCEN[1]),
+	.datain(I_cntl_log_PCEN_1_i_a2_x[0]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCEN_out_1_.operation_mode = "output";
+// @10:51
+  cycloneii_io PCEN_out_0_ (
+	.padio(PCEN[0]),
+	.datain(I_cntl_log_PCEN_1_i_a2_x[0]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCEN_out_0_.operation_mode = "output";
+// @10:50
+  cycloneii_io PCOUT_out_7_ (
+	.padio(PCOUT[7]),
+	.datain(I_portcout_PortCOutRegQ[7]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCOUT_out_7_.operation_mode = "output";
+// @10:50
+  cycloneii_io PCOUT_out_6_ (
+	.padio(PCOUT[6]),
+	.datain(I_portcout_PortCOutRegQ[6]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCOUT_out_6_.operation_mode = "output";
+// @10:50
+  cycloneii_io PCOUT_out_5_ (
+	.padio(PCOUT[5]),
+	.datain(I_portcout_PortCOutRegQ[5]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCOUT_out_5_.operation_mode = "output";
+// @10:50
+  cycloneii_io PCOUT_out_4_ (
+	.padio(PCOUT[4]),
+	.datain(I_portcout_PortCOutRegQ[4]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCOUT_out_4_.operation_mode = "output";
+// @10:50
+  cycloneii_io PCOUT_out_3_ (
+	.padio(PCOUT[3]),
+	.datain(I_portcout_PortCOutRegQ[3]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCOUT_out_3_.operation_mode = "output";
+// @10:50
+  cycloneii_io PCOUT_out_2_ (
+	.padio(PCOUT[2]),
+	.datain(I_portcout_PortCOutRegQ[2]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCOUT_out_2_.operation_mode = "output";
+// @10:50
+  cycloneii_io PCOUT_out_1_ (
+	.padio(PCOUT[1]),
+	.datain(I_portcout_PortCOutRegQ[1]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCOUT_out_1_.operation_mode = "output";
+// @10:50
+  cycloneii_io PCOUT_out_0_ (
+	.padio(PCOUT[0]),
+	.datain(I_portcout_PortCOutRegQ[0]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PCOUT_out_0_.operation_mode = "output";
+// @10:49
+  cycloneii_io PBEN_out (
+	.padio(PBEN),
+	.datain(I_cntl_log_ControlRegQ_i[1]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBEN_out.operation_mode = "output";
+// @10:48
+  cycloneii_io PBOUT_out_7_ (
+	.padio(PBOUT[7]),
+	.datain(I_portbout_PortBOutRegQ[7]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBOUT_out_7_.operation_mode = "output";
+// @10:48
+  cycloneii_io PBOUT_out_6_ (
+	.padio(PBOUT[6]),
+	.datain(I_portbout_PortBOutRegQ[6]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBOUT_out_6_.operation_mode = "output";
+// @10:48
+  cycloneii_io PBOUT_out_5_ (
+	.padio(PBOUT[5]),
+	.datain(I_portbout_PortBOutRegQ[5]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBOUT_out_5_.operation_mode = "output";
+// @10:48
+  cycloneii_io PBOUT_out_4_ (
+	.padio(PBOUT[4]),
+	.datain(I_portbout_PortBOutRegQ[4]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBOUT_out_4_.operation_mode = "output";
+// @10:48
+  cycloneii_io PBOUT_out_3_ (
+	.padio(PBOUT[3]),
+	.datain(I_portbout_PortBOutRegQ[3]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBOUT_out_3_.operation_mode = "output";
+// @10:48
+  cycloneii_io PBOUT_out_2_ (
+	.padio(PBOUT[2]),
+	.datain(I_portbout_PortBOutRegQ[2]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBOUT_out_2_.operation_mode = "output";
+// @10:48
+  cycloneii_io PBOUT_out_1_ (
+	.padio(PBOUT[1]),
+	.datain(I_portbout_PortBOutRegQ[1]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBOUT_out_1_.operation_mode = "output";
+// @10:48
+  cycloneii_io PBOUT_out_0_ (
+	.padio(PBOUT[0]),
+	.datain(I_portbout_PortBOutRegQ[0]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PBOUT_out_0_.operation_mode = "output";
+// @10:47
+  cycloneii_io PAEN_out (
+	.padio(PAEN),
+	.datain(I_cntl_log_N_140_i),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAEN_out.operation_mode = "output";
+// @10:46
+  cycloneii_io PAOUT_out_7_ (
+	.padio(PAOUT[7]),
+	.datain(I_portaout_PortAOutRegQ[7]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAOUT_out_7_.operation_mode = "output";
+// @10:46
+  cycloneii_io PAOUT_out_6_ (
+	.padio(PAOUT[6]),
+	.datain(I_portaout_PortAOutRegQ[6]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAOUT_out_6_.operation_mode = "output";
+// @10:46
+  cycloneii_io PAOUT_out_5_ (
+	.padio(PAOUT[5]),
+	.datain(I_portaout_PortAOutRegQ[5]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAOUT_out_5_.operation_mode = "output";
+// @10:46
+  cycloneii_io PAOUT_out_4_ (
+	.padio(PAOUT[4]),
+	.datain(I_portaout_PortAOutRegQ[4]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAOUT_out_4_.operation_mode = "output";
+// @10:46
+  cycloneii_io PAOUT_out_3_ (
+	.padio(PAOUT[3]),
+	.datain(I_portaout_PortAOutRegQ[3]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAOUT_out_3_.operation_mode = "output";
+// @10:46
+  cycloneii_io PAOUT_out_2_ (
+	.padio(PAOUT[2]),
+	.datain(I_portaout_PortAOutRegQ[2]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAOUT_out_2_.operation_mode = "output";
+// @10:46
+  cycloneii_io PAOUT_out_1_ (
+	.padio(PAOUT[1]),
+	.datain(I_portaout_PortAOutRegQ[1]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAOUT_out_1_.operation_mode = "output";
+// @10:46
+  cycloneii_io PAOUT_out_0_ (
+	.padio(PAOUT[0]),
+	.datain(I_portaout_PortAOutRegQ[0]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam PAOUT_out_0_.operation_mode = "output";
+// @10:45
+  cycloneii_io DOUT_out_7_ (
+	.padio(DOUT[7]),
+	.datain(I_dout_mux_DOUT_6[7]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DOUT_out_7_.operation_mode = "output";
+// @10:45
+  cycloneii_io DOUT_out_6_ (
+	.padio(DOUT[6]),
+	.datain(I_dout_mux_DOUT_6_x[6]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DOUT_out_6_.operation_mode = "output";
+// @10:45
+  cycloneii_io DOUT_out_5_ (
+	.padio(DOUT[5]),
+	.datain(I_dout_mux_DOUT_6[5]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DOUT_out_5_.operation_mode = "output";
+// @10:45
+  cycloneii_io DOUT_out_4_ (
+	.padio(DOUT[4]),
+	.datain(I_dout_mux_DOUT_6[4]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DOUT_out_4_.operation_mode = "output";
+// @10:45
+  cycloneii_io DOUT_out_3_ (
+	.padio(DOUT[3]),
+	.datain(I_dout_mux_DOUT_6_x[3]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DOUT_out_3_.operation_mode = "output";
+// @10:45
+  cycloneii_io DOUT_out_2_ (
+	.padio(DOUT[2]),
+	.datain(I_dout_mux_DOUT_6_x[2]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DOUT_out_2_.operation_mode = "output";
+// @10:45
+  cycloneii_io DOUT_out_1_ (
+	.padio(DOUT[1]),
+	.datain(I_dout_mux_DOUT_6[1]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DOUT_out_1_.operation_mode = "output";
+// @10:45
+  cycloneii_io DOUT_out_0_ (
+	.padio(DOUT[0]),
+	.datain(I_dout_mux_DOUT_6_x[0]),
+	.oe(VCC),
+	.outclk(GND),
+	.outclkena(VCC),
+	.inclk(GND),
+	.inclkena(VCC),
+	.areset(GND),
+	.sreset(GND)
+);
+defparam DOUT_out_0_.operation_mode = "output";
+// @10:187
+  dout_mux I_dout_mux (
+	.ControlRegQ_i_0_0(I_cntl_log_ControlRegQ_i_0[0]),
+	.ControlRegQ_i_0_3(I_cntl_log_ControlRegQ_i_0[3]),
+	.DOUT_6_x_0(I_dout_mux_DOUT_6_x[0]),
+	.DOUT_6_x_3(I_dout_mux_DOUT_6_x[3]),
+	.DOUT_6_x_2(I_dout_mux_DOUT_6_x[2]),
+	.DOUT_6_x_6(I_dout_mux_DOUT_6_x[6]),
+	.PAIN_c_2(PAIN_c[2]),
+	.PAIN_c_1(PAIN_c[1]),
+	.PAIN_c_3(PAIN_c[3]),
+	.PAIN_c_5(PAIN_c[5]),
+	.PAIN_c_7(PAIN_c[7]),
+	.PAIN_c_6(PAIN_c[6]),
+	.PAIN_c_0(PAIN_c[0]),
+	.PAIN_c_4(PAIN_c[4]),
+	.PBIN_c_2(PBIN_c[2]),
+	.PBIN_c_1(PBIN_c[1]),
+	.PBIN_c_3(PBIN_c[3]),
+	.PBIN_c_5(PBIN_c[5]),
+	.PBIN_c_7(PBIN_c[7]),
+	.PBIN_c_6(PBIN_c[6]),
+	.PBIN_c_0(PBIN_c[0]),
+	.PBIN_c_4(PBIN_c[4]),
+	.PortAInRegQ_2(I_portain_PortAInRegQ[2]),
+	.PortAInRegQ_1(I_portain_PortAInRegQ[1]),
+	.PortAInRegQ_3(I_portain_PortAInRegQ[3]),
+	.PortAInRegQ_5(I_portain_PortAInRegQ[5]),
+	.PortAInRegQ_7(I_portain_PortAInRegQ[7]),
+	.PortAInRegQ_6(I_portain_PortAInRegQ[6]),
+	.PortAInRegQ_0(I_portain_PortAInRegQ[0]),
+	.PortAInRegQ_4(I_portain_PortAInRegQ[4]),
+	.PortBInRegQ_2(I_portbin_PortBInRegQ[2]),
+	.PortBInRegQ_1(I_portbin_PortBInRegQ[1]),
+	.PortBInRegQ_3(I_portbin_PortBInRegQ[3]),
+	.PortBInRegQ_5(I_portbin_PortBInRegQ[5]),
+	.PortBInRegQ_7(I_portbin_PortBInRegQ[7]),
+	.PortBInRegQ_6(I_portbin_PortBInRegQ[6]),
+	.PortBInRegQ_0(I_portbin_PortBInRegQ[0]),
+	.PortBInRegQ_4(I_portbin_PortBInRegQ[4]),
+	.DOUTSelect_1_i_0_0(I_cntl_log_DOUTSelect_1_i_0[0]),
+	.PortCOutRegQ_4(I_portcout_PortCOutRegQ[6]),
+	.PortCOutRegQ_2(I_portcout_PortCOutRegQ[4]),
+	.PortCOutRegQ_0(I_portcout_PortCOutRegQ[2]),
+	.PCIN_c_0(PCIN_c[0]),
+	.PCIN_c_1(PCIN_c[1]),
+	.PCIN_c_3(PCIN_c[3]),
+	.PCIN_c_5(PCIN_c[5]),
+	.PCIN_c_6(PCIN_c[6]),
+	.PCIN_c_4(PCIN_c[4]),
+	.PCIN_c_7(PCIN_c[7]),
+	.PCIN_c_2(PCIN_c[2]),
+	.ControlRegQ_4(I_cntl_log_ControlRegQ[6]),
+	.ControlRegQ_0(I_cntl_log_ControlRegQ[2]),
+	.ControlRegQ_3(I_cntl_log_ControlRegQ[5]),
+	.ControlRegQ_i_3(I_cntl_log_ControlRegQ_i[4]),
+	.ControlRegQ_i_0_d0(I_cntl_log_ControlRegQ_i[1]),
+	.A_c_0(A_c[0]),
+	.A_c_1(A_c[1]),
+	.DOUT_6_3(I_dout_mux_DOUT_6[4]),
+	.DOUT_6_6(I_dout_mux_DOUT_6[7]),
+	.DOUT_6_4(I_dout_mux_DOUT_6[5]),
+	.DOUT_6_0(I_dout_mux_DOUT_6[1])
+);
+// @10:199
+  cntl_log I_cntl_log (
+	.PCIN_c_0(PCIN_c[6]),
+	.PCEN_1_i_a2_x_0(I_cntl_log_PCEN_1_i_a2_x[0]),
+	.PCEN_1_0_a3_x_0(I_cntl_log_PCEN_1_0_a3_x[2]),
+	.PortCOutLd_i_a3_yy_x_0(I_cntl_log_PortCOutLd_i_a3_yy_x[7]),
+	.PortCOutLd_i_a3_0_0(I_cntl_log_PortCOutLd_i_a3_0[0]),
+	.PortCOutLd_0_i_a3_0_0(I_cntl_log_PortCOutLd_0_i_a3_0[3]),
+	.PortCOutLd_0_i_a3_1_x_0(I_cntl_log_PortCOutLd_0_i_a3_1_x[3]),
+	.PortCOutLd_i_a3_xx_mm_1(I_cntl_log_PortCOutLd_i_a3_xx_mm[2]),
+	.PortCOutLd_i_a3_xx_mm_0(I_cntl_log_PortCOutLd_i_a3_xx_mm[1]),
+	.DOUTSelect_1_i_0_a2_x_0(I_cntl_log_DOUTSelect_1_i_0_a2_x[0]),
+	.DOUTSelect_1_i_0_0(I_cntl_log_DOUTSelect_1_i_0[0]),
+	.PortCOutLd_m0_i_a2_x_0(I_cntl_log_PortCOutLd_m0_i_a2_x[4]),
+	.PortCOutLd_i_a3_xx_2(I_cntl_log_PortCOutLd_i_a3_xx[6]),
+	.PortCOutLd_i_a3_xx_0(I_cntl_log_PortCOutLd_i_a3_xx[4]),
+	.PortCOutLd_i_a3_xx_3(I_cntl_log_PortCOutLd_i_a3_xx[7]),
+	.ControlRegQ_m_0_i_0_0(I_cntl_log_ControlRegQ_m_0_i_0[3]),
+	.PortCOutLd_i_a2_0(I_cntl_log_PortCOutLd_i_a2[0]),
+	.ControlRegQ_m_i_0_0(I_cntl_log_ControlRegQ_m_i_0[3]),
+	.PortCOutLd_m0_i_a3_0(I_cntl_log_PortCOutLd_m0_i_a3[5]),
+	.ControlRegQ_i_m_i_o3_0(I_cntl_log_ControlRegQ_i_m_i_o3[3]),
+	.A_c_1(A_c[1]),
+	.A_c_0(A_c[0]),
+	.ControlRegQ_i_0_0(I_cntl_log_ControlRegQ_i_0[0]),
+	.ControlRegQ_i_0_3(I_cntl_log_ControlRegQ_i_0[3]),
+	.ControlRegQ_i_0_d0(I_cntl_log_ControlRegQ_i[1]),
+	.ControlRegQ_i_3(I_cntl_log_ControlRegQ_i[4]),
+	.DIN_c_0(DIN_c[1]),
+	.DIN_c_2(DIN_c[3]),
+	.DIN_c_6(DIN_c[7]),
+	.DIN_c_1(DIN_c[2]),
+	.DIN_c_4(DIN_c[5]),
+	.DIN_c_5(DIN_c[6]),
+	.ControlRegQ_0(I_cntl_log_ControlRegQ[2]),
+	.ControlRegQ_3(I_cntl_log_ControlRegQ[5]),
+	.ControlRegQ_4(I_cntl_log_ControlRegQ[6]),
+	.N_140_i(I_cntl_log_N_140_i),
+	.N_148_i(I_cntl_log_N_148_i),
+	.PortCOutLd_m2s2_0(I_cntl_log_PortCOutLd_m2s2_0),
+	.N_131_i(I_cntl_log_N_131_i),
+	.PortAWrite_1_i_a2_x(I_cntl_log_PortAWrite_1_i_a2_x),
+	.N_127_i(I_cntl_log_N_127_i),
+	.PortARead_i_a3(I_cntl_log_PortARead_i_a3),
+	.nRD_c(nRD_c),
+	.PortBRead_i_a3(I_cntl_log_PortBRead_i_a3),
+	.nWR_c(nWR_c),
+	.nCS_c(nCS_c),
+	.un4_ncs_0_a3(I_cntl_log_ControlLogicProc_un4_ncs_0_a3),
+	.PortAWrite_1_i_a3(I_cntl_log_PortAWrite_1_i_a3),
+	.PortAWrite_i_0_i_x_i(PortAWrite_i_0_i_x_i),
+	.PortBWrite_1_i_a3(I_cntl_log_PortBWrite_1_i_a3),
+	.PortBWrite_i_0_i_x_i(PortBWrite_i_0_i_x_i),
+	.I_211_x_i(I_211_x_i),
+	.I_212_x_i(I_212_x_i),
+	.I_213_x_i(I_213_x_i),
+	.I_214_x_i(I_214_x_i),
+	.RESET_c(RESET_c),
+	.CLK_c(CLK_c)
+);
+// @10:224
+  portaout I_portaout (
+	.DIN_c_0(DIN_c[0]),
+	.DIN_c_1(DIN_c[1]),
+	.DIN_c_2(DIN_c[2]),
+	.DIN_c_3(DIN_c[3]),
+	.DIN_c_4(DIN_c[4]),
+	.DIN_c_5(DIN_c[5]),
+	.DIN_c_6(DIN_c[6]),
+	.DIN_c_7(DIN_c[7]),
+	.PortAOutRegQ_0(I_portaout_PortAOutRegQ[0]),
+	.PortAOutRegQ_1(I_portaout_PortAOutRegQ[1]),
+	.PortAOutRegQ_2(I_portaout_PortAOutRegQ[2]),
+	.PortAOutRegQ_3(I_portaout_PortAOutRegQ[3]),
+	.PortAOutRegQ_4(I_portaout_PortAOutRegQ[4]),
+	.PortAOutRegQ_5(I_portaout_PortAOutRegQ[5]),
+	.PortAOutRegQ_6(I_portaout_PortAOutRegQ[6]),
+	.PortAOutRegQ_7(I_portaout_PortAOutRegQ[7]),
+	.PortAWrite_1_i_a3(I_cntl_log_PortAWrite_1_i_a3),
+	.RESET_c(RESET_c),
+	.CLK_c(CLK_c)
+);
+// @10:234
+  portain I_portain (
+	.PCIN_c_0(PCIN_c[4]),
+	.PAIN_c_0(PAIN_c[0]),
+	.PAIN_c_1(PAIN_c[1]),
+	.PAIN_c_2(PAIN_c[2]),
+	.PAIN_c_3(PAIN_c[3]),
+	.PAIN_c_4(PAIN_c[4]),
+	.PAIN_c_5(PAIN_c[5]),
+	.PAIN_c_6(PAIN_c[6]),
+	.PAIN_c_7(PAIN_c[7]),
+	.PortAInRegQ_0(I_portain_PortAInRegQ[0]),
+	.PortAInRegQ_1(I_portain_PortAInRegQ[1]),
+	.PortAInRegQ_2(I_portain_PortAInRegQ[2]),
+	.PortAInRegQ_3(I_portain_PortAInRegQ[3]),
+	.PortAInRegQ_4(I_portain_PortAInRegQ[4]),
+	.PortAInRegQ_5(I_portain_PortAInRegQ[5]),
+	.PortAInRegQ_6(I_portain_PortAInRegQ[6]),
+	.PortAInRegQ_7(I_portain_PortAInRegQ[7]),
+	.RESET_c(RESET_c),
+	.CLK_c(CLK_c)
+);
+// @10:243
+  portbout I_portbout (
+	.DIN_c_0(DIN_c[0]),
+	.DIN_c_1(DIN_c[1]),
+	.DIN_c_2(DIN_c[2]),
+	.DIN_c_3(DIN_c[3]),
+	.DIN_c_4(DIN_c[4]),
+	.DIN_c_5(DIN_c[5]),
+	.DIN_c_6(DIN_c[6]),
+	.DIN_c_7(DIN_c[7]),
+	.PortBOutRegQ_0(I_portbout_PortBOutRegQ[0]),
+	.PortBOutRegQ_1(I_portbout_PortBOutRegQ[1]),
+	.PortBOutRegQ_2(I_portbout_PortBOutRegQ[2]),
+	.PortBOutRegQ_3(I_portbout_PortBOutRegQ[3]),
+	.PortBOutRegQ_4(I_portbout_PortBOutRegQ[4]),
+	.PortBOutRegQ_5(I_portbout_PortBOutRegQ[5]),
+	.PortBOutRegQ_6(I_portbout_PortBOutRegQ[6]),
+	.PortBOutRegQ_7(I_portbout_PortBOutRegQ[7]),
+	.PortBWrite_1_i_a3(I_cntl_log_PortBWrite_1_i_a3),
+	.RESET_c(RESET_c),
+	.CLK_c(CLK_c)
+);
+// @10:252
+  portbin I_portbin (
+	.PCIN_c_0(PCIN_c[2]),
+	.PBIN_c_0(PBIN_c[0]),
+	.PBIN_c_1(PBIN_c[1]),
+	.PBIN_c_2(PBIN_c[2]),
+	.PBIN_c_3(PBIN_c[3]),
+	.PBIN_c_4(PBIN_c[4]),
+	.PBIN_c_5(PBIN_c[5]),
+	.PBIN_c_6(PBIN_c[6]),
+	.PBIN_c_7(PBIN_c[7]),
+	.PortBInRegQ_0(I_portbin_PortBInRegQ[0]),
+	.PortBInRegQ_1(I_portbin_PortBInRegQ[1]),
+	.PortBInRegQ_2(I_portbin_PortBInRegQ[2]),
+	.PortBInRegQ_3(I_portbin_PortBInRegQ[3]),
+	.PortBInRegQ_4(I_portbin_PortBInRegQ[4]),
+	.PortBInRegQ_5(I_portbin_PortBInRegQ[5]),
+	.PortBInRegQ_6(I_portbin_PortBInRegQ[6]),
+	.PortBInRegQ_7(I_portbin_PortBInRegQ[7]),
+	.RESET_c(RESET_c),
+	.CLK_c(CLK_c)
+);
+// @10:261
+  portcout I_portcout (
+	.PortCOutLd_i_a3_yy_x_0(I_cntl_log_PortCOutLd_i_a3_yy_x[7]),
+	.un1_portcoutld_1_i_a_0(I_portcout_un1_portcoutld_1_i_a[0]),
+	.ControlRegQ_i_m_i_o3_0(I_cntl_log_ControlRegQ_i_m_i_o3[3]),
+	.DOUTSelect_1_i_0_a2_x_0(I_cntl_log_DOUTSelect_1_i_0_a2_x[0]),
+	.PortCOutLd_m0_i_a3_0(I_cntl_log_PortCOutLd_m0_i_a3[5]),
+	.PortCOutLd_0_i_a3_0_0(I_cntl_log_PortCOutLd_0_i_a3_0[3]),
+	.A_c_0(A_c[0]),
+	.A_c_1(A_c[1]),
+	.un1_portcoutld_1_i_0_0(I_portcout_un1_portcoutld_1_i_0[0]),
+	.PortCOutLd_i_a3_0_0(I_cntl_log_PortCOutLd_i_a3_0[0]),
+	.PortCOutLd_0_i_a3_1_x_0(I_cntl_log_PortCOutLd_0_i_a3_1_x[3]),
+	.PortCOutLd_i_a3_xx_0(I_cntl_log_PortCOutLd_i_a3_xx[4]),
+	.PortCOutLd_i_a3_xx_2(I_cntl_log_PortCOutLd_i_a3_xx[6]),
+	.PortCOutLd_i_a3_xx_3(I_cntl_log_PortCOutLd_i_a3_xx[7]),
+	.PortCOutLd_i_a2_0(I_cntl_log_PortCOutLd_i_a2[0]),
+	.DIN_c_3(DIN_c[3]),
+	.DIN_c_0(DIN_c[0]),
+	.DIN_c_4(DIN_c[4]),
+	.DIN_c_6(DIN_c[6]),
+	.ControlRegQ_i_0(I_cntl_log_ControlRegQ_i[1]),
+	.ControlRegQ_i_3(I_cntl_log_ControlRegQ_i[4]),
+	.ControlRegQ_0(I_cntl_log_ControlRegQ[2]),
+	.ControlRegQ_3(I_cntl_log_ControlRegQ[5]),
+	.ControlRegQ_4(I_cntl_log_ControlRegQ[6]),
+	.PortCOutLd_i_a3_xx_mm_0(I_cntl_log_PortCOutLd_i_a3_xx_mm[1]),
+	.PortCOutLd_i_a3_xx_mm_1(I_cntl_log_PortCOutLd_i_a3_xx_mm[2]),
+	.PortCOutRegQ_ena_0(I_portcout_PortCOutRegQ_ena[0]),
+	.PCIN_c_0(PCIN_c[2]),
+	.PCIN_c_2(PCIN_c[4]),
+	.PCIN_c_4(PCIN_c[6]),
+	.PortCOutRegQ_7(I_portcout_PortCOutRegQ[7]),
+	.PortCOutRegQ_5(I_portcout_PortCOutRegQ[5]),
+	.PortCOutRegQ_2(I_portcout_PortCOutRegQ[2]),
+	.PortCOutRegQ_1(I_portcout_PortCOutRegQ[1]),
+	.PortCOutRegQ_0(I_portcout_PortCOutRegQ[0]),
+	.PortCOutRegQ_3(I_portcout_PortCOutRegQ[3]),
+	.PortCOutRegQ_4(I_portcout_PortCOutRegQ[4]),
+	.PortCOutRegQ_6(I_portcout_PortCOutRegQ[6]),
+	.un4_ncs_0_a3(I_cntl_log_ControlLogicProc_un4_ncs_0_a3),
+	.PortAWrite_1_i_a2_x(I_cntl_log_PortAWrite_1_i_a2_x),
+	.PortCOutLd_m2s2_0(I_cntl_log_PortCOutLd_m2s2_0),
+	.PortBWrite_1_i_a3(I_cntl_log_PortBWrite_1_i_a3),
+	.PortCOutRegD_1_sqmuxa_16_i_i_o2(I_portcout_PortCOutRegD_1_sqmuxa_16_i_i_o2),
+	.PortAWrite_1_i_a3(I_cntl_log_PortAWrite_1_i_a3),
+	.I_111(I_111),
+	.I_87(I_87),
+	.I_66_x(I_66_x),
+	.I_59_x(I_59_x),
+	.PortARead_i_a3(I_cntl_log_PortARead_i_a3),
+	.RisePortAReadQ(I_portcout_RisePortAReadQ),
+	.PortAWrite_i_0_i_x_i(PortAWrite_i_0_i_x_i),
+	.RisePortAWriteQ(I_portcout_RisePortAWriteQ),
+	.PortBRead_i_a3(I_cntl_log_PortBRead_i_a3),
+	.PortBWrite_i_0_i_x_i(PortBWrite_i_0_i_x_i),
+	.RESET_c(RESET_c),
+	.CLK_c(CLK_c)
+);
+endmodule /* gw8255 */
+

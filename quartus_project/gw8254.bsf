@@ -1,0 +1,254 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 200 512)
+	(text "gw8254" (rect 5 0 35 12)(font "Arial" ))
+	(text "inst" (rect 8 480 20 492)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "ID[7..0]" (rect 0 0 29 12)(font "Arial" ))
+		(text "ID[7..0]" (rect 21 27 50 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "TMODE" (rect 0 0 35 12)(font "Arial" ))
+		(text "TMODE" (rect 21 43 56 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "CLK0" (rect 0 0 24 12)(font "Arial" ))
+		(text "CLK0" (rect 21 59 45 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "DELA0" (rect 0 0 33 12)(font "Arial" ))
+		(text "DELA0" (rect 21 75 54 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "DELB0" (rect 0 0 30 12)(font "Arial" ))
+		(text "DELB0" (rect 21 91 51 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "DELSEL0" (rect 0 0 43 12)(font "Arial" ))
+		(text "DELSEL0" (rect 21 107 64 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "GATE0" (rect 0 0 33 12)(font "Arial" ))
+		(text "GATE0" (rect 21 123 54 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "TRIG0" (rect 0 0 28 12)(font "Arial" ))
+		(text "TRIG0" (rect 21 139 49 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "CLK1" (rect 0 0 23 12)(font "Arial" ))
+		(text "CLK1" (rect 21 155 44 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "DELA1" (rect 0 0 31 12)(font "Arial" ))
+		(text "DELA1" (rect 21 171 52 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "DELB1" (rect 0 0 29 12)(font "Arial" ))
+		(text "DELB1" (rect 21 187 50 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 1))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "DELSEL1" (rect 0 0 42 12)(font "Arial" ))
+		(text "DELSEL1" (rect 21 203 63 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 1))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "GATE1" (rect 0 0 31 12)(font "Arial" ))
+		(text "GATE1" (rect 21 219 52 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 1))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "TRIG1" (rect 0 0 27 12)(font "Arial" ))
+		(text "TRIG1" (rect 21 235 48 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 1))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "CLK2" (rect 0 0 24 12)(font "Arial" ))
+		(text "CLK2" (rect 21 251 45 263)(font "Arial" ))
+		(line (pt 0 256)(pt 16 256)(line_width 1))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "DELA2" (rect 0 0 33 12)(font "Arial" ))
+		(text "DELA2" (rect 21 267 54 279)(font "Arial" ))
+		(line (pt 0 272)(pt 16 272)(line_width 1))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "DELB2" (rect 0 0 30 12)(font "Arial" ))
+		(text "DELB2" (rect 21 283 51 295)(font "Arial" ))
+		(line (pt 0 288)(pt 16 288)(line_width 1))
+	)
+	(port
+		(pt 0 304)
+		(input)
+		(text "DELSEL2" (rect 0 0 43 12)(font "Arial" ))
+		(text "DELSEL2" (rect 21 299 64 311)(font "Arial" ))
+		(line (pt 0 304)(pt 16 304)(line_width 1))
+	)
+	(port
+		(pt 0 320)
+		(input)
+		(text "GATE2" (rect 0 0 33 12)(font "Arial" ))
+		(text "GATE2" (rect 21 315 54 327)(font "Arial" ))
+		(line (pt 0 320)(pt 16 320)(line_width 1))
+	)
+	(port
+		(pt 0 336)
+		(input)
+		(text "TRIG2" (rect 0 0 28 12)(font "Arial" ))
+		(text "TRIG2" (rect 21 331 49 343)(font "Arial" ))
+		(line (pt 0 336)(pt 16 336)(line_width 1))
+	)
+	(port
+		(pt 0 352)
+		(input)
+		(text "NCLR" (rect 0 0 28 12)(font "Arial" ))
+		(text "NCLR" (rect 21 347 49 359)(font "Arial" ))
+		(line (pt 0 352)(pt 16 352)(line_width 1))
+	)
+	(port
+		(pt 0 368)
+		(input)
+		(text "A0" (rect 0 0 12 12)(font "Arial" ))
+		(text "A0" (rect 21 363 33 375)(font "Arial" ))
+		(line (pt 0 368)(pt 16 368)(line_width 1))
+	)
+	(port
+		(pt 0 384)
+		(input)
+		(text "A1" (rect 0 0 11 12)(font "Arial" ))
+		(text "A1" (rect 21 379 32 391)(font "Arial" ))
+		(line (pt 0 384)(pt 16 384)(line_width 1))
+	)
+	(port
+		(pt 0 400)
+		(input)
+		(text "NCS" (rect 0 0 20 12)(font "Arial" ))
+		(text "NCS" (rect 21 395 41 407)(font "Arial" ))
+		(line (pt 0 400)(pt 16 400)(line_width 1))
+	)
+	(port
+		(pt 0 416)
+		(input)
+		(text "NWR" (rect 0 0 25 12)(font "Arial" ))
+		(text "NWR" (rect 21 411 46 423)(font "Arial" ))
+		(line (pt 0 416)(pt 16 416)(line_width 1))
+	)
+	(port
+		(pt 0 432)
+		(input)
+		(text "NRD" (rect 0 0 22 12)(font "Arial" ))
+		(text "NRD" (rect 21 427 43 439)(font "Arial" ))
+		(line (pt 0 432)(pt 16 432)(line_width 1))
+	)
+	(port
+		(pt 0 448)
+		(input)
+		(text "NOE" (rect 0 0 21 12)(font "Arial" ))
+		(text "NOE" (rect 21 443 42 455)(font "Arial" ))
+		(line (pt 0 448)(pt 16 448)(line_width 1))
+	)
+	(port
+		(pt 184 32)
+		(output)
+		(text "DAO[7..0]" (rect 0 0 42 12)(font "Arial" ))
+		(text "DAO[7..0]" (rect 121 27 163 39)(font "Arial" ))
+		(line (pt 184 32)(pt 168 32)(line_width 3))
+	)
+	(port
+		(pt 184 48)
+		(output)
+		(text "NOD" (rect 0 0 21 12)(font "Arial" ))
+		(text "NOD" (rect 142 43 163 55)(font "Arial" ))
+		(line (pt 184 48)(pt 168 48)(line_width 1))
+	)
+	(port
+		(pt 184 64)
+		(output)
+		(text "OUT0" (rect 0 0 24 12)(font "Arial" ))
+		(text "OUT0" (rect 139 59 163 71)(font "Arial" ))
+		(line (pt 184 64)(pt 168 64)(line_width 1))
+	)
+	(port
+		(pt 184 80)
+		(output)
+		(text "OUT1" (rect 0 0 23 12)(font "Arial" ))
+		(text "OUT1" (rect 140 75 163 87)(font "Arial" ))
+		(line (pt 184 80)(pt 168 80)(line_width 1))
+	)
+	(port
+		(pt 184 96)
+		(output)
+		(text "OUT2" (rect 0 0 24 12)(font "Arial" ))
+		(text "OUT2" (rect 139 91 163 103)(font "Arial" ))
+		(line (pt 184 96)(pt 168 96)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 168 480)(line_width 1))
+	)
+)
