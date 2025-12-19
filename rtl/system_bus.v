@@ -34,14 +34,13 @@ module system_bus(
     output wire         pic_inta_n,    // 中断响应信号 (给 PIC)
 
     // PIT (8254) 控制信号
-    output reg        pit_cs_n,
-    output reg        pit_rd_n,
-    output reg        pit_wr_n,
-    output reg        pit_a0,
-    output reg        pit_a1,
-    output reg [7:0]  pit_din,
+    output wire        pit_cs_n,
+    output wire        pit_rd_n,
+    output wire        pit_wr_n,
+    output wire        pit_a0,
+    output wire        pit_a1,
+    output wire [7:0]  pit_din,
     input  wire [7:0] pit_dout,
-    output wire       ir0,
 
     // 测试与观测信号
     output wire         test_rom_cs,   // ROM 片选测试点
@@ -49,7 +48,8 @@ module system_bus(
     output wire [7:0]   test_out,      // 测试输出端口
     output wire         test_ram_wren,  // RAM 写使能测试点
     output wire         test_pic_int,
-    output wire         test_cpu_inta_n
+    output wire         test_cpu_inta_n,
+    output wire         test_pit_cs
 );
 
     // 地址译码逻辑 (Address Decoding)
@@ -60,6 +60,8 @@ module system_bus(
     wire pic_cs;
     wire pit_cs;
 
+
+
     // RAM: 0x00000 - 0x03FFF
     // cpu_iom = 0 (Memory), A19..A14 = 000000
     assign ram_cs = (cpu_iom == 1'b0) && (cpu_addr[19:14] == 6'b000000);
@@ -68,13 +70,13 @@ module system_bus(
     // cpu_iom = 0 (Memory), A19..A14 = 111111 (0x3F)
     assign rom_cs = (cpu_iom == 1'b0) && (cpu_addr[19:14] == 6'b111111);
 
-    // PIC (8259): IO Space, Address 0x20 - 0x2x
+    // PIC (8259): IO Space, Address 0x20 - 0x21
     // 这里采用简化的 IO 译码：A7..A4 = 0010 (0x2x)
     assign pic_cs = (cpu_iom == 1'b1) && (cpu_addr[7:4] == 4'b0010);
 
     // PIT (8254): IO Space, Address 0x40 - 0x43
     // 这里采用简化的 IO 译码：A7..A4 = 0100 (0x4x)
-    assign pit_cs = (cpu_iom == 1'b1) && (cpu_addr[7:4] == 4'b0011);
+    assign pit_cs = (cpu_iom == 1'b1) && (cpu_addr[7:4] == 4'b0100);
 
     // Test Output (IO Space, Address 0x56)
     assign testout_cs = (cpu_iom == 1'b1) && (cpu_addr == 20'h56);
@@ -113,6 +115,7 @@ module system_bus(
     assign test_out      = (testout_cs && !cpu_wr_n) ? cpu_dout : 8'h00;   // 将 CPU 读到的数据输出到测试端口
     assign test_pic_int  = pic_intr;
     assign test_cpu_inta_n = cpu_inta_n;
+    assign test_pit_cs = pit_cs_n;
     //=========================================================
     // 3. 数据总线多路复用 (Data Bus Multiplexer)
     //=========================================================
@@ -125,5 +128,6 @@ module system_bus(
                      (pic_cs && !cpu_rd_n) ? pic_dout :  // 读 PIC
                      (pit_cs && !cpu_rd_n) ? pit_dout :  // 读 PIT
                      8'h00;                              // 默认/空闲状态
+
 
 endmodule

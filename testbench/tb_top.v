@@ -12,7 +12,7 @@ module tb_top;
     // =========================
     reg clk;
     reg rst_n;
-    reg [7:0] ir;
+    reg [6:0] ir;
 
     wire [19:0] test_addr;
     wire [13:0] test_ram_addr;
@@ -30,6 +30,9 @@ module tb_top;
     wire [7:0] test_ram_wdata;
     wire test_pic_int;
     wire test_cpu_inta_n;
+    wire test_pit_cs;
+    wire test_clk_1m;
+    wire test_pit_out0;
 
     // =========================
     // DUT 实例化
@@ -37,7 +40,7 @@ module tb_top;
     mpe dut (
         .clk   (clk),
         .rst_n (rst_n),
-        .ir(ir),
+        .ir_ext(ir),
         .test_addr(test_addr),
         .test_ram_addr(test_ram_addr),
         .test_rom_addr(test_rom_addr),
@@ -53,7 +56,10 @@ module tb_top;
         .test_ram_wren(test_ram_wren),
         .test_ram_wdata(test_ram_wdata),
         .test_pic_int(test_pic_int),
-        .test_cpu_inta_n(test_cpu_inta_n)
+        .test_cpu_inta_n(test_cpu_inta_n),
+        .test_pit_cs(test_pit_cs),
+        .test_clk_1m(test_clk_1m),
+        .test_pit_out0(test_pit_out0)
     );
 
     // =========================
@@ -85,7 +91,7 @@ module tb_top;
         # 10000;
         ir = 8'h1;
 
-        #20000;
+        # 20000;
 
         $display("Simulation finished.");
         $stop;

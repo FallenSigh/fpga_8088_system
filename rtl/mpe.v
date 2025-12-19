@@ -1,45 +1,27 @@
 module mpe(
-	clk,
-	rst_n,
-	ir,
-	test_addr,
-	test_ram_addr,
-	test_rom_addr,
-	test_ram_cs,
-	test_rom_cs,
-	test_ram_data,
-	test_rom_data,
-	test_pic_cs,
-	test_pic_din,
-	test_pic_dout,
-	test_out,
-	test_cpu_s,
-	test_ram_wren,
-	test_ram_wdata,
-	test_pic_int,
-	test_cpu_inta_n
+	input wire clk,
+	input wire rst_n,
+	input wire [6:0] ir_ext,
+	output wire [19:0] test_addr,
+	output wire [13:0] test_ram_addr,
+	output wire [13:0] test_rom_addr,
+	output wire [7:0] test_ram_data,
+	output wire [7:0] test_rom_data,
+	output wire test_ram_cs,
+	output wire test_rom_cs,
+	output wire test_pic_cs,
+	output wire [7:0] test_pic_din,
+	output wire [7:0] test_pic_dout,
+	output wire [7:0]  test_out,
+	output wire [2:0] test_cpu_s,
+	output wire test_ram_wren,
+	output wire [7:0] test_ram_wdata,
+	output wire test_pic_int,
+	output wire test_cpu_inta_n,
+	output wire test_pit_cs,
+	output wire test_clk_1m,
+	output wire test_pit_out0
 );
-
-
-input wire	clk;
-input wire	rst_n;
-input wire [7:0] ir;
-output wire [19:0] test_addr;
-output wire [13:0] test_ram_addr;
-output wire [13:0] test_rom_addr;
-output wire [7:0] test_ram_data;
-output wire [7:0] test_rom_data;
-output wire test_ram_cs;
-output wire test_rom_cs;
-output wire test_pic_cs;
-output wire [7:0] test_pic_din;
-output wire [7:0] test_pic_dout;
-output wire [7:0]  test_out;
-output wire [2:0] test_cpu_s;
-output wire test_ram_wren;
-output wire [7:0] test_ram_wdata;
-output wire test_pic_int;
-output wire test_cpu_inta_n;
 
 wire	[19:0] cpu_addr;
 assign test_addr = cpu_addr;
@@ -70,6 +52,7 @@ wire	[13:0] rom_addr;
 wire	[7:0] rom_q;
 wire	sys_clk;
 wire	sys_rst;
+wire    srst_n;
 
 wire        pic_cs_n;
 wire        pic_rd_n;
@@ -77,11 +60,14 @@ wire        pic_wr_n;
 wire        pic_a0;
 wire [7:0]  pic_din;
 wire [7:0]  pic_dout;
+wire        pic_inta_n;
+wire        pic_intr;
+wire [7:0]  ir;
 
 wire  clk_1m;
 wire [7:0] pit_din;
 wire [5:0] pit_tmode;
-wire [7:0] pit_dao;
+wire [7:0] pit_dout;
 wire pit_clk0;
 wire pit_clk1;
 wire pit_clk2;
@@ -100,17 +86,22 @@ wire pit_gate2;
 wire pit_trig0;
 wire pit_trig1;
 wire pit_trig2;
-wire pit_nclr;
 wire pit_a0;
 wire pit_a1;
-wire pit_ncs;
-wire pit_nwr;
-wire pit_nrd;
+wire pit_cs_n;
+wire pit_wr_n;
+wire pit_rd_n;
 wire pit_noe;
 wire pit_nod;
 wire pit_out0;
 wire pit_out1;
 wire pit_out2;
+
+assign pit_clk0 = clk_1m;
+assign pit_clk1 = clk_1m;
+assign pit_clk2 = clk_1m;
+assign ir[0] = pit_out0;
+assign srst_n = ~cpu_reset_o;
 
 assign test_ram_addr = ram_addr;
 assign test_rom_addr = rom_addr;
@@ -121,6 +112,8 @@ assign test_pic_cs = pic_cs_n;
 assign test_pic_din = pic_din;
 assign test_pic_dout = pic_dout;
 assign test_cpu_s = cpu_s;
+assign test_clk_1m = clk_1m;
+assign test_pit_out0 = pit_out0;
 
 gw8088	gw8088_inst(
 	.CLK(sys_clk),
@@ -147,7 +140,6 @@ gw8088	gw8088_inst(
     .QS(cpu_qs)
 	);
 
-
 system_bus	bus_inst(
 	.cpu_rd_n(cpu_rd_n),
 	.cpu_wr_n(cpu_wr_n),
@@ -171,16 +163,24 @@ system_bus	bus_inst(
 	.pic_dout(pic_dout),
 	.pic_inta_n(pic_inta_n),
 	.pic_intr(pic_intr),
+	.pit_cs_n(pit_cs_n),
+    .pit_rd_n(pit_rd_n),
+    .pit_wr_n(pit_wr_n),
+    .pit_a0(pit_a0),
+    .pit_a1(pit_a1),
+    .pit_din(pit_din),
+    .pit_dout(pit_dout),
 	.test_rom_cs(test_rom_cs),
 	.test_ram_cs(test_ram_cs),
 	.test_out(test_out),
 	.test_ram_wren(test_ram_wren),
 	.test_pic_int(test_pic_int),
-	.test_cpu_inta_n(test_cpu_inta_n)
+	.test_cpu_inta_n(test_cpu_inta_n),
+	.test_pit_cs(test_pit_cs)
 	);
 
 gw8259 gw8259_inst(
-  .nMRST(sys_rst),
+  .nMRST(srst_n),
   .CLK(sys_clk),
   .nCS(pic_cs_n),
   .nWR(pic_wr_n),
@@ -197,10 +197,6 @@ gw8259 gw8259_inst(
   .nEN(1'b0),
   .IR(ir)
 );
-
-assign pit_clk0 = pit_clk;
-assign pit_clk1 = pit_clk;
-assign pit_clk2 = pit_clk;
 
 gw8254 gw8254_inst(
   .ID(pit_din),
@@ -225,12 +221,12 @@ gw8254 gw8254_inst(
   .TRIG2(pit_trig2),
   .A0(pit_a0),
   .A1(pit_a1),
-  .NCLR(pit_nclr),
-  .NCS(pit_ncs),
-  .NWR(pit_nwr),
-  .NRD(pit_nrd),
-  .NOE(pit_noe),
-  .DAO(pit_dao),
+  .NCLR(srst_n),
+  .NCS(pit_cs_n),
+  .NWR(pit_wr_n),
+  .NRD(pit_rd_n),
+  .NOE(pit_rd_n),
+  .DAO(pit_dout),
   .NOD(pit_nod),
   .OUT0(pit_out0),
   .OUT1(pit_out1),

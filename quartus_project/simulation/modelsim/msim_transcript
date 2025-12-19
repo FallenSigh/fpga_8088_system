@@ -14,7 +14,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work altera_ver {d:/programdata/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
-# Start time: 15:29:12 on Dec 18,2025
+# Start time: 14:45:13 on Dec 19,2025
 # vlog -reportprogress 300 -vlog01compat -work altera_ver d:/programdata/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives.v 
 # -- Compiling module global
 # -- Compiling module carry
@@ -96,7 +96,7 @@
 # 	alt_iobuf_diff
 # 	alt_bidir_diff
 # 	alt_bidir_buf
-# End time: 15:29:13 on Dec 18,2025, Elapsed time: 0:00:01
+# End time: 14:45:14 on Dec 19,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cycloneive_ver
@@ -108,7 +108,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cycloneive_ver {d:/programdata/intelfpga_lite/22.1std/quartus/eda/sim_lib/cycloneive_atoms.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
-# Start time: 15:29:14 on Dec 18,2025
+# Start time: 14:45:15 on Dec 19,2025
 # vlog -reportprogress 300 -vlog01compat -work cycloneive_ver d:/programdata/intelfpga_lite/22.1std/quartus/eda/sim_lib/cycloneive_atoms.v 
 # -- Compiling UDP CYCLONEIVE_PRIM_DFFE
 # -- Compiling UDP CYCLONEIVE_PRIM_DFFEAS
@@ -186,7 +186,7 @@
 # 	cycloneive_jtag
 # 	cycloneive_crcblock
 # 	cycloneive_oscillator
-# End time: 15:29:14 on Dec 18,2025, Elapsed time: 0:00:00
+# End time: 14:45:16 on Dec 19,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists gate_work]} {
@@ -200,29 +200,29 @@
 # 
 # vlog -vlog01compat -work work +incdir+. {mpe.vo}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
-# Start time: 15:29:16 on Dec 18,2025
+# Start time: 14:45:16 on Dec 19,2025
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+." mpe.vo 
 # -- Compiling module mpe
 # 
 # Top level modules:
 # 	mpe
-# End time: 15:29:17 on Dec 18,2025, Elapsed time: 0:00:01
+# End time: 14:45:18 on Dec 19,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+D:/ProgramData/sch/Junior_Autumn/MPE/quartus_project/../testbench {D:/ProgramData/sch/Junior_Autumn/MPE/quartus_project/../testbench/tb_top.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
-# Start time: 15:29:17 on Dec 18,2025
+# Start time: 14:45:18 on Dec 19,2025
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/ProgramData/sch/Junior_Autumn/MPE/quartus_project/../testbench" D:/ProgramData/sch/Junior_Autumn/MPE/quartus_project/../testbench/tb_top.v 
 # -- Compiling module tb_top
 # 
 # Top level modules:
 # 	tb_top
-# End time: 15:29:17 on Dec 18,2025, Elapsed time: 0:00:00
+# End time: 14:45:18 on Dec 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L cycloneive_ver -L gate_work -L work -voptargs="+acc"  tb_top
 # vsim -t 1ps -L altera_ver -L cycloneive_ver -L gate_work -L work -voptargs=""+acc"" tb_top 
-# Start time: 15:29:17 on Dec 18,2025
+# Start time: 14:45:18 on Dec 19,2025
 # Loading work.tb_top
 # Loading work.mpe
 # Loading cycloneive_ver.cycloneive_io_obuf
@@ -240,15 +240,15 @@
 # Loading cycloneive_ver.cycloneive_ram_register
 # Loading cycloneive_ver.cycloneive_ram_pulse_generator
 # Loading altera_ver.PRIM_GDFF_LOW
-# ** Warning: Design size of 15844 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# ** Warning: Design size of 18538 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: FallenSigh  Hostname: DESKTOP-QS24PR5  ProcessID: 3868
-#           Attempting to use alternate WLF file "./wlft328q9q".
+#           Attempting to use alternate WLF file "./wlftbcj7cb".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft328q9q
+#           Using alternate file: ./wlftbcj7cb
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
@@ -257,8 +257,8 @@
 #  Note : Cycloneive PLL locked to incoming clock
 # Time: 90000  Instance: tb_top.dut.\pll_inst|altpll_component|auto_generated|pll1 
 # Simulation finished.
-# ** Note: $stop    : D:/ProgramData/sch/Junior_Autumn/MPE/quartus_project/../testbench/tb_top.v(91)
+# ** Note: $stop    : D:/ProgramData/sch/Junior_Autumn/MPE/quartus_project/../testbench/tb_top.v(97)
 #    Time: 30100 ns  Iteration: 0  Instance: /tb_top
-# Break in Module tb_top at D:/ProgramData/sch/Junior_Autumn/MPE/quartus_project/../testbench/tb_top.v line 91
-# End time: 15:30:42 on Dec 18,2025, Elapsed time: 0:01:25
+# Break in Module tb_top at D:/ProgramData/sch/Junior_Autumn/MPE/quartus_project/../testbench/tb_top.v line 97
+# End time: 14:47:14 on Dec 19,2025, Elapsed time: 0:01:56
 # Errors: 0, Warnings: 3
