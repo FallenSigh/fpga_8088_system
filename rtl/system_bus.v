@@ -8,6 +8,10 @@ module system_bus(
     output wire [7:0]   cpu_din,       // CPU 输入的数据 (从 RAM/ROM/IO 读取)
     input               pic_intr,      // 中断请求信号 (来自 PIC)
     output wire         cpu_intr,
+    output wire iorc_n,
+    output wire iowc_n,
+    output wire mrdc_n,
+    output wire mwtc_n,
 
     // CPU 中断请求信号 (低电平有效)
     input  wire         cpu_inta_n,
@@ -40,27 +44,50 @@ module system_bus(
     output wire        pit_a0,
     output wire        pit_a1,
     output wire [7:0]  pit_din,
-    input  wire [7:0] pit_dout,
+    input  wire [7:0]  pit_dout,
+
+    // PPI (8255) 控制信号
+    output wire        ppi_cs_n,
+    output wire        ppi_rd_n,
+    output wire        ppi_wr_n,
+    output wire [1:0]  ppi_addr,
+    output wire [7:0]  ppi_din,
+    input  wire [7:0]  ppi_dout,
 
     // 测试与观测信号
-    output wire         test_rom_cs,   // ROM 片选测试点
-    output wire         test_ram_cs,   // RAM 片选测试点
-    output wire [7:0]   test_out,      // 测试输出端口
-    output wire         test_ram_wren,  // RAM 写使能测试点
-    output wire         test_pic_int,
-    output wire         test_cpu_inta_n,
-    output wire         test_pit_cs
+    output wire         test_rom_cs,     // ROM 片选测试点
+    output wire         test_ram_cs,     // RAM 片选测试点
+    output wire [7:0]   test_out,        // 测试输出端口
+    output wire         test_ram_wren,   // RAM 写使能测试点
+    output wire         test_pic_int,    // PIC 中断测试点
+    output wire         test_cpu_inta_n, // CPU 中断请求测试点
+    output wire         test_pit_cs      // PIT 片选测试点
 );
 
     // 地址译码逻辑 (Address Decoding)
+    wire cpu_mrdc_n;      // Memory Read
+    wire cpu_mwtc_n;      // Memory Write
+    wire cpu_iorc_n;      // I/O Read
+    wire cpu_iowc_n;      // I/O Write
+
+    assign cpu_mrdc_n = (cpu_iom == 1'b0 && cpu_rd_n == 1'b0) ? 1'b0 : 1'b1;
+    assign cpu_mwtc_n = (cpu_iom == 1'b0 && cpu_wr_n == 1'b0) ? 1'b0 : 1'b1;
+    assign cpu_iorc_n = (cpu_iom == 1'b1 && cpu_rd_n == 1'b0) ? 1'b0 : 1'b1;
+    assign cpu_iowc_n = (cpu_iom == 1'b1 && cpu_wr_n == 1'b0) ? 1'b0 : 1'b1;
+
+    // 暂时没有dma
+    assign mrdc_n = cpu_mrdc_n;
+    assign mwtc_n = cpu_mwtc_n;
+    assign iorc_n = cpu_iorc_n;
+    assign iowc_n = cpu_iowc_n;
 
     // 内部片选信号 (高电平表示选中)
     wire ram_cs;
     wire rom_cs;
     wire pic_cs;
     wire pit_cs;
-
-
+    wire ppi_cs;
+    wire testout_cs;
 
     // RAM: 0x00000 - 0x03FFF
     // cpu_iom = 0 (Memory), A19..A14 = 000000
@@ -77,6 +104,9 @@ module system_bus(
     // PIT (8254): IO Space, Address 0x40 - 0x43
     // 这里采用简化的 IO 译码：A7..A4 = 0100 (0x4x)
     assign pit_cs = (cpu_iom == 1'b1) && (cpu_addr[7:4] == 4'b0100);
+
+    // PPI (8255): IO Space, Address 0x60 - 0x63
+    assign ppi_cs = (cpu_iom == 1'b1) && (cpu_addr[7:4] == 4'b0110);
 
     // Test Output (IO Space, Address 0x56)
     assign testout_cs = (cpu_iom == 1'b1) && (cpu_addr == 20'h56);
@@ -108,6 +138,13 @@ module system_bus(
     assign pit_a1   = cpu_addr[1];    // A1 用于区分命令字/数据字
     assign pit_din  = cpu_dout;       // 写数据直接来源于 CPU
 
+    // PPI (8255) 接口
+    assign ppi_cs_n = ~ppi_cs;
+    assign ppi_rd_n = cpu_rd_n;
+    assign ppi_wr_n = cpu_wr_n;
+    assign ppi_addr = cpu_addr[1:0];
+    assign ppi_din = cpu_dout;
+
     // --- 测试信号 ---
     assign test_ram_cs   = !ram_cs;   // 输出低电平有效的 CS
     assign test_rom_cs   = !rom_cs;   // 输出低电平有效的 CS
@@ -127,6 +164,7 @@ module system_bus(
                      (rom_cs && !cpu_rd_n) ? rom_q :     // 读 ROM
                      (pic_cs && !cpu_rd_n) ? pic_dout :  // 读 PIC
                      (pit_cs && !cpu_rd_n) ? pit_dout :  // 读 PIT
+                     (ppi_cs && !cpu_rd_n) ? ppi_dout :  // 读 PPI
                      8'h00;                              // 默认/空闲状态
 
 

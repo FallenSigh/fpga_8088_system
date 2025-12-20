@@ -2,7 +2,7 @@
 
 if "%1"=="" (
     echo Usage: build.bat ^<basename^>
-    echo Example: build.bat test_int
+    echo Example: build.bat main
     exit /b 1
 )
 

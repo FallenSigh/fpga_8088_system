@@ -15,6 +15,11 @@
         PIT_CNT1        EQU     41H
         PIT_CNT2        EQU     42H
         PIT_CTRL        EQU     43H
+        ; 8255
+        PPI_PORTA       EQU     60H
+        PPI_PORTB       EQU     61H
+        PPI_PORTC       EQU     62H
+        PPI_CTRL        EQU     63H
 
         org     0h
 
@@ -77,6 +82,25 @@ start:
         out     dx, al          ; MSB
 
         sti                         ; 开中断
+
+        mov     dx, PPI_CTRL
+        mov     al, 90h
+        out     dx, al
+
+        ; 从端口 A 读取数据
+        mov     dx, PPI_PORTA
+        in      al, dx
+
+        ; 输出到端口 B
+        mov     dx, PPI_PORTB
+        out     dx, al
+
+        ; 加 1
+        inc     al
+
+        ; 输出到端口 C
+        mov     dx, PPI_PORTC
+        out     dx, al
 
 stop_here:
         jmp     stop_here

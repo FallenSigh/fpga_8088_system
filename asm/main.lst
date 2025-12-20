@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 6.14.8444		    12/19/25 14:37:51
+Microsoft (R) Macro Assembler Version 6.14.8444		    12/20/25 19:22:14
 main.asm						     Page 1 - 1
 
 
@@ -19,6 +19,11 @@ main.asm						     Page 1 - 1
  = 0041				        PIT_CNT1        EQU     41H
  = 0042				        PIT_CNT2        EQU     42H
  = 0043				        PIT_CTRL        EQU     43H
+				        ; 8255
+ = 0060				        PPI_PORTA       EQU     60H
+ = 0061				        PPI_PORTB       EQU     61H
+ = 0062				        PPI_PORTC       EQU     62H
+ = 0063				        PPI_CTRL        EQU     63H
 
 				        org     0h
 
@@ -82,8 +87,27 @@ main.asm						     Page 1 - 1
 
  0047  FB			        sti                         ; 开中断
 
- 0048				stop_here:
- 0048  EB FE			        jmp     stop_here
+ 0048  BA 0063			        mov     dx, PPI_CTRL
+ 004B  B0 90			        mov     al, 90h
+ 004D  EE			        out     dx, al
+
+				        ; 从端口 A 读取数据
+ 004E  BA 0060			        mov     dx, PPI_PORTA
+ 0051  EC			        in      al, dx
+
+				        ; 输出到端口 B
+ 0052  BA 0061			        mov     dx, PPI_PORTB
+ 0055  EE			        out     dx, al
+
+				        ; 加 1
+ 0056  FE C0			        inc     al
+
+				        ; 输出到端口 C
+ 0058  BA 0062			        mov     dx, PPI_PORTC
+ 005B  EE			        out     dx, al
+
+ 005C				stop_here:
+ 005C  EB FE			        jmp     stop_here
 
 				        ; --- GW8088 BOOT CODE (Reset Vector) ---
 				        org     03ff0h
@@ -96,7 +120,7 @@ main.asm						     Page 1 - 1
  3FFF  00			        db      0
 
 				        end
-Microsoft (R) Macro Assembler Version 6.14.8444		    12/19/25 14:37:51
+Microsoft (R) Macro Assembler Version 6.14.8444		    12/20/25 19:22:14
 main.asm						     Symbols 2 - 1
 
 
@@ -139,9 +163,13 @@ PIT_CNT0 . . . . . . . . . . . .	Number	 0040h
 PIT_CNT1 . . . . . . . . . . . .	Number	 0041h	 
 PIT_CNT2 . . . . . . . . . . . .	Number	 0042h	 
 PIT_CTRL . . . . . . . . . . . .	Number	 0043h	 
+PPI_CTRL . . . . . . . . . . . .	Number	 0063h	 
+PPI_PORTA  . . . . . . . . . . .	Number	 0060h	 
+PPI_PORTB  . . . . . . . . . . .	Number	 0061h	 
+PPI_PORTC  . . . . . . . . . . .	Number	 0062h	 
 ROM_SEGMENT  . . . . . . . . . .	Number	 FC00h	 
 start  . . . . . . . . . . . . .	L Near	 000D	  _TEXT	
-stop_here  . . . . . . . . . . .	L Near	 0048	  _TEXT	
+stop_here  . . . . . . . . . . .	L Near	 005C	  _TEXT	
 
 	   0 Warnings
 	   0 Errors

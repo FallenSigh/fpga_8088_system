@@ -33,6 +33,10 @@ module tb_top;
     wire test_pit_cs;
     wire test_clk_1m;
     wire test_pit_out0;
+    wire test_ppi_cs;
+    wire [7:0] test_ppi_aout;
+    wire [7:0] test_ppi_bout;
+    wire [7:0] test_ppi_cout;
 
     // =========================
     // DUT 实例化
@@ -59,7 +63,11 @@ module tb_top;
         .test_cpu_inta_n(test_cpu_inta_n),
         .test_pit_cs(test_pit_cs),
         .test_clk_1m(test_clk_1m),
-        .test_pit_out0(test_pit_out0)
+        .test_pit_out0(test_pit_out0),
+        .test_ppi_cs(test_ppi_cs),
+        .test_ppi_aout(test_ppi_aout),
+        .test_ppi_bout(test_ppi_bout),
+        .test_ppi_cout(test_ppi_cout)
     );
 
     // =========================
