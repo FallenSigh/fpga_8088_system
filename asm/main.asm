@@ -47,9 +47,7 @@
 SegTab  db 0C0h,0F9h,0A4h,0B0h,099h,092h,082h,0F8h,080h,090h
 BitTab  db 01h, 02h, 04h, 08h, 10h, 20h
 
-; =================================================================
 ; 中断服务程序 (每 1ms 触发)
-; =================================================================
 IR0_ISR PROC FAR
         PUSH AX
         PUSH BX
@@ -60,17 +58,17 @@ IR0_ISR PROC FAR
         MOV  AX, 0000h
         MOV  DS, AX
 
-        ; --- 1. 秒计数逻辑 ---
+        ; 秒计数逻辑
         MOV  BX, VAR_TICKS
         MOV  AX, [BX]
         INC  AX
         MOV  [BX], AX
 
-        CMP  AX, 1000           ; 1秒到达?
+        CMP  AX, 1000
         JB   TASK_LED
 
-        ; >>> 秒脉冲处理 <<<
-        MOV  WORD PTR [BX], 0   ; 清零毫秒
+        ; 秒脉冲处理
+        MOV  WORD PTR [BX], 0   ; 清零毫秒VAR_TICKS
 
         ; 设置串口发送请求标志 (通知主循环)
         MOV  BX, VAR_SEND_REQ
@@ -91,7 +89,7 @@ INC_LOOP:
 NO_CARRY:
         MOV  [SI], AL
 
-        ; --- 2. LED 流水灯逻辑 ---
+        ; LED 流水灯逻辑
 TASK_LED:
         MOV  BX, VAR_LED_TIMER
         MOV  AX, [BX]
@@ -110,10 +108,11 @@ TASK_LED:
         MOV  AL, 01h
 UPDATE_LED:
         MOV  [BX], AL
+        NOT  AL
         MOV  DX, PPI_PORTC
         OUT  DX, AL
 
-        ; --- 3. 数码管扫描 ---
+        ; 数码管扫描
 TASK_SCAN:
         MOV  DX, PPI_PORTB
         MOV  AL, 00h
@@ -158,9 +157,7 @@ SAVE_IDX:
         IRET
 IR0_ISR ENDP
 
-; =================================================================
 ; 串口发送子程序 (辅助函数)
-; =================================================================
 ; 输入: AL = 要发送的字节
 UART_SendByte PROC NEAR
         PUSH DX
@@ -176,17 +173,12 @@ WAIT_TX:
         AND  AL, 20h            ; 0010 0000
         JZ   WAIT_TX            ; 如果为0，继续等待
 
-        ; 注意：这里的循环等待会被 IR0_ISR 打断去刷新数码管
-        ; 所以数码管不会闪烁，CPU 只是在空闲时间等待串口
-
         POP  AX
         POP  DX
         RET
 UART_SendByte ENDP
 
-; =================================================================
 ; 主程序
-; =================================================================
 start:
         cli
         mov     ax, 0000h
@@ -195,7 +187,7 @@ start:
         mov     ss, ax
         mov     sp, 04000h
 
-        ; --- 变量初始化 ---
+        ; 变量初始化
         mov     bx, VAR_TICKS
         mov     word ptr [bx], 0
         mov     bx, VAR_LED_TIMER
@@ -214,8 +206,8 @@ CLR_RAM:
         inc     di
         loop    CLR_RAM
 
-        ; --- 硬件初始化 ---
-        ; 1. 8259A
+        ; 硬件初始化
+        ; 8259A
         MOV AL, 13H
         OUT PIC_ICW1, AL
         MOV AL, 20H
@@ -223,7 +215,7 @@ CLR_RAM:
         MOV AL, 09H
         OUT PIC_ICW4, AL
 
-        ; 2. 中断向量
+        ; 中断向量
         MOV BX, 80H
         MOV AX, OFFSET IR0_ISR
         MOV WORD PTR [BX], AX
@@ -231,7 +223,7 @@ CLR_RAM:
         MOV AX, ROM_SEGMENT
         MOV WORD PTR [BX], AX
 
-        ; 3. 8254
+        ; 8254
         mov dx, PIT_CTRL
         mov al, 36h
         out dx, al
@@ -246,15 +238,15 @@ CLR_RAM:
         mov al, 80h
         out dx, al
 
-        ; 5. 16550 UART 初始化 (9600, 8N1)
+        ; 16550 UART 初始化 (115200, 8N1)
         ; 设置 DLAB=1 访问除数锁存器
         mov dx, COM1_LCR
         mov al, 80h
         out dx, al
 
-        ; 设置波特率 9600 (1.8432MHz / 16 / 12)
+        ; 设置波特率 115200 (50MHz / 16 / 27)
         mov dx, COM1_DLL
-        mov al, 1Bh          ; 0Ch
+        mov al, 1Bh
         out dx, al
         mov dx, COM1_DLM
         mov al, 00h
@@ -267,7 +259,7 @@ CLR_RAM:
 
         sti
 
-        ; --- 主循环 (后台任务) ---
+        ; 主循环
 forever:
         ; 检查是否有发送请求
         mov bx, VAR_SEND_REQ
@@ -297,7 +289,7 @@ SEND_LOOP:
 
         jmp forever
 
-; --- Reset Vector ---
+; Reset Vector
         org     03ff0h
         db      0EAh
         dw      offset start

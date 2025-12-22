@@ -19,33 +19,33 @@ Intel and sold by Intel or its authorized distributors.  Please
 refer to the applicable agreement for further details, at
 https://fpgasoftware.intel.com/eula.
 */
-(header "symbol" (version "1.2"))
+(header "symbol" (version "1.1"))
 (symbol
-	(rect 64 64 264 184)
-	(text "rom" (rect 5 0 36 18)(font "Arial" ))
-	(text "inst" (rect 0 88 28 106)(font "Arial" ))
+	(rect 16 16 176 96)
+	(text "pit_clk_div" (rect 5 0 47 12)(font "Arial" ))
+	(text "inst" (rect 8 64 20 76)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "address[13..0]" (rect 0 0 118 18)(font "Arial" ))
-		(text "address[13..0]" (rect 21 27 139 45)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
+		(text "clk_50m" (rect 0 0 34 12)(font "Arial" ))
+		(text "clk_50m" (rect 21 27 55 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
 	)
 	(port
 		(pt 0 48)
 		(input)
-		(text "clock" (rect 0 0 42 18)(font "Arial" ))
-		(text "clock" (rect 21 43 63 61)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
+		(text "rst_n" (rect 0 0 21 12)(font "Arial" ))
+		(text "rst_n" (rect 21 43 42 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
 	)
 	(port
-		(pt 0 64)
+		(pt 160 32)
 		(output)
-		(text "q[7..0]" (rect 8 0 58 18)(font "Arial" ))
-		(text "q[7..0]" (rect 24 56 74 74)(font "Arial" ))
-		(line (pt 16 64)(pt 0 64)(line_width 3))
+		(text "pit_clk" (rect 0 0 24 12)(font "Arial" ))
+		(text "pit_clk" (rect 115 27 139 39)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32)(line_width 1))
 	)
 	(drawing
-		(rectangle (rect 16 16 168 88))
+		(rectangle (rect 16 16 144 64)(line_width 1))
 	)
 )

@@ -1,0 +1,142 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 56 56 288 264)
+	(text "gw8259" (rect 13 8 79 26)(font "Arial" ))
+	(text "inst" (rect 136 160 164 178)(font "Arial" ))
+	(port
+		(pt 0 176)
+		(input)
+		(text "nMRST" (rect 0 8 61 26)(font "Arial" ))
+		(text "nMRST" (rect 21 171 82 189)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "CLK" (rect 0 8 37 26)(font "Arial" ))
+		(text "CLK" (rect 21 155 58 173)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "nCS" (rect 0 8 36 26)(font "Arial" ))
+		(text "nCS" (rect 21 43 57 61)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "nWR" (rect 0 8 40 26)(font "Arial" ))
+		(text "nWR" (rect 21 123 61 141)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "nRD" (rect 0 8 36 26)(font "Arial" ))
+		(text "nRD" (rect 21 139 57 157)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "A0" (rect 0 8 23 26)(font "Arial" ))
+		(text "A0" (rect 24 56 47 74)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "nINTA" (rect 0 8 49 26)(font "Arial" ))
+		(text "nINTA" (rect 24 88 73 106)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 232 112)
+		(input)
+		(text "nSP" (rect 16 8 51 26)(font "Arial" ))
+		(text "nSP" (rect 172 104 207 122)(font "Arial" ))
+		(line (pt 216 112)(pt 232 112))
+	)
+	(port
+		(pt 232 96)
+		(input)
+		(text "CASIN[2..0]" (rect 16 8 112 26)(font "Arial" ))
+		(text "CASIN[2..0]" (rect 111 88 207 106)(font "Arial" ))
+		(line (pt 216 96)(pt 232 96)(line_width 3))
+	)
+	(port
+		(pt 232 32)
+		(input)
+		(text "IR[7..0]" (rect 16 8 72 26)(font "Arial" ))
+		(text "IR[7..0]" (rect 151 24 207 42)(font "Arial" ))
+		(line (pt 216 32)(pt 232 32)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "DIN[7..0]" (rect 0 8 70 26)(font "Arial" ))
+		(text "DIN[7..0]" (rect 24 72 94 90)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(output)
+		(text "INT" (rect 0 8 27 26)(font "Arial" ))
+		(text "INT" (rect 24 104 51 122)(font "Arial" ))
+		(line (pt 16 112)(pt 0 112))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "CASOUT[2..0]" (rect 16 8 134 26)(font "Arial" ))
+		(text "CASOUT[2..0]" (rect 112 43 230 61)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 3))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "CAS_EN" (rect 16 8 92 26)(font "Arial" ))
+		(text "CAS_EN" (rect 147 59 223 77)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64))
+	)
+	(port
+		(pt 0 32)
+		(output)
+		(text "DOUT[7..0]" (rect 0 8 92 26)(font "Arial" ))
+		(text "DOUT[7..0]" (rect 24 24 116 42)(font "Arial" ))
+		(line (pt 16 32)(pt 0 32)(line_width 3))
+	)
+	(port
+		(pt 232 80)
+		(output)
+		(text "nEN" (rect 16 8 51 26)(font "Arial" ))
+		(text "nEN" (rect 182 75 217 93)(font "Arial" ))
+		(line (pt 232 80)(pt 216 80))
+	)
+	(drawing
+		(rectangle (rect 24 24 208 192))
+	)
+)

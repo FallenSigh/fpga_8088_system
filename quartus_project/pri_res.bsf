@@ -1,0 +1,345 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 296 480)
+	(text "pri_res" (rect 5 0 33 12)(font "Arial" ))
+	(text "inst" (rect 8 448 20 460)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "masked_rot_irr_a_0" (rect 0 0 83 12)(font "Arial" ))
+		(text "masked_rot_irr_a_0" (rect 21 27 104 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "masked_rot_irr_0_d0" (rect 0 0 88 12)(font "Arial" ))
+		(text "masked_rot_irr_0_d0" (rect 21 43 109 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "rot_irr_3_0" (rect 0 0 46 12)(font "Arial" ))
+		(text "rot_irr_3_0" (rect 21 59 67 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "masked_irr_5" (rect 0 0 56 12)(font "Arial" ))
+		(text "masked_irr_5" (rect 21 75 77 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "masked_irr_1" (rect 0 0 55 12)(font "Arial" ))
+		(text "masked_irr_1" (rect 21 91 76 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "masked_irr_7" (rect 0 0 56 12)(font "Arial" ))
+		(text "masked_irr_7" (rect 21 107 77 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "masked_irr_3" (rect 0 0 56 12)(font "Arial" ))
+		(text "masked_irr_3" (rect 21 123 77 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "masked_irr_6" (rect 0 0 56 12)(font "Arial" ))
+		(text "masked_irr_6" (rect 21 139 77 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "masked_irr_2" (rect 0 0 56 12)(font "Arial" ))
+		(text "masked_irr_2" (rect 21 155 77 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "masked_irr_0" (rect 0 0 56 12)(font "Arial" ))
+		(text "masked_irr_0" (rect 21 171 77 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "masked_irr_4" (rect 0 0 57 12)(font "Arial" ))
+		(text "masked_irr_4" (rect 21 187 78 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 1))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "qisr_3" (rect 0 0 24 12)(font "Arial" ))
+		(text "qisr_3" (rect 21 203 45 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 1))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "qisr_7" (rect 0 0 24 12)(font "Arial" ))
+		(text "qisr_7" (rect 21 219 45 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 1))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "qisr_2" (rect 0 0 24 12)(font "Arial" ))
+		(text "qisr_2" (rect 21 235 45 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 1))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "qisr_6" (rect 0 0 24 12)(font "Arial" ))
+		(text "qisr_6" (rect 21 251 45 263)(font "Arial" ))
+		(line (pt 0 256)(pt 16 256)(line_width 1))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "qisr_1" (rect 0 0 23 12)(font "Arial" ))
+		(text "qisr_1" (rect 21 267 44 279)(font "Arial" ))
+		(line (pt 0 272)(pt 16 272)(line_width 1))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "qisr_5" (rect 0 0 24 12)(font "Arial" ))
+		(text "qisr_5" (rect 21 283 45 295)(font "Arial" ))
+		(line (pt 0 288)(pt 16 288)(line_width 1))
+	)
+	(port
+		(pt 0 304)
+		(input)
+		(text "qisr_0" (rect 0 0 24 12)(font "Arial" ))
+		(text "qisr_0" (rect 21 299 45 311)(font "Arial" ))
+		(line (pt 0 304)(pt 16 304)(line_width 1))
+	)
+	(port
+		(pt 0 320)
+		(input)
+		(text "qisr_4" (rect 0 0 25 12)(font "Arial" ))
+		(text "qisr_4" (rect 21 315 46 327)(font "Arial" ))
+		(line (pt 0 320)(pt 16 320)(line_width 1))
+	)
+	(port
+		(pt 0 336)
+		(input)
+		(text "rot_dout_i_0" (rect 0 0 50 12)(font "Arial" ))
+		(text "rot_dout_i_0" (rect 21 331 71 343)(font "Arial" ))
+		(line (pt 0 336)(pt 16 336)(line_width 1))
+	)
+	(port
+		(pt 0 352)
+		(input)
+		(text "rot_dout_i_1" (rect 0 0 49 12)(font "Arial" ))
+		(text "rot_dout_i_1" (rect 21 347 70 359)(font "Arial" ))
+		(line (pt 0 352)(pt 16 352)(line_width 1))
+	)
+	(port
+		(pt 0 368)
+		(input)
+		(text "rot_dout_i_2" (rect 0 0 50 12)(font "Arial" ))
+		(text "rot_dout_i_2" (rect 21 363 71 375)(font "Arial" ))
+		(line (pt 0 368)(pt 16 368)(line_width 1))
+	)
+	(port
+		(pt 0 384)
+		(input)
+		(text "int_dout_0" (rect 0 0 41 12)(font "Arial" ))
+		(text "int_dout_0" (rect 21 379 62 391)(font "Arial" ))
+		(line (pt 0 384)(pt 16 384)(line_width 1))
+	)
+	(port
+		(pt 0 400)
+		(input)
+		(text "d_m2_0_a2" (rect 0 0 49 12)(font "Arial" ))
+		(text "d_m2_0_a2" (rect 21 395 70 407)(font "Arial" ))
+		(line (pt 0 400)(pt 16 400)(line_width 1))
+	)
+	(port
+		(pt 0 416)
+		(input)
+		(text "qsmm" (rect 0 0 25 12)(font "Arial" ))
+		(text "qsmm" (rect 21 411 46 423)(font "Arial" ))
+		(line (pt 0 416)(pt 16 416)(line_width 1))
+	)
+	(port
+		(pt 280 32)
+		(output)
+		(text "set_isr_3_4" (rect 0 0 49 12)(font "Arial" ))
+		(text "set_isr_3_4" (rect 210 27 259 39)(font "Arial" ))
+		(line (pt 280 32)(pt 264 32)(line_width 1))
+	)
+	(port
+		(pt 280 48)
+		(output)
+		(text "set_isr_3_0" (rect 0 0 48 12)(font "Arial" ))
+		(text "set_isr_3_0" (rect 211 43 259 55)(font "Arial" ))
+		(line (pt 280 48)(pt 264 48)(line_width 1))
+	)
+	(port
+		(pt 280 64)
+		(output)
+		(text "set_isr_3_7" (rect 0 0 48 12)(font "Arial" ))
+		(text "set_isr_3_7" (rect 211 59 259 71)(font "Arial" ))
+		(line (pt 280 64)(pt 264 64)(line_width 1))
+	)
+	(port
+		(pt 280 80)
+		(output)
+		(text "set_isr_3_1" (rect 0 0 47 12)(font "Arial" ))
+		(text "set_isr_3_1" (rect 212 75 259 87)(font "Arial" ))
+		(line (pt 280 80)(pt 264 80)(line_width 1))
+	)
+	(port
+		(pt 280 96)
+		(output)
+		(text "set_isr_3_3" (rect 0 0 48 12)(font "Arial" ))
+		(text "set_isr_3_3" (rect 211 91 259 103)(font "Arial" ))
+		(line (pt 280 96)(pt 264 96)(line_width 1))
+	)
+	(port
+		(pt 280 112)
+		(output)
+		(text "set_isr_5_6" (rect 0 0 48 12)(font "Arial" ))
+		(text "set_isr_5_6" (rect 211 107 259 119)(font "Arial" ))
+		(line (pt 280 112)(pt 264 112)(line_width 1))
+	)
+	(port
+		(pt 280 128)
+		(output)
+		(text "set_isr_5_2" (rect 0 0 48 12)(font "Arial" ))
+		(text "set_isr_5_2" (rect 211 123 259 135)(font "Arial" ))
+		(line (pt 280 128)(pt 264 128)(line_width 1))
+	)
+	(port
+		(pt 280 144)
+		(output)
+		(text "set_isr_5_4" (rect 0 0 49 12)(font "Arial" ))
+		(text "set_isr_5_4" (rect 210 139 259 151)(font "Arial" ))
+		(line (pt 280 144)(pt 264 144)(line_width 1))
+	)
+	(port
+		(pt 280 160)
+		(output)
+		(text "set_isr_5_0" (rect 0 0 48 12)(font "Arial" ))
+		(text "set_isr_5_0" (rect 211 155 259 167)(font "Arial" ))
+		(line (pt 280 160)(pt 264 160)(line_width 1))
+	)
+	(port
+		(pt 280 176)
+		(output)
+		(text "masked_rot_irr_4" (rect 0 0 74 12)(font "Arial" ))
+		(text "masked_rot_irr_4" (rect 185 171 259 183)(font "Arial" ))
+		(line (pt 280 176)(pt 264 176)(line_width 1))
+	)
+	(port
+		(pt 280 192)
+		(output)
+		(text "masked_rot_irr_0_1" (rect 0 0 82 12)(font "Arial" ))
+		(text "masked_rot_irr_0_1" (rect 177 187 259 199)(font "Arial" ))
+		(line (pt 280 192)(pt 264 192)(line_width 1))
+	)
+	(port
+		(pt 280 208)
+		(output)
+		(text "rot_isr_7_6" (rect 0 0 47 12)(font "Arial" ))
+		(text "rot_isr_7_6" (rect 212 203 259 215)(font "Arial" ))
+		(line (pt 280 208)(pt 264 208)(line_width 1))
+	)
+	(port
+		(pt 280 224)
+		(output)
+		(text "rot_isr_7_0" (rect 0 0 47 12)(font "Arial" ))
+		(text "rot_isr_7_0" (rect 212 219 259 231)(font "Arial" ))
+		(line (pt 280 224)(pt 264 224)(line_width 1))
+	)
+	(port
+		(pt 280 240)
+		(output)
+		(text "rot_irr_3_6" (rect 0 0 46 12)(font "Arial" ))
+		(text "rot_irr_3_6" (rect 213 235 259 247)(font "Arial" ))
+		(line (pt 280 240)(pt 264 240)(line_width 1))
+	)
+	(port
+		(pt 280 256)
+		(output)
+		(text "rot_irr_3_1" (rect 0 0 44 12)(font "Arial" ))
+		(text "rot_irr_3_1" (rect 215 251 259 263)(font "Arial" ))
+		(line (pt 280 256)(pt 264 256)(line_width 1))
+	)
+	(port
+		(pt 280 272)
+		(output)
+		(text "rot_irr_3_7" (rect 0 0 46 12)(font "Arial" ))
+		(text "rot_irr_3_7" (rect 213 267 259 279)(font "Arial" ))
+		(line (pt 280 272)(pt 264 272)(line_width 1))
+	)
+	(port
+		(pt 280 288)
+		(output)
+		(text "un2_int_i" (rect 0 0 35 12)(font "Arial" ))
+		(text "un2_int_i" (rect 224 283 259 295)(font "Arial" ))
+		(line (pt 280 288)(pt 264 288)(line_width 1))
+	)
+	(port
+		(pt 280 304)
+		(output)
+		(text "un38_masked_rot_irr" (rect 0 0 87 12)(font "Arial" ))
+		(text "un38_masked_rot_irr" (rect 172 299 259 311)(font "Arial" ))
+		(line (pt 280 304)(pt 264 304)(line_width 1))
+	)
+	(port
+		(pt 280 320)
+		(output)
+		(text "un19_masked_rot_irr" (rect 0 0 86 12)(font "Arial" ))
+		(text "un19_masked_rot_irr" (rect 173 315 259 327)(font "Arial" ))
+		(line (pt 280 320)(pt 264 320)(line_width 1))
+	)
+	(port
+		(pt 280 336)
+		(output)
+		(text "un7_masked_rot_irr" (rect 0 0 82 12)(font "Arial" ))
+		(text "un7_masked_rot_irr" (rect 177 331 259 343)(font "Arial" ))
+		(line (pt 280 336)(pt 264 336)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 264 448)(line_width 1))
+	)
+)

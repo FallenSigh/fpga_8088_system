@@ -1,34 +1,42 @@
 module mpe (
     input wire clk,
     input wire rst_n,
-    input wire [6:0] ir_ext,
-    output wire [19:0] test_addr,
-    output wire [13:0] test_ram_addr,
-    output wire [13:0] test_rom_addr,
-    output wire [7:0] test_ram_data,
-    output wire [7:0] test_rom_data,
-    output wire test_ram_cs,
-    output wire test_rom_cs,
-    output wire test_pic_cs,
-    output wire [7:0] test_pic_din,
-    output wire [7:0] test_pic_dout,
-    output wire [7:0] test_out,
-    output wire [2:0] test_cpu_s,
-    output wire test_ram_wren,
-    output wire [7:0] test_ram_wdata,
-    output wire test_pic_int,
-    output wire test_cpu_inta_n,
-    output wire test_pit_cs,
-    output wire test_clk_1m,
-    output wire test_pit_out0,
-    output wire test_ppi_cs,
-    output wire [7:0] test_ppi_aout,
-    output wire [7:0] test_ppi_bout,
-    output wire [7:0] test_ppi_cout
+
+    output wire [3:0] led,
+   	output wire stcp,
+	output wire shcp,
+	output wire ds,
+	output wire oe,
+	output wire uart_tx,
+	input  wire uart_rx
+
+    // output wire [19:0] test_cpu_addr,
+    // output wire [13:0] test_ram_addr,
+    // output wire [13:0] test_rom_addr,
+    // output wire [7:0] test_ram_data,
+    // output wire [7:0] test_rom_data,
+    // output wire [7:0] test_ram_wdata,
+    // output wire test_clk_1m,
+    // output wire test_pit_out0,
+    // output wire [7:0] test_ppi_aout,
+    // output wire [7:0] test_ppi_bout,
+    // output wire [7:0] test_ppi_cout,
+    // output wire test_cpu_intr,
+    // output wire test_cpu_inta_n,
+    // output wire test_ram_wren,
+    // output wire test_ppi_cs,
+    // output wire test_pic_cs,
+    // output wire test_pit_cs,
+    // output wire test_iorc_n,
+    // output wire test_iowc_n,
+    // output wire test_mwtc_n,
+    // output wire test_mrdc_n,
+    // output wire test_uart_tx,
+    // output wire test_uart_rx,
+    // output wire [2:0] test_cpu_s
 );
 
     wire [19:0] cpu_addr;
-    assign test_addr = cpu_addr;
     wire        cpu_ale;
     wire        cpu_den_n;
     wire [ 7:0] cpu_din;
@@ -58,9 +66,12 @@ module mpe (
     wire        sys_rst;
     wire        srst_n;
 
+    wire iorc_n;
+    wire iowc_n;
+    wire mrdc_n;
+    wire mwtc_n;
+
     wire        pic_cs_n;
-    wire        pic_rd_n;
-    wire        pic_wr_n;
     wire        pic_a0;
     wire [ 7:0] pic_din;
     wire [ 7:0] pic_dout;
@@ -93,8 +104,6 @@ module mpe (
     wire        pit_a0;
     wire        pit_a1;
     wire        pit_cs_n;
-    wire        pit_wr_n;
-    wire        pit_rd_n;
     wire        pit_noe;
     wire        pit_nod;
     wire        pit_out0;
@@ -102,8 +111,6 @@ module mpe (
     wire        pit_out2;
 
     wire        ppi_cs_n;
-    wire        ppi_rd_n;
-    wire        ppi_wr_n;
     wire [ 1:0] ppi_addr;
     wire [ 7:0] ppi_din;
     wire [ 7:0] ppi_dout;
@@ -115,31 +122,78 @@ module mpe (
     wire [ 7:0] ppi_cout;
 
     wire clk_18432;
+    wire [2:0] uart_addr;
+    wire [7:0] uart_din;
+    wire [7:0] uart_dout;
+    wire uart_cs_n;
+    wire uart_ndcd;
+    wire uart_nri;
+    wire uart_ndsr;
+    wire uart_ncts;
+    wire uart_rxd;
+    wire uart_rclk_baud;
+    wire uart_brge;
+    wire uart_irq;
+    wire uart_txd;
 
+    // DMA interface signals
+    wire        dma_cs_n;        // DMA chip select (buffer std_logic)
+    wire [3:0]  dma_ain;         // DMA register access address
+    wire [7:0]  dma_din;         // DMA data input
+    wire [7:0]  dma_dout;        // DMA data output / Address[15:8] / Temp. data
+    wire        dma_mrdc_n;       // DMA Memory Read
+    wire        dma_mwtc_n;       // DMA Memory Write
+    wire        dma_iorc_n;       // DMA I/O Read
+    wire        dma_iowc_n;       // DMA I/O Write
+    wire        dma_aen;          // DMA Address Enable
+    wire        dma_dben;         // DMA Data Bus Enable
+    wire        dma_adstb;        // DMA Address Strobe
+    wire [3:0]  dma_dack;        // DMA acknowledge bus
+    wire [7:0]  dma_aout;        // DMA address output
+    wire [3:0]  dma_dreq;
+
+    // 数码管
+    wire [5:0] sel;
+    wire [7:0] seg;
+
+    // assign test_cpu_addr = cpu_addr;
+    // assign test_ram_addr = ram_addr;
+    // assign test_rom_addr = rom_addr;
+    // assign test_ram_data = ram_q;
+    // assign test_rom_data = rom_q;
+    // assign test_ram_wdata = ram_data;
+    // assign test_clk_1m = clk_1m;
+    // assign test_pit_out0 = pit_out0;
+    // assign test_ppi_aout = ppi_aout;
+    // assign test_ppi_bout = ppi_bout;
+    // assign test_ppi_cout = ppi_cout;
+    // assign test_cpu_intr = cpu_intr;
+    // assign test_cpu_inta_n = cpu_inta_n;
+    // assign test_ram_wren = ram_wren;
+    // assign test_ppi_cs = ppi_cs_n;
+    // assign test_pic_cs = pic_cs_n;
+    // assign test_pit_cs = pit_cs_n;
+    // assign test_iorc_n = iorc_n;
+    // assign test_iowc_n = iowc_n;
+    // assign test_mwtc_n = mwtc_n;
+    // assign test_mrdc_n = mrdc_n;
+    // assign test_uart_tx = uart_txd;
+    // assign test_uart_rx = uart_rxd;
+    // assign test_cpu_s = cpu_s;
+
+    assign uart_tx = uart_txd;
+    assign uart_rxd = uart_rx;
+    assign seg = ppi_aout;
+    assign sel = ppi_bout[5:0];
+    assign led = ppi_cout[3:0];
     assign pit_clk0 = clk_1m;
     assign pit_clk1 = clk_1m;
     assign pit_clk2 = clk_1m;
-    assign ir[0] = pit_out0;
+    assign ir = {1'b0, 1'b0, 1'b0, uart_irq, 1'b0, 1'b0, 1'b0, pit_out0};
     assign srst_n = ~cpu_reset_o;
     assign ppi_ain = 8'hfe;
     assign ppi_bin = 8'hff;
     assign ppi_cin = 8'hff;
-
-    assign test_ppi_cs = ppi_cs_n;
-    assign test_ram_addr = ram_addr;
-    assign test_rom_addr = rom_addr;
-    assign test_ram_data = ram_q;
-    assign test_ram_wdata = ram_data;
-    assign test_rom_data = rom_q;
-    assign test_pic_cs = pic_cs_n;
-    assign test_pic_din = pic_din;
-    assign test_pic_dout = pic_dout;
-    assign test_cpu_s = cpu_s;
-    assign test_clk_1m = clk_1m;
-    assign test_pit_out0 = pit_out0;
-    assign test_ppi_aout = ppi_aout;
-    assign test_ppi_bout = ppi_bout;
-    assign test_ppi_cout = ppi_cout;
 
     gw8088 gw8088_inst (
         .CLK(sys_clk),
@@ -173,92 +227,112 @@ module mpe (
         .cpu_addr(cpu_addr),
         .cpu_dout(cpu_dout),
         .cpu_inta_n(cpu_inta_n),
-        .cpu_intr(cpu_intr),
+        .cpu_din(cpu_din),
+
+        .iorc_n(iorc_n),
+        .iowc_n(iowc_n),
+        .mrdc_n(mrdc_n),
+        .mwtc_n(mwtc_n),
+
         .ram_q(ram_q),
         .rom_q(rom_q),
         .ram_wren(ram_wren),
-        .cpu_din(cpu_din),
         .ram_addr(ram_addr),
         .ram_data(ram_data),
         .rom_addr(rom_addr),
+
         .pic_cs_n(pic_cs_n),
-        .pic_rd_n(pic_rd_n),
-        .pic_wr_n(pic_wr_n),
         .pic_a0(pic_a0),
         .pic_din(pic_din),
         .pic_dout(pic_dout),
         .pic_inta_n(pic_inta_n),
-        .pic_intr(pic_intr),
+
         .pit_cs_n(pit_cs_n),
-        .pit_rd_n(pit_rd_n),
-        .pit_wr_n(pit_wr_n),
         .pit_a0(pit_a0),
         .pit_a1(pit_a1),
         .pit_din(pit_din),
         .pit_dout(pit_dout),
+
         .ppi_cs_n(ppi_cs_n),
-        .ppi_rd_n(ppi_rd_n),
-        .ppi_wr_n(ppi_wr_n),
         .ppi_addr(ppi_addr),
         .ppi_din(ppi_din),
         .ppi_dout(ppi_dout),
-        .test_rom_cs(test_rom_cs),
-        .test_ram_cs(test_ram_cs),
-        .test_out(test_out),
-        .test_ram_wren(test_ram_wren),
-        .test_pic_int(test_pic_int),
-        .test_cpu_inta_n(test_cpu_inta_n),
-        .test_pit_cs(test_pit_cs)
+
+        .uart_din(uart_din),
+        .uart_dout(uart_dout),
+        .uart_addr(uart_addr),
+        .uart_cs_n(uart_cs_n)
     );
 
-    clk_1p8432m uart_clk_inst(
+    gw8237 gw8237_inst(
+      .RESET(cpu_reset_o),
+      .CLK(sys_clk),
+      .nCS(dma_cs_n),
+      .nIORIN(iorc_n),
+      .nIOWIN(iowc_n),
+      .READY(1'b1),
+      .HLDA(cpu_hlda),
+      .nEOPIN(1'b1),
+      .AIN(dma_ain),
+      .DREQ(dma_dreq),
+      .DBIN(dma_din),
+      .DBOUT(dma_dout),
+      .DBEN(dma_dben),
+      .AOUT(dma_aout),
+      .HRQ(cpu_hold),
+      .DACK(dma_dack),
+      .AEN(dma_aen),
+      .ADSTB(dma_adstb),
+      .nIOROUT(dma_iorc_n),
+      .nIOWOUT(dma_iowc_n),
+      .nMEMR(dma_mrdc_n),
+      .nMEMW(dma_mwtc_n),
+      .nEOPOUT(),
+      .DMAENABLE()
+    );
+
+    clk_div_1p8432m uart_clk_inst(
         .clk_50m(sys_clk),      // 50 MHz 输入时钟
-        .rst_n(sys_rst_n),          // 低有效复位
-        .clk_1p8432m(clk_18432)    // 1.8432 MHz 输出
+        .rst_n(sys_rst),          // 低有效复位
+        .clk_out(clk_18432)    // 1.8432 MHz 输出
     );
 
-    // wire [2:0] uart_addr;
-    // wire [7:0] uart_din;
-    // wire uart_rd_n;
-    // wire uart_wr_n;
-    // wire uart_cs_n;
-
-    // gw16550 gw16550_inst(
-    //   .CLK(sys_clk),
-    //   .RCLK(clk_18432),
-    //   .MR(cpu_reset_o),
-    //   .A(uart_addr),
-    //   .DI(uart_din),
-    //   .NCE(uart_cs_n),
-    //   .NRD(uart_rd_n),
-    //   .RD(~uart_rd_n),
-    //   .NWR(uart_wr_n),
-    //   .NDCD(),
-    //   .NRI(),
-    //   .NDSR(),
-    //   .NCTS(),
-    //   .SIN(),
-    //   .RCLK_BAUD(),
-    //   .BRGE(),
-    //   .DA(),
-    //   .IRQ(),
-    //   .NDVL(),
-    //   .NOUT2(),
-    //   .NOUT1(),
-    //   .NRTS(),
-    //   .NDTR(),
-    //   .SOUT(),
-    //   .BAUD(),
-    //   .TXRDY(),
-    //   .RXRDY()
-    // );
+    gw16550 gw16550_inst(
+      .CLK(sys_clk),
+      .RCLK(sys_clk),
+      .MR(cpu_reset_o),
+      .A(uart_addr),
+      .DI(uart_din),
+      .NCE(uart_cs_n),
+      .NRD(iorc_n),
+      .RD(~iorc_n),
+      .NWR(iowc_n),
+      .NDCD(uart_ndcd),
+      .NRI(uart_nri),
+      .NDSR(uart_ndsr),
+      .NCTS(uart_ncts),
+      .SIN(uart_rxd),
+      .RCLK_BAUD(uart_rclk_baud),
+      .BRGE(uart_brge),
+      .DA(uart_dout),
+      .IRQ(uart_irq),
+      .SOUT(uart_txd),
+      .NDVL(),
+      .NOUT2(),
+      .NOUT1(),
+      .NRTS(),
+      .NDTR(),
+      .BAUD(),
+      .TXRDY(),
+      .RXRDY()
+    );
 
     gw8255 gw8255_inst (
         .RESET(cpu_reset_o),
         .CLK(sys_clk),
         .nCS(ppi_cs_n),
-        .nRD(ppi_rd_n),
-        .nWR(ppi_wr_n),
+        .nRD(iorc_n),
+        .nWR(iowc_n),
         .A(ppi_addr),
         .DIN(ppi_din),
         .DOUT(ppi_dout),
@@ -277,14 +351,14 @@ module mpe (
         .nMRST(srst_n),
         .CLK(sys_clk),
         .nCS(pic_cs_n),
-        .nWR(pic_wr_n),
-        .nRD(pic_rd_n),
+        .nWR(iowc_n),
+        .nRD(iorc_n),
         .A0(pic_a0),
         .nINTA(pic_inta_n),
         .nSP(1'b1),
         .CASIN(3'b000),
         .DIN(pic_din),
-        .INT(pic_intr),
+        .INT(cpu_intr),
         .CASOUT(),
         .CAS_EN(),
         .DOUT(pic_dout),
@@ -317,9 +391,9 @@ module mpe (
         .A1(pit_a1),
         .NCLR(srst_n),
         .NCS(pit_cs_n),
-        .NWR(pit_wr_n),
-        .NRD(pit_rd_n),
-        .NOE(pit_rd_n),
+        .NWR(iowc_n),
+        .NRD(iorc_n),
+        .NOE(iorc_n),
         .DAO(pit_dout),
         .NOD(pit_nod),
         .OUT0(pit_out0),
@@ -339,7 +413,6 @@ module mpe (
         .pit_clk(clk_1m)
     );
 
-
     ram ram_inst (
         .clock(sys_clk),
         .wren(ram_wren),
@@ -354,18 +427,42 @@ module mpe (
         .q(rom_q)
     );
 
-
     rst_sync rst_sync_inst (
         .clk(clk),
         .rst_n_in(rst_n),
         .rst_n_out(sys_rst)
     );
 
-    assign cpu_hold = 0;
+
+ //    seg_595_dynamic seg_inst(
+	// 	.sys_clk(clk),
+	// 	.sys_rst_n(rst_n),
+	// 	.data(seg_data),
+	// 	.point(6'b0),
+	// 	.seg_en(1'b1),
+	// 	.sign(1'b0),
+	// 	.stcp(stcp),
+	// 	.shcp(shcp),
+	// 	.ds(ds),
+	// 	.oe(oe)
+	// );
+
+	hc595_ctrl hc595_inst(
+		.sys_clk(clk),
+		.sys_rst_n(rst_n),
+		.sel(sel),
+		.seg(seg),
+		.stcp(stcp),
+		.shcp(shcp),
+		.ds(ds),
+		.oe(oe)
+	);
+
     assign cpu_nmi = 0;
     assign cpu_ready = 1;
     assign cpu_test_n = 0;
 
+    assign dma_dreq = 4'b0;
     assign pit_tmode = 0;
     assign pit_dela0 = 0;
     assign pit_delb0 = 0;
@@ -382,5 +479,12 @@ module mpe (
     assign pit_trig0 = pit_gate0;
     assign pit_trig1 = pit_gate1;
     assign pit_trig2 = pit_gate2;
+
+    assign uart_ndcd = 1'b1;
+    assign uart_nri = 1'b1;
+    assign uart_ndsr = 1'b1;
+    assign uart_ncts = 1'b1;
+    assign uart_rclk_baud = 1'b1;
+    assign uart_brge = 1'b1;
 
 endmodule

@@ -12,31 +12,31 @@ module tb_top;
     // =========================
     reg clk;
     reg rst_n;
-    reg [6:0] ir;
 
-    wire [19:0] test_addr;
+    wire [19:0] test_cpu_addr;
     wire [13:0] test_ram_addr;
     wire [13:0] test_rom_addr;
-    wire [7:0] test_rom_data;
     wire [7:0] test_ram_data;
-    wire test_ram_cs;
-    wire test_rom_cs;
-    wire test_pic_cs;
-    wire [7:0] test_pic_din;
-    wire [7:0] test_pic_dout;
-    wire [7:0] test_out;
-    wire [2:0] test_cpu_s;
-    wire test_ram_wren;
+    wire [7:0] test_rom_data;
     wire [7:0] test_ram_wdata;
-    wire test_pic_int;
-    wire test_cpu_inta_n;
-    wire test_pit_cs;
     wire test_clk_1m;
     wire test_pit_out0;
-    wire test_ppi_cs;
     wire [7:0] test_ppi_aout;
     wire [7:0] test_ppi_bout;
     wire [7:0] test_ppi_cout;
+    wire test_cpu_intr;
+    wire test_cpu_inta_n;
+    wire test_ram_wren;
+    wire test_ppi_cs;
+    wire test_pic_cs;
+    wire test_pit_cs;
+    wire test_iorc_n;
+    wire test_iowc_n;
+    wire test_mwtc_n;
+    wire test_mrdc_n;
+    wire test_uart_tx;
+    wire test_uart_rx;
+    wire [2:0] test_cpu_s;
 
     // =========================
     // DUT 实例化
@@ -44,30 +44,31 @@ module tb_top;
     mpe dut (
         .clk   (clk),
         .rst_n (rst_n),
-        .ir_ext(ir),
-        .test_addr(test_addr),
+
+        .test_cpu_addr(test_cpu_addr),
         .test_ram_addr(test_ram_addr),
         .test_rom_addr(test_rom_addr),
-        .test_pic_din(test_pic_din),
-        .test_pic_dout(test_pic_dout),
         .test_ram_data(test_ram_data),
         .test_rom_data(test_rom_data),
-        .test_ram_cs(test_ram_cs),
-        .test_rom_cs(test_rom_cs),
-        .test_pic_cs(test_pic_cs),
-        .test_out(test_out),
-        .test_cpu_s(test_cpu_s),
-        .test_ram_wren(test_ram_wren),
         .test_ram_wdata(test_ram_wdata),
-        .test_pic_int(test_pic_int),
-        .test_cpu_inta_n(test_cpu_inta_n),
-        .test_pit_cs(test_pit_cs),
         .test_clk_1m(test_clk_1m),
         .test_pit_out0(test_pit_out0),
-        .test_ppi_cs(test_ppi_cs),
         .test_ppi_aout(test_ppi_aout),
         .test_ppi_bout(test_ppi_bout),
-        .test_ppi_cout(test_ppi_cout)
+        .test_ppi_cout(test_ppi_cout),
+        .test_cpu_intr(test_cpu_intr),
+        .test_cpu_inta_n(test_cpu_inta_n),
+        .test_ram_wren(test_ram_wren),
+        .test_ppi_cs(test_ppi_cs),
+        .test_pic_cs(test_pic_cs),
+        .test_pit_cs(test_pit_cs),
+        .test_iorc_n(test_iorc_n),
+        .test_iowc_n(test_iowc_n),
+        .test_mwtc_n(test_mwtc_n),
+        .test_mrdc_n(test_mrdc_n),
+        .test_uart_tx(test_uart_tx),
+        .test_uart_rx(test_uart_rx),
+        .test_cpu_s(test_cpu_s)
     );
 
     // =========================
@@ -82,7 +83,6 @@ module tb_top;
     // 复位时序
     // =========================
     initial begin
-        ir = 8'h0;
         rst_n = 1'b0;  // 上电复位
         #100;
         rst_n = 1'b1;  // 释放复位
@@ -97,7 +97,6 @@ module tb_top;
 
         // 运行一段时间，观察 CPU 行为
         # 10000;
-        ir = 8'h1;
 
         # 20000;
 

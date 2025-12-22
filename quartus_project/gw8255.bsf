@@ -1,0 +1,149 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 64 64 328 296)
+	(text "gw8255" (rect 5 0 71 18)(font "Arial" ))
+	(text "inst" (rect 8 192 36 210)(font "Arial" ))
+	(port
+		(pt 264 88)
+		(input)
+		(text "RESET" (rect 64 0 126 18)(font "Arial" ))
+		(text "RESET" (rect 177 80 239 98)(font "Arial" ))
+		(line (pt 248 88)(pt 264 88))
+	)
+	(port
+		(pt 264 104)
+		(input)
+		(text "CLK" (rect 64 0 101 18)(font "Arial" ))
+		(text "CLK" (rect 202 96 239 114)(font "Arial" ))
+		(line (pt 248 104)(pt 264 104))
+	)
+	(port
+		(pt 264 24)
+		(input)
+		(text "nCS" (rect 64 0 100 18)(font "Arial" ))
+		(text "nCS" (rect 203 16 239 34)(font "Arial" ))
+		(line (pt 248 24)(pt 264 24))
+	)
+	(port
+		(pt 264 120)
+		(input)
+		(text "nRD" (rect 64 0 100 18)(font "Arial" ))
+		(text "nRD" (rect 203 112 239 130)(font "Arial" ))
+		(line (pt 248 120)(pt 264 120))
+	)
+	(port
+		(pt 264 136)
+		(input)
+		(text "nWR" (rect 64 0 104 18)(font "Arial" ))
+		(text "nWR" (rect 199 128 239 146)(font "Arial" ))
+		(line (pt 248 136)(pt 264 136))
+	)
+	(port
+		(pt 264 56)
+		(input)
+		(text "A[1..0]" (rect 64 0 117 18)(font "Arial" ))
+		(text "A[1..0]" (rect 186 48 239 66)(font "Arial" ))
+		(line (pt 248 56)(pt 264 56)(line_width 3))
+	)
+	(port
+		(pt 264 72)
+		(input)
+		(text "DIN[7..0]" (rect 64 0 134 18)(font "Arial" ))
+		(text "DIN[7..0]" (rect 169 64 239 82)(font "Arial" ))
+		(line (pt 248 72)(pt 264 72)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "PAIN[7..0]" (rect 0 0 82 18)(font "Arial" ))
+		(text "PAIN[7..0]" (rect 21 139 103 157)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "PBIN[7..0]" (rect 0 0 82 18)(font "Arial" ))
+		(text "PBIN[7..0]" (rect 21 155 103 173)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "PCIN[7..0]" (rect 0 0 83 18)(font "Arial" ))
+		(text "PCIN[7..0]" (rect 21 171 104 189)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 264 40)
+		(output)
+		(text "DOUT[7..0]" (rect 64 0 156 18)(font "Arial" ))
+		(text "DOUT[7..0]" (rect 166 35 243 53)(font "Arial" ))
+		(line (pt 264 40)(pt 248 40)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(output)
+		(text "PAOUT[7..0]" (rect 0 0 103 18)(font "Arial" ))
+		(text "PAOUT[7..0]" (rect 24 24 127 42)(font "Arial" ))
+		(line (pt 16 32)(pt 0 32)(line_width 3))
+	)
+	(port
+		(pt 0 88)
+		(output)
+		(text "PAEN" (rect 96 0 147 18)(font "Arial" ))
+		(text "PAEN" (rect 24 80 75 98)(font "Arial" ))
+		(line (pt 16 88)(pt 0 88))
+	)
+	(port
+		(pt 0 48)
+		(output)
+		(text "PBOUT[7..0]" (rect 0 0 103 18)(font "Arial" ))
+		(text "PBOUT[7..0]" (rect 24 40 127 58)(font "Arial" ))
+		(line (pt 16 48)(pt 0 48)(line_width 3))
+	)
+	(port
+		(pt 0 104)
+		(output)
+		(text "PBEN" (rect 96 0 147 18)(font "Arial" ))
+		(text "PBEN" (rect 24 96 75 114)(font "Arial" ))
+		(line (pt 16 104)(pt 0 104))
+	)
+	(port
+		(pt 0 64)
+		(output)
+		(text "PCOUT[7..0]" (rect 0 0 105 18)(font "Arial" ))
+		(text "PCOUT[7..0]" (rect 24 56 129 74)(font "Arial" ))
+		(line (pt 16 64)(pt 0 64)(line_width 3))
+	)
+	(port
+		(pt 0 120)
+		(output)
+		(text "PCEN[7..0]" (rect 96 0 189 18)(font "Arial" ))
+		(text "PCEN[7..0]" (rect 24 112 117 130)(font "Arial" ))
+		(line (pt 16 120)(pt 0 120)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 248 192))
+	)
+)

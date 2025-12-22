@@ -1,0 +1,149 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 232 256)
+	(text "ocw3_reg" (rect 5 0 43 12)(font "Arial" ))
+	(text "inst" (rect 8 224 20 236)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "state_0" (rect 0 0 29 12)(font "Arial" ))
+		(text "state_0" (rect 21 27 50 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "DIN_c_0" (rect 0 0 37 12)(font "Arial" ))
+		(text "DIN_c_0" (rect 21 43 58 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "DIN_c_5" (rect 0 0 37 12)(font "Arial" ))
+		(text "DIN_c_5" (rect 21 59 58 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "DIN_c_2" (rect 0 0 37 12)(font "Arial" ))
+		(text "DIN_c_2" (rect 21 75 58 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "DIN_c_1" (rect 0 0 36 12)(font "Arial" ))
+		(text "DIN_c_1" (rect 21 91 57 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "DIN_c_6" (rect 0 0 37 12)(font "Arial" ))
+		(text "DIN_c_6" (rect 21 107 58 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "nCS_c" (rect 0 0 28 12)(font "Arial" ))
+		(text "nCS_c" (rect 21 123 49 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "nRD_c" (rect 0 0 30 12)(font "Arial" ))
+		(text "nRD_c" (rect 21 139 51 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "sel_ocw3" (rect 0 0 36 12)(font "Arial" ))
+		(text "sel_ocw3" (rect 21 155 57 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "nMRST_c" (rect 0 0 43 12)(font "Arial" ))
+		(text "nMRST_c" (rect 21 171 64 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "CLK_c" (rect 0 0 30 12)(font "Arial" ))
+		(text "CLK_c" (rect 21 187 51 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 1))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "drd_ir_is_0_a3_x" (rect 0 0 71 12)(font "Arial" ))
+		(text "drd_ir_is_0_a3_x" (rect 124 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 1))
+	)
+	(port
+		(pt 216 48)
+		(output)
+		(text "dsmm_0_a3_x" (rect 0 0 62 12)(font "Arial" ))
+		(text "dsmm_0_a3_x" (rect 133 43 195 55)(font "Arial" ))
+		(line (pt 216 48)(pt 200 48)(line_width 1))
+	)
+	(port
+		(pt 216 64)
+		(output)
+		(text "qrd_ir_is" (rect 0 0 35 12)(font "Arial" ))
+		(text "qrd_ir_is" (rect 160 59 195 71)(font "Arial" ))
+		(line (pt 216 64)(pt 200 64)(line_width 1))
+	)
+	(port
+		(pt 216 80)
+		(output)
+		(text "qsmm" (rect 0 0 25 12)(font "Arial" ))
+		(text "qsmm" (rect 170 75 195 87)(font "Arial" ))
+		(line (pt 216 80)(pt 200 80)(line_width 1))
+	)
+	(port
+		(pt 216 96)
+		(output)
+		(text "qpoll_cmd" (rect 0 0 40 12)(font "Arial" ))
+		(text "qpoll_cmd" (rect 155 91 195 103)(font "Arial" ))
+		(line (pt 216 96)(pt 200 96)(line_width 1))
+	)
+	(port
+		(pt 216 112)
+		(output)
+		(text "un2_enrd_0_o3_x" (rect 0 0 74 12)(font "Arial" ))
+		(text "un2_enrd_0_o3_x" (rect 121 107 195 119)(font "Arial" ))
+		(line (pt 216 112)(pt 200 112)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 200 224)(line_width 1))
+	)
+)
