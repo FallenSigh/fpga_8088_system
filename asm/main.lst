@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 6.14.8444		    12/20/25 19:22:14
+Microsoft (R) Macro Assembler Version 6.14.8444		    12/22/25 19:47:35
 main.asm						     Page 1 - 1
 
 
@@ -6,121 +6,312 @@ main.asm						     Page 1 - 1
  0000				        .code
 				        .8086
 
-				        ; ROM: 0xFC000-0xFFFFF
-				        ; RAM: 0x00000-0x03FFF
- = FC00				        ROM_SEGMENT EQU 0FC00h
-				        ; 8259 中断控制器
+				        ; --- 内存/端口定义 ---
+ = FC00				        ROM_SEGMENT     EQU     0FC00h
+
+				        ; --- RAM 变量定义 (DS=0000h) ---
+ = 0500				        VAR_TICKS       EQU     0500h   ; [Word] 1ms 计数器
+ = 0502				        VAR_SCAN_IDX    EQU     0502h   ; [Byte] 扫描索引
+ = 0510				        VAR_DIGITS      EQU     0510h   ; [Bytes] 显存数组 (6字节, 0510=个位 ... 0515=十万位)
+
+ = 0520				        VAR_LED_TIMER   EQU     0520h   ; [Word] LED 计时
+ = 0522				        VAR_LED_STATE   EQU     0522h   ; [Byte] LED 状态
+
+ = 0530				        VAR_SEND_REQ    EQU     0530h   ; [Byte] 串口发送请求标志 (1=需要发送, 0=空闲)
+
+				        ; --- 硬件端口 ---
+				        ; 8259 PIC
  = 0020				        PIC_ICW1        EQU     20H
  = 0021				        PIC_ICW2        EQU     21H
- = 0021				        PIC_ICW3        EQU     21H
  = 0021				        PIC_ICW4        EQU     21H
-				        ; 8254 定时器
+
+				        ; 8254 PIT
  = 0040				        PIT_CNT0        EQU     40H
- = 0041				        PIT_CNT1        EQU     41H
- = 0042				        PIT_CNT2        EQU     42H
  = 0043				        PIT_CTRL        EQU     43H
-				        ; 8255
+
+				        ; 8255 PPI
  = 0060				        PPI_PORTA       EQU     60H
  = 0061				        PPI_PORTB       EQU     61H
  = 0062				        PPI_PORTC       EQU     62H
  = 0063				        PPI_CTRL        EQU     63H
 
+				        ; 16550 UART (COM1)
+ = 03F8				        COM1_BASE       EQU     3F8H
+ = 03F8				        COM1_RBR        EQU     3F8H    ; Read Buffer
+ = 03F8				        COM1_THR        EQU     3F8H    ; Transmit Holding
+ = 03F8				        COM1_DLL        EQU     3F8H    ; Divisor Low (DLAB=1)
+ = 03F9				        COM1_DLM        EQU     3F9H    ; Divisor High (DLAB=1)
+ = 03F9				        COM1_IER        EQU     3F9H    ; Interrupt Enable
+ = 03FB				        COM1_LCR        EQU     3FBH    ; Line Control
+ = 03FD				        COM1_LSR        EQU     3FDH    ; Line Status
+
 				        org     0h
 
- 0000				IR0_ISR PROC FAR
- 0000  50			        PUSH AX
- 0001  52			        PUSH DX
+				; --- ROM 表格 ---
+ 0000 C0 F9 A4 B0 99 92		SegTab  db 0C0h,0F9h,0A4h,0B0h,099h,092h,082h,0F8h,080h,090h
+       82 F8 80 90
+ 000A 01 02 04 08 10 20		BitTab  db 01h, 02h, 04h, 08h, 10h, 20h
 
-				        ; 向testout 写入1
- 0002  B0 01			        MOV AL, 01H
- 0004  E6 56			        OUT  56H, AL
+				; =================================================================
+				; 中断服务程序 (每 1ms 触发)
+				; =================================================================
+ 0010				IR0_ISR PROC FAR
+ 0010  50			        PUSH AX
+ 0011  53			        PUSH BX
+ 0012  51			        PUSH CX
+ 0013  56			        PUSH SI
+ 0014  1E			        PUSH DS
 
-				        ; 发送 EOI（必须）
- 0006  B0 20			        MOV  AL, 20H             ; Non-specific EOI
- 0008  E6 20			        OUT  20H, AL             ; 写 8259 命令端口
+ 0015  B8 0000			        MOV  AX, 0000h
+ 0018  8E D8			        MOV  DS, AX
 
-				        ; 恢复现场并返回
- 000A  5A			        POP  DX
- 000B  58			        POP  AX
- 000C  CF			        IRET
- 000D				    IR0_ISR ENDP
+				        ; --- 1. 秒计数逻辑 ---
+ 001A  BB 0500			        MOV  BX, VAR_TICKS
+ 001D  8B 07			        MOV  AX, [BX]
+ 001F  40			        INC  AX
+ 0020  89 07			        MOV  [BX], AX
 
- 000D				start:
- 000D  FA			        cli                     ; 初始化期间关闭中断
+ 0022  3D 03E8			        CMP  AX, 1000           ; 1秒到达?
+ 0025  72 22			        JB   TASK_LED
 
- 000E  B8 0000			        mov     ax, 0000h
- 0011  8E D8			        mov     ds, ax
- 0013  8E C0			        mov     es, ax
- 0015  8E D0			        mov     ss, ax
+				        ; >>> 秒脉冲处理 <<<
+ 0027  C7 07 0000		        MOV  WORD PTR [BX], 0   ; 清零毫秒
 
- 0017  BC 4000			        mov     sp, 04000h      ; SP 指向 0x0000:0x4000 (RAM 顶端)
+				        ; 设置串口发送请求标志 (通知主循环)
+ 002B  BB 0530			        MOV  BX, VAR_SEND_REQ
+ 002E  C6 07 01			        MOV  BYTE PTR [BX], 1
 
-				        ; 初始化 8259A
- 001A  B0 13			        MOV AL, 13H         ; ICW1: 00010011B
- 001C  BA 0020			        MOV DX, PIC_ICW1
- 001F  EE			        OUT DX, AL
+				        ; 6位 BCD 进位加法
+ 0031  BE 0510			        MOV  SI, VAR_DIGITS
+ 0034  B9 0006			        MOV  CX, 6
+ 0037				INC_LOOP:
+ 0037  8A 04			        MOV  AL, [SI]
+ 0039  FE C0			        INC  AL
+ 003B  3C 0A			        CMP  AL, 10
+ 003D  72 08			        JB   NO_CARRY
+ 003F  C6 04 00			        MOV  BYTE PTR [SI], 0
+ 0042  46			        INC  SI
+ 0043  E2 F2			        LOOP INC_LOOP
+ 0045  EB 02			        JMP  TASK_LED
+ 0047				NO_CARRY:
+ 0047  88 04			        MOV  [SI], AL
 
- 0020  B0 20			        MOV AL, 20H         ; 中断向量起始地址 20H
- 0022  E6 21			        OUT PIC_ICW2, AL
+				        ; --- 2. LED 流水灯逻辑 ---
+ 0049				TASK_LED:
+ 0049  BB 0520			        MOV  BX, VAR_LED_TIMER
+ 004C  8B 07			        MOV  AX, [BX]
+ 004E  40			        INC  AX
+ 004F  89 07			        MOV  [BX], AX
 
- 0024  B0 09			        MOV AL, 09H         ; ICW3: 在单片模式下，该值无关紧要
- 0026  E6 21			        OUT PIC_ICW3, AL         ; 发送给 8259A 的数据端口
+ 0051  3D 00C8			        CMP  AX, 200            ; 200ms 速度
+ 0054  72 17			        JB   TASK_SCAN
 
-				        ; 安装中断向量
- 0028  BB 0080			        MOV BX, 80H
- 002B  B8 0000 R		        MOV AX, OFFSET IR0_ISR ; 获取 IR0_ISR 的偏移地址
- 002E  89 07			        MOV WORD PTR [BX], AX  ; IP
- 0030  BB 0082			        MOV BX, 82H
- 0033  B8 FC00			        MOV AX, ROM_SEGMENT ; 设置段地址 FC00H
- 0036  89 07			        MOV WORD PTR [BX], AX  ; CS
+ 0056  C7 07 0000		        MOV  WORD PTR [BX], 0
+ 005A  BB 0522			        MOV  BX, VAR_LED_STATE
+ 005D  8A 07			        MOV  AL, [BX]
+ 005F  D0 E0			        SHL  AL, 1
+ 0061  A8 10			        TEST AL, 10h            ; 检查是否溢出低4位
+ 0063  74 02			        JZ   UPDATE_LED
+ 0065  B0 01			        MOV  AL, 01h
+ 0067				UPDATE_LED:
+ 0067  88 07			        MOV  [BX], AL
+ 0069  BA 0062			        MOV  DX, PPI_PORTC
+ 006C  EE			        OUT  DX, AL
 
-				        ; 初始化 8254
- 0038  BA 0043			        mov     dx, PIT_CTRL
- 003B  B0 36			        mov     al, 36h
- 003D  EE			        out     dx, al
+				        ; --- 3. 数码管扫描 ---
+ 006D				TASK_SCAN:
+ 006D  BA 0061			        MOV  DX, PPI_PORTB
+ 0070  B0 00			        MOV  AL, 00h
+ 0072  EE			        OUT  DX, AL             ; 消隐
 
- 003E  BA 0040			        mov     dx, PIT_CNT0
- 0041  B0 E8			        mov     al, 232
- 0043  EE			        out     dx, al          ; LSB
- 0044  B0 03			        mov     al, 3
- 0046  EE			        out     dx, al          ; MSB
+ 0073  BB 0502			        MOV  BX, VAR_SCAN_IDX
+ 0076  8A 07			        MOV  AL, [BX]
+ 0078  32 E4			        XOR  AH, AH
+ 007A  8B F0			        MOV  SI, AX
 
- 0047  FB			        sti                         ; 开中断
+ 007C  FE C0			        INC  AL
+ 007E  3C 06			        CMP  AL, 6
+ 0080  72 02			        JB   SAVE_IDX
+ 0082  B0 00			        MOV  AL, 0
+ 0084				SAVE_IDX:
+ 0084  88 07			        MOV  [BX], AL
 
- 0048  BA 0063			        mov     dx, PPI_CTRL
- 004B  B0 90			        mov     al, 90h
- 004D  EE			        out     dx, al
+ 0086  BB 000A R		        MOV  BX, OFFSET BitTab
+ 0089  2E: 8A 08		        MOV  CL, CS:[BX + SI]   ; 查位选
 
-				        ; 从端口 A 读取数据
- 004E  BA 0060			        mov     dx, PPI_PORTA
- 0051  EC			        in      al, dx
+ 008C  BB 0510			        MOV  BX, VAR_DIGITS
+ 008F  8A 00			        MOV  AL, [BX + SI]
+ 0091  32 E4			        XOR  AH, AH
+ 0093  8B F0			        MOV  SI, AX
+ 0095  BB 0000 R		        MOV  BX, OFFSET SegTab
+ 0098  2E: 8A 00		        MOV  AL, CS:[BX + SI]   ; 查段码
 
-				        ; 输出到端口 B
- 0052  BA 0061			        mov     dx, PPI_PORTB
- 0055  EE			        out     dx, al
+ 009B  BA 0060			        MOV  DX, PPI_PORTA
+ 009E  EE			        OUT  DX, AL
+ 009F  BA 0061			        MOV  DX, PPI_PORTB
+ 00A2  8A C1			        MOV  AL, CL
+ 00A4  EE			        OUT  DX, AL
 
-				        ; 加 1
- 0056  FE C0			        inc     al
+ 00A5  B0 20			        MOV  AL, 20H            ; EOI
+ 00A7  E6 20			        OUT  20H, AL
 
-				        ; 输出到端口 C
- 0058  BA 0062			        mov     dx, PPI_PORTC
- 005B  EE			        out     dx, al
+ 00A9  1F			        POP  DS
+ 00AA  5E			        POP  SI
+ 00AB  59			        POP  CX
+ 00AC  5B			        POP  BX
+ 00AD  58			        POP  AX
+ 00AE  CF			        IRET
+ 00AF				IR0_ISR ENDP
 
- 005C				stop_here:
- 005C  EB FE			        jmp     stop_here
+				; =================================================================
+				; 串口发送子程序 (辅助函数)
+				; =================================================================
+				; 输入: AL = 要发送的字节
+ 00AF				UART_SendByte PROC NEAR
+ 00AF  52			        PUSH DX
+ 00B0  50			        PUSH AX
 
-				        ; --- GW8088 BOOT CODE (Reset Vector) ---
+ 00B1  BA 03F8			        MOV  DX, COM1_THR
+ 00B4  EE			        OUT  DX, AL             ; 写入发送寄存器
+
+ 00B5				WAIT_TX:
+				        ; 等待发送完毕 (查询 LSR Bit 5: THRE)
+ 00B5  BA 03FD			        MOV  DX, COM1_LSR
+ 00B8  EC			        IN   AL, DX
+ 00B9  24 20			        AND  AL, 20h            ; 0010 0000
+ 00BB  74 F8			        JZ   WAIT_TX            ; 如果为0，继续等待
+
+				        ; 注意：这里的循环等待会被 IR0_ISR 打断去刷新数码管
+				        ; 所以数码管不会闪烁，CPU 只是在空闲时间等待串口
+
+ 00BD  58			        POP  AX
+ 00BE  5A			        POP  DX
+ 00BF  C3			        RET
+ 00C0				UART_SendByte ENDP
+
+				; =================================================================
+				; 主程序
+				; =================================================================
+ 00C0				start:
+ 00C0  FA			        cli
+ 00C1  B8 0000			        mov     ax, 0000h
+ 00C4  8E D8			        mov     ds, ax
+ 00C6  8E C0			        mov     es, ax
+ 00C8  8E D0			        mov     ss, ax
+ 00CA  BC 4000			        mov     sp, 04000h
+
+				        ; --- 变量初始化 ---
+ 00CD  BB 0500			        mov     bx, VAR_TICKS
+ 00D0  C7 07 0000		        mov     word ptr [bx], 0
+ 00D4  BB 0520			        mov     bx, VAR_LED_TIMER
+ 00D7  C7 07 0000		        mov     word ptr [bx], 0
+ 00DB  BB 0522			        mov     bx, VAR_LED_STATE
+ 00DE  C6 07 01			        mov     byte ptr [bx], 01h
+ 00E1  BB 0530			        mov     bx, VAR_SEND_REQ
+ 00E4  C6 07 00			        mov     byte ptr [bx], 0   ; 初始不发送
+
+				        ; 清显存
+ 00E7  B9 0006			        mov     cx, 6
+ 00EA  BF 0510			        mov     di, VAR_DIGITS
+ 00ED  33 C0			        xor     ax, ax
+ 00EF				CLR_RAM:
+ 00EF  88 05			        mov     [di], al
+ 00F1  47			        inc     di
+ 00F2  E2 FB			        loop    CLR_RAM
+
+				        ; --- 硬件初始化 ---
+				        ; 1. 8259A
+ 00F4  B0 13			        MOV AL, 13H
+ 00F6  E6 20			        OUT PIC_ICW1, AL
+ 00F8  B0 20			        MOV AL, 20H
+ 00FA  E6 21			        OUT PIC_ICW2, AL
+ 00FC  B0 09			        MOV AL, 09H
+ 00FE  E6 21			        OUT PIC_ICW4, AL
+
+				        ; 2. 中断向量
+ 0100  BB 0080			        MOV BX, 80H
+ 0103  B8 0010 R		        MOV AX, OFFSET IR0_ISR
+ 0106  89 07			        MOV WORD PTR [BX], AX
+ 0108  BB 0082			        MOV BX, 82H
+ 010B  B8 FC00			        MOV AX, ROM_SEGMENT
+ 010E  89 07			        MOV WORD PTR [BX], AX
+
+				        ; 3. 8254
+ 0110  BA 0043			        mov dx, PIT_CTRL
+ 0113  B0 36			        mov al, 36h
+ 0115  EE			        out dx, al
+ 0116  BA 0040			        mov dx, PIT_CNT0
+ 0119  B0 E8			        mov al, 0E8h
+ 011B  EE			        out dx, al
+ 011C  B0 03			        mov al, 03h
+ 011E  EE			        out dx, al
+
+				        ; 4. 8255
+ 011F  BA 0063			        mov dx, PPI_CTRL
+ 0122  B0 80			        mov al, 80h
+ 0124  EE			        out dx, al
+
+				        ; 5. 16550 UART 初始化 (9600, 8N1)
+				        ; 设置 DLAB=1 访问除数锁存器
+ 0125  BA 03FB			        mov dx, COM1_LCR
+ 0128  B0 80			        mov al, 80h
+ 012A  EE			        out dx, al
+
+				        ; 设置波特率 9600 (1.8432MHz / 16 / 12)
+ 012B  BA 03F8			        mov dx, COM1_DLL
+ 012E  B0 1B			        mov al, 1Bh          ; 0Ch
+ 0130  EE			        out dx, al
+ 0131  BA 03F9			        mov dx, COM1_DLM
+ 0134  B0 00			        mov al, 00h
+ 0136  EE			        out dx, al
+
+				        ; 设置 DLAB=0, 8数据位, 1停止位, 无校验
+ 0137  BA 03FB			        mov dx, COM1_LCR
+ 013A  B0 03			        mov al, 03h         ; 0000 0011
+ 013C  EE			        out dx, al
+
+ 013D  FB			        sti
+
+				        ; --- 主循环 (后台任务) ---
+ 013E				forever:
+				        ; 检查是否有发送请求
+ 013E  BB 0530			        mov bx, VAR_SEND_REQ
+ 0141  8A 07			        mov al, [bx]
+ 0143  84 C0			        test al, al
+ 0145  74 F7			        jz  forever             ; 如果是0，继续空转
+
+				        ; --- 开始发送数据 ---
+ 0147  C6 07 00			        mov byte ptr [bx], 0    ; 清除标志位，避免重复发送
+
+				        ; 发送换行符 (CR LF) 让显示整齐
+ 014A  B0 0D			        mov al, 0Dh
+ 014C  E8 FF60			        call UART_SendByte
+ 014F  B0 0A			        mov al, 0Ah
+ 0151  E8 FF5B			        call UART_SendByte
+
+				        ; 倒序发送 6 位数字 (从高位到低位: 0515h -> 0510h)
+ 0154  BE 0005			        mov si, 5
+ 0157				SEND_LOOP:
+ 0157  BB 0510			        mov bx, VAR_DIGITS
+ 015A  8A 00			        mov al, [bx + si]       ; 读取数字 (0-9)
+ 015C  04 30			        add al, 30h             ; 转换为 ASCII ('0'-'9')
+ 015E  E8 FF4E			        call UART_SendByte
+
+ 0161  4E			        dec si
+ 0162  79 F3			        jns SEND_LOOP           ; 如果 si >= 0 继续
+
+ 0164  EB D8			        jmp forever
+
+				; --- Reset Vector ---
 				        org     03ff0h
-
  3FF0  EA			        db      0EAh
- 3FF1  000D R			        dw      offset start
+ 3FF1  00C0 R			        dw      offset start
  3FF3  FC00			        dw      ROM_SEGMENT
-
 				        org     03fffh
  3FFF  00			        db      0
 
 				        end
-Microsoft (R) Macro Assembler Version 6.14.8444		    12/20/25 19:22:14
+Microsoft (R) Macro Assembler Version 6.14.8444		    12/22/25 19:47:35
 main.asm						     Symbols 2 - 1
 
 
@@ -139,7 +330,15 @@ Procedures,  parameters and locals:
 
                 N a m e                 Type     Value    Attr
 
-IR0_ISR  . . . . . . . . . . . .	P Far	 0000	  _TEXT	Length= 000D Public
+IR0_ISR  . . . . . . . . . . . .	P Far	 0010	  _TEXT	Length= 009F Public
+  INC_LOOP . . . . . . . . . . .	L Near	 0037	  _TEXT	
+  NO_CARRY . . . . . . . . . . .	L Near	 0047	  _TEXT	
+  TASK_LED . . . . . . . . . . .	L Near	 0049	  _TEXT	
+  UPDATE_LED . . . . . . . . . .	L Near	 0067	  _TEXT	
+  TASK_SCAN  . . . . . . . . . .	L Near	 006D	  _TEXT	
+  SAVE_IDX . . . . . . . . . . .	L Near	 0084	  _TEXT	
+UART_SendByte  . . . . . . . . .	P Near	 00AF	  _TEXT	Length= 0011 Public
+  WAIT_TX  . . . . . . . . . . .	L Near	 00B5	  _TEXT	
 
 
 Symbols:
@@ -155,21 +354,36 @@ Symbols:
 @fardata?  . . . . . . . . . . .	Text   	 FAR_BSS
 @fardata . . . . . . . . . . . .	Text   	 FAR_DATA
 @stack . . . . . . . . . . . . .	Text   	 DGROUP
+BitTab . . . . . . . . . . . . .	Byte	 000A	  _TEXT	
+CLR_RAM  . . . . . . . . . . . .	L Near	 00EF	  _TEXT	
+COM1_BASE  . . . . . . . . . . .	Number	 03F8h	 
+COM1_DLL . . . . . . . . . . . .	Number	 03F8h	 
+COM1_DLM . . . . . . . . . . . .	Number	 03F9h	 
+COM1_IER . . . . . . . . . . . .	Number	 03F9h	 
+COM1_LCR . . . . . . . . . . . .	Number	 03FBh	 
+COM1_LSR . . . . . . . . . . . .	Number	 03FDh	 
+COM1_RBR . . . . . . . . . . . .	Number	 03F8h	 
+COM1_THR . . . . . . . . . . . .	Number	 03F8h	 
 PIC_ICW1 . . . . . . . . . . . .	Number	 0020h	 
 PIC_ICW2 . . . . . . . . . . . .	Number	 0021h	 
-PIC_ICW3 . . . . . . . . . . . .	Number	 0021h	 
 PIC_ICW4 . . . . . . . . . . . .	Number	 0021h	 
 PIT_CNT0 . . . . . . . . . . . .	Number	 0040h	 
-PIT_CNT1 . . . . . . . . . . . .	Number	 0041h	 
-PIT_CNT2 . . . . . . . . . . . .	Number	 0042h	 
 PIT_CTRL . . . . . . . . . . . .	Number	 0043h	 
 PPI_CTRL . . . . . . . . . . . .	Number	 0063h	 
 PPI_PORTA  . . . . . . . . . . .	Number	 0060h	 
 PPI_PORTB  . . . . . . . . . . .	Number	 0061h	 
 PPI_PORTC  . . . . . . . . . . .	Number	 0062h	 
 ROM_SEGMENT  . . . . . . . . . .	Number	 FC00h	 
-start  . . . . . . . . . . . . .	L Near	 000D	  _TEXT	
-stop_here  . . . . . . . . . . .	L Near	 005C	  _TEXT	
+SEND_LOOP  . . . . . . . . . . .	L Near	 0157	  _TEXT	
+SegTab . . . . . . . . . . . . .	Byte	 0000	  _TEXT	
+VAR_DIGITS . . . . . . . . . . .	Number	 0510h	 
+VAR_LED_STATE  . . . . . . . . .	Number	 0522h	 
+VAR_LED_TIMER  . . . . . . . . .	Number	 0520h	 
+VAR_SCAN_IDX . . . . . . . . . .	Number	 0502h	 
+VAR_SEND_REQ . . . . . . . . . .	Number	 0530h	 
+VAR_TICKS  . . . . . . . . . . .	Number	 0500h	 
+forever  . . . . . . . . . . . .	L Near	 013E	  _TEXT	
+start  . . . . . . . . . . . . .	L Near	 00C0	  _TEXT	
 
 	   0 Warnings
 	   0 Errors
