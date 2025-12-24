@@ -1,5 +1,23 @@
-set_location_assignment PIN_E1 -to clk
+set_location_assignment PIN_E1  -to clk
 set_location_assignment PIN_M15 -to rst_n
+
+set_location_assignment PIN_L7 -to led[0]
+set_location_assignment PIN_M6 -to led[1]
+set_location_assignment PIN_P3 -to led[2]
+set_location_assignment PIN_N3 -to led[3]
+
+set_location_assignment PIN_M2  -to key[0]
+set_location_assignment PIN_M1  -to key[1]
+set_location_assignment PIN_E15 -to key[2]
+set_location_assignment PIN_E16 -to key[3]
+
+set_location_assignment PIN_K9  -to stcp
+set_location_assignment PIN_B1  -to shcp
+set_location_assignment PIN_R1  -to ds
+set_location_assignment PIN_L11 -to oe
+
+set_location_assignment PIN_N6 -to uart_rx
+set_location_assignment PIN_N5 -to uart_tx
 
 # set_location_assignment PIN_R4 -to sdram_clk
 # set_location_assignment PIN_R9 -to sdram_cke
@@ -42,16 +60,3 @@ set_location_assignment PIN_M15 -to rst_n
 
 # set_location_assignment PIN_M10 -to sdram_dqm[0]
 # set_location_assignment PIN_M9 -to sdram_dqm[1]
-
-set_location_assignment PIN_L7 -to led[0]
-set_location_assignment PIN_M6 -to led[1]
-set_location_assignment PIN_P3 -to led[2]
-set_location_assignment PIN_N3 -to led[3]
-
-set_location_assignment PIN_K9 -to stcp
-set_location_assignment PIN_B1 -to shcp
-set_location_assignment PIN_R1 -to ds
-set_location_assignment PIN_L11 -to oe
-
-set_location_assignment PIN_N6 -to uart_rx
-set_location_assignment PIN_N5 -to uart_tx

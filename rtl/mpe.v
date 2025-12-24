@@ -8,32 +8,35 @@ module mpe (
 	output wire ds,
 	output wire oe,
 	output wire uart_tx,
-	input  wire uart_rx
+	input  wire uart_rx,
 
-    // output wire [19:0] test_cpu_addr,
-    // output wire [13:0] test_ram_addr,
-    // output wire [13:0] test_rom_addr,
-    // output wire [7:0] test_ram_data,
-    // output wire [7:0] test_rom_data,
-    // output wire [7:0] test_ram_wdata,
-    // output wire test_clk_1m,
-    // output wire test_pit_out0,
-    // output wire [7:0] test_ppi_aout,
-    // output wire [7:0] test_ppi_bout,
-    // output wire [7:0] test_ppi_cout,
-    // output wire test_cpu_intr,
-    // output wire test_cpu_inta_n,
-    // output wire test_ram_wren,
-    // output wire test_ppi_cs,
-    // output wire test_pic_cs,
-    // output wire test_pit_cs,
-    // output wire test_iorc_n,
-    // output wire test_iowc_n,
-    // output wire test_mwtc_n,
-    // output wire test_mrdc_n,
-    // output wire test_uart_tx,
-    // output wire test_uart_rx,
-    // output wire [2:0] test_cpu_s
+    output wire [19:0] test_cpu_addr,
+    output wire [13:0] test_ram_addr,
+    output wire [13:0] test_rom_addr,
+    output wire [7:0] test_ram_data,
+    output wire [7:0] test_rom_data,
+    output wire [7:0] test_ram_wdata,
+    output wire test_clk_1m,
+    output wire test_pit_out0,
+    output wire [7:0] test_ppi_aout,
+    output wire [7:0] test_ppi_bout,
+    output wire [7:0] test_ppi_cout,
+    output wire test_cpu_intr,
+    output wire test_cpu_inta_n,
+    output wire test_ram_wren,
+    output wire test_ppi_cs,
+    output wire test_pic_cs,
+    output wire test_pit_cs,
+    output wire test_iorc_n,
+    output wire test_iowc_n,
+    output wire test_mwtc_n,
+    output wire test_mrdc_n,
+    output wire test_uart_tx,
+    output wire test_uart_rx,
+    output wire [2:0] test_cpu_s,
+    output wire [7:0] test_seg,
+    output wire [5:0] test_sel,
+    output wire [3:0] test_led
 );
 
     wire [19:0] cpu_addr;
@@ -156,30 +159,33 @@ module mpe (
     wire [5:0] sel;
     wire [7:0] seg;
 
-    // assign test_cpu_addr = cpu_addr;
-    // assign test_ram_addr = ram_addr;
-    // assign test_rom_addr = rom_addr;
-    // assign test_ram_data = ram_q;
-    // assign test_rom_data = rom_q;
-    // assign test_ram_wdata = ram_data;
-    // assign test_clk_1m = clk_1m;
-    // assign test_pit_out0 = pit_out0;
-    // assign test_ppi_aout = ppi_aout;
-    // assign test_ppi_bout = ppi_bout;
-    // assign test_ppi_cout = ppi_cout;
-    // assign test_cpu_intr = cpu_intr;
-    // assign test_cpu_inta_n = cpu_inta_n;
-    // assign test_ram_wren = ram_wren;
-    // assign test_ppi_cs = ppi_cs_n;
-    // assign test_pic_cs = pic_cs_n;
-    // assign test_pit_cs = pit_cs_n;
-    // assign test_iorc_n = iorc_n;
-    // assign test_iowc_n = iowc_n;
-    // assign test_mwtc_n = mwtc_n;
-    // assign test_mrdc_n = mrdc_n;
-    // assign test_uart_tx = uart_txd;
-    // assign test_uart_rx = uart_rxd;
-    // assign test_cpu_s = cpu_s;
+    assign test_cpu_addr = cpu_addr;
+    assign test_ram_addr = ram_addr;
+    assign test_rom_addr = rom_addr;
+    assign test_ram_data = ram_q;
+    assign test_rom_data = rom_q;
+    assign test_ram_wdata = ram_data;
+    assign test_clk_1m = clk_1m;
+    assign test_pit_out0 = pit_out0;
+    assign test_ppi_aout = ppi_aout;
+    assign test_ppi_bout = ppi_bout;
+    assign test_ppi_cout = ppi_cout;
+    assign test_cpu_intr = cpu_intr;
+    assign test_cpu_inta_n = cpu_inta_n;
+    assign test_ram_wren = ram_wren;
+    assign test_ppi_cs = ppi_cs_n;
+    assign test_pic_cs = pic_cs_n;
+    assign test_pit_cs = pit_cs_n;
+    assign test_iorc_n = iorc_n;
+    assign test_iowc_n = iowc_n;
+    assign test_mwtc_n = mwtc_n;
+    assign test_mrdc_n = mrdc_n;
+    assign test_uart_tx = uart_txd;
+    assign test_uart_rx = uart_rxd;
+    assign test_cpu_s = cpu_s;
+    assign test_seg = seg;
+    assign test_sel = sel;
+    assign test_led = led;
 
     assign uart_tx = uart_txd;
     assign uart_rxd = uart_rx;

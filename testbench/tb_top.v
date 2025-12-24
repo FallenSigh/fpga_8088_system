@@ -37,6 +37,9 @@ module tb_top;
     wire test_uart_tx;
     wire test_uart_rx;
     wire [2:0] test_cpu_s;
+    wire [7:0] test_seg;
+    wire [3:0] test_sel;
+    wire [7:0] test_led;
 
     // =========================
     // DUT 实例化
@@ -68,7 +71,10 @@ module tb_top;
         .test_mrdc_n(test_mrdc_n),
         .test_uart_tx(test_uart_tx),
         .test_uart_rx(test_uart_rx),
-        .test_cpu_s(test_cpu_s)
+        .test_cpu_s(test_cpu_s),
+        .test_seg(test_seg),
+        .test_sel(test_sel),
+        .test_led(test_led)
     );
 
     // =========================
